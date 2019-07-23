@@ -14,6 +14,7 @@
 
 // DOM elements
 var toyRoom = document.getElementById('toyRoom');
+var blockPile = toyRoom.children;       // this is shallow copying, i think
 
 // booleans
 var boxExists = false;          // allow only one box to exist
@@ -456,12 +457,31 @@ function copyBlock() {
 }
 
 
+function fitScreen() {
+    var screenSize = screen.width;
+    alert(screenSize);
+
+    if (screenSize < 900) {
+        toyRoom.style.height = '1000px';
+        toyRoom.style.width = '500px';
+
+        xDim = toyRoom.offsetWidth;
+        yDim = toyRoom.offsetHeight;
+        xInc = xDim / 10;           // box sizgie in x direction
+        yInc = yDim / 20;           // box size in y direction. basically same as xInc
+
+    }
+
+}
+
+
 // ----------------- MAIN BODY ----------------------------------------- //
 
 
+fitScreen();
+
 setBoard();
 
-var blockPile = toyRoom.children;       // this is shallow copying, i think
 
 
 checkRow();         // must do setBoard() first
@@ -469,7 +489,6 @@ checkRow();         // must do setBoard() first
 //makeNewBox();       // must do setBoard() first
 createBlockAgent();
 
-//console.log(blockPile);
 
 
 // runs continuously
