@@ -462,6 +462,7 @@ function fitScreen() {
     alert(screenSize);
 
     if (screenSize < 900) {
+
         toyRoom.style.height = '1000px';
         toyRoom.style.width = '500px';
 
