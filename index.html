@@ -31,6 +31,11 @@
             display: inline-block;
             position: relative;
             overflow: hidden;
+            user-select: none;
+        }
+
+        #toyRoom:hover {
+            box-shadow: 0px 0px 15px 0px gray;
         }
 
         /* initially there is no element with class='box' */
@@ -49,7 +54,8 @@
 <body>
 
     <header>
-        <h1>N: new box / D: delete / F: fall / C: check row / click: flip block</h1>
+        <h1>N: new shape / D: delete / C: copy block / click: flip block<br>
+        Arrows: to move / F: fall / G : create</h1>
     </header>
 
 

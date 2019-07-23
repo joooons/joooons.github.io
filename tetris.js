@@ -3,6 +3,10 @@
 // Notes:
 // I intend to work with vanilla JS for now. Need to learn basics first.
 //
+// blockPile[] contains both the blocks in the background and the tetris piece.
+// blockPile[0] to [199] are the background blocks.
+// blockPile[200] to [203] are the four blocks forming the tetris piece.
+// this is a shallow copy.
 
 
 // ---------- Declaration Section -------------------------------- //
@@ -13,7 +17,7 @@ var toyRoom = document.getElementById('toyRoom');
 
 // booleans
 var boxExists = false;          // allow only one box to exist
-var boxFalling = false;         // toggle to let box fall
+var boxFalling = true;         // toggle to let box fall
 
 // dimension variables
 var xDim = toyRoom.offsetWidth;
@@ -22,11 +26,49 @@ var xInc = xDim / 10;           // box size in x direction
 var yInc = yDim / 20;           // box size in y direction. basically same as xInc
 
 // other settings
-var timeInc = 100;              // used in timeFlow()
-var stepX = 0;              // used to set direction, left or right
+var timeInc = 100;              // used in 'var timeFlow'
+var timeTick = 0;               // timeTick++ in timeAction()
+//var stepX = 0;                  // = -xDim to move left, xDim to move right
+var stepY = 0;                  // negative to move up, positive to move down
+
+var tetrisForms = [];
+tetrisForms[0] = [ {x:4, y:0}, {x:4, y:1}, {x:4, y:2}, {x:4, y:3} ];    // long bar
+tetrisForms[1] = [ {x:5, y:0}, {x:5, y:1}, {x:5, y:2}, {x:4, y:2} ];    // inverse 'L'
+tetrisForms[2] = [ {x:4, y:0}, {x:4, y:1}, {x:4, y:2}, {x:5, y:2} ];    // 'L' shape
+tetrisForms[3] = [ {x:4, y:0}, {x:4, y:1}, {x:5, y:1}, {x:5, y:2} ];    // 'S' shape
+tetrisForms[4] = [ {x:5, y:0}, {x:5, y:1}, {x:4, y:1}, {x:4, y:2} ];    // 'Z' shape
+tetrisForms[5] = [ {x:5, y:0}, {x:5, y:1}, {x:4, y:1}, {x:5, y:2} ];    // 'T' tilted right
+tetrisForms[6] = [ {x:4, y:0}, {x:4, y:1}, {x:5, y:1}, {x:4, y:2} ];    // 'T' tilted left
+tetrisForms[7] = [ {x:4, y:0}, {x:4, y:1}, {x:5, y:0}, {x:5, y:1} ];    // square shape
+
+var tetrisChance = [1, 1, 1, 1, 1, 1, 1, 1];
+// ratio of how likely each tetris pattern will appear.
+// does not need to add up to 100.
+// I might want to change the appearance rates later.
+
+var randomMatrix = [];
+// Array that contains the tetris piece index numbers in the ratio specified by tetrisChance.
+randomIzer();
+function randomIzer() {
+    let k = 0;
+    for ( let i = 0 ; i <= tetrisChance.length ; i++ ) {
+        for ( let j = 0 ; j < tetrisChance[i] ; j++ ) randomMatrix[k++] = i;
+    }
+}
 
 
 
+
+
+function blockType(a,b,c) { 
+    this.x = a;
+    this.y = b;
+    this.index = c;
+}
+
+
+var clone = new blockType(0,0,0);           // will be used later for collision test
+var ghost = new blockType(0,0,0);           // will be used later for collision test
 
 
 
@@ -42,9 +84,10 @@ function setBoard() {
 
         var p = document.createElement('div');
 
-        p.style.color = 'black';
-        p.style.fontSize = '9pt';
-        p.style.lineHeight = 1.8;
+        p.style.color = 'orange';
+        p.style.fontFamily = 'helvetica, san-serif';
+        p.style.fontSize = '7pt';
+        p.style.lineHeight = 3;
         p.style.textAlign = 'center';
         p.innerText = boardCounter;
         
@@ -52,20 +95,28 @@ function setBoard() {
 
         p.style.boxSizing = 'border-box';
         p.style.backgroundColor = '#FD5';
-        p.style.opacity = 1;
-        p.style.border = '3px solid rgba(0, 0, 0, 0.05)';
-        p.style.borderRadius = '4px';       // unnecessary, but cooler?
+        
+        // opacity=1 blocks rare at top, more frequent at bottom
+        p.style.opacity = (0==(Math.floor(0.03*boardCounter*Math.random())))? 0.5: 1;
+
+        p.style.border = '0.5px solid rgba(255, 255, 255, 1)';      // thin white border
+        p.style.borderRadius = '2px';       // unnecessary, but cooler?
 
         p.style.width = xInc + 'px';
         p.style.height = yInc + 'px';
         p.style.cssFloat = 'left';          // needed to fill horizontally too
-        
+        p.style.position = 'relative';
+
         toyRoom.appendChild(p);
+
 
 
         // the ONCLICK function
         toyRoom.lastChild.onclick = function() {
+            // I need this for now to directly control what the board looks like
+            // I will remove this function in a later version
 
+            // x and y needed just to show numbers on console. Remove this in a later version
             let x = this.offsetLeft;
             let y = this.offsetTop;
 
@@ -75,103 +126,174 @@ function setBoard() {
             // this gives index number of the block i clicked.
             var temp = Array.prototype.slice.call(toyRoom.children);
             var indexTemp = temp.indexOf(this);
-            console.log (`x, y, index = ${x}, ${y}, ${indexTemp}`);
+            console.log (`(${x}, ${y}) index = ${indexTemp}`);
 
-            var b = -(Math.ceil(xInc/2) - 4);
-            var t = setInterval(radiusSqueeze,50);
-            function radiusSqueeze() {
-                temp[indexTemp].style.borderRadius = Math.ceil(xInc/2) - Math.abs(b++) + 'px';
-                if ( b > (Math.ceil(xInc/2)-4) ) clearInterval(t);
-            }
+            checkRow();
 
         }   // onclick function
 
     }   // end of for loop, iterated over 200 blocks
+
+
+
 
 }   // end of setBoard()
 
 
 
 
-function keyAction(ev) {
+
+// this function runs in --> var timeFlow = setInterval(timeAction,timeInc);
+function timeAction() {
+    
+    // general use clicker
+    timeTick++;
+
+    // "blink" 3 times out of 40
+    // I really should put this as separate function... later.
+    let a = timeTick % 40;
+    let b = ( (a>0) && (a<3));
+    let c = toyRoom.lastChild;
+    if (boxExists)(b)? c.innerText = ">__<": c.innerText = "o__o";
+    
+    // make box fall, continuous
+    if (boxFalling && boxExists) boxFall();
+
+    // UP and DOWN motion, continuous
+    moveVertical(stepY);
+
+}   // end of timeAction()
+
+
+
+function keyDownAction(ev) {
     // all keyboard action inside this function
 
-    console.log('you pressed ' + ev.code);
+    //console.log('you pressed ' + ev.code);
 
     switch (ev.code) {
         case 'KeyC':
-            checkRow();
+            copyBlock();
             break;
         case 'KeyN':
             makeNewBox();
             break;
         case 'KeyD':
-            breakNewBox();
+            //breakNewBox();
             break;
         case 'KeyF':
             boxFalling = !boxFalling;
-            console.log('is the box falling? ' + boxFalling);
             break;
+        case 'KeyG':
+            createBlockAgent();
+            break;
+
+        // directional movement
         case 'ArrowLeft':
-            stepX = -xInc;
-            console.log(stepX);
-            moveHorizontal();
+            moveHorizontal(-xInc);
             break;
         case 'ArrowRight':
-            stepX = xInc;
-            moveHorizontal();
+            moveHorizontal(xInc);
             break;
         case 'ArrowUp':
+            stepY = -yInc/4;        // stepY used in timeAction()
             break;
         case 'ArrowDown':
+            stepY = yInc/4;         // stepY used in timeAction()
             break;
         default:
             break;
     }
-}   // end of keyAction()
+}   // end of keyDownAction()
 
 
 
-function makeNewBox() {
-    // makes new box ONLY if there is none already
-    // this function will become obsolete later
+function keyUpAction(ev) {
 
-    if (!boxExists) {
+    //console.log('you released ' + ev.code);
+    
+    switch (ev.code) {
+        case 'ArrowUp':
+            stepY = 0;         // stepY used in timeAction()
+            break;
+        case 'ArrowDown':
+            stepY = 0;         // stepY used in timeAction()
+            break;
+        default:
+            break;
+    }
+}
+
+
+function createBlockAgent() {
+// creates the four blocks of the tetris piece.
+// But the shape is not initiated. The shape should be initiated by a different function.
+
+
+    for ( let i = 0 ; i <=3 ; i++ ) {
         var p = document.createElement('div');
         
-        p.style.fontSize = '6pt';
+        p.style.fontSize = '8pt';
         p.style.color = 'black';
         p.style.fontWeight = 'bold';
         p.style.textAlign = 'center';
         p.style.lineHeight = 2.4;
         p.innerText = 'o__o';
+
+        //p.style.boxShadow = '0px 0px 15px 5px white';
+
         
         p.style.boxSizing = 'border-box';
-        p.style.backgroundColor = '#F85';
-        p.style.border = '3px solid rgba(0, 0, 0, 0.05)';
-        p.style.borderRadius = '4px';
+        p.style.backgroundColor = '#69F';
+        p.style.border = '0.5px solid rgba(255, 255, 255, 1)';
+        p.style.borderRadius = '8px';
         p.style.visibility = 'visible';
         
         p.style.width = xInc + 'px';
         p.style.height = yInc + 'px';
         
         p.style.position = 'absolute';
-        p.style.left = (xInc * 4) + 'px';
-        p.style.top = '0px';
         
+        
+        p.style.left = (xInc * (i+3) ) + 'px';
+        //p.style.top = '0px';
+        p.style.top = '0px';
+
         toyRoom.appendChild(p); 
-        boxExists = true;
+    
+    }   
+
+
+
+}
+
+
+function makeNewBox() {
+// sets the shape of the tetris piece
+
+    let a = Math.floor( randomMatrix.length * Math.random() );
+    let b = randomMatrix[a];
+
+    for ( let i = 0 ; i <=3 ; i++ ) {
+        blockPile[i+200].style.left = xInc * tetrisForms[b][i].x + 'px';
+        blockPile[i+200].style.top = yInc * tetrisForms[b][i].y + 'px';
     }
+
 }
 
 
 
 function breakNewBox() {
+    
+    /*
     if (boxExists) {
         toyRoom.removeChild(toyRoom.lastChild);
         boxExists = false;
         boxFalling = false;
     }
+    */
+
+
 }
 
 
@@ -183,88 +305,180 @@ function checkRow() {
     // just the second row from the bottom.
     // i will make this iterate over the whole screen, later.
     // first, counting number of visible blocks on this row
-    for (i = 181; i <= 190; i++) {
-        count += eval(toyRoom.childNodes[i].style.opacity);
-    }
 
-    // if the row is all filled up...
-    if (count==10) {
+    for (let i = 0 ; i <= 190 ; i += 10 ) {
         
-        let r = 0;
-        let t = setInterval(rowSpin,20);
-        
-        function rowSpin() {
-            for ( let i = 180 ; i <= 189 ; i++ ) {
-                toyRoom.children[i].style.transform = "rotate(" + r + "deg)";
-            }
-            r += 2;
+        count = 0;
 
-            if ( r > 90 ) {
-                clearInterval(t);
-                for ( let i = 180 ; i <= 189 ; i++ ) {
-                    toyRoom.children[i].style.opacity = 0.5;
+        for (let j = i; j <= i+9 ; j++) {
+            count += eval(toyRoom.children[j].style.opacity);
+        }
+        
+        //console.log(i + ' row, count ' + (2*count-10));
+        
+        // if the row is all filled up...
+        if (count==10) {
+
+            
+            let r = 0;
+            let t = setInterval(rowSpin,10);
+            function rowSpin() {
+                r += 4;
+                for ( let j = i ; j <= i+9 ; j++ ) {
+                    //toyRoom.children[i].style.transform = "rotate(" + r + "deg)";
+                    toyRoom.children[j].style.transformOrigin = '50% 100%';
+                    toyRoom.children[j].style.transform = "rotateX(" + r + "deg)";
                 }
-                dropMountain();
-            }   // end of if
+                if ( r > 90 ) {
+                    clearInterval(t);
+                    for ( let j = i ; j <= i+9 ; j++ ) {
+                        toyRoom.children[j].style.opacity = 0.5;
+                        toyRoom.children[j].style.transform = "rotateX(0deg)";
+                    }
+                    
+                    dropMountain(i);    // i refers to the row that filled up
+                }
+            }   // end of rowSpin()
 
-        }   // end of rowSpin()
+        }   // end of if
 
-    }   // end of if
+    }   // end of for
 
 }   // end of checkRow()
 
 
-function dropMountain() {
+
+
+function dropMountain(filledRow) {
+// from the filled row up, drop the pile of blocks
+
     var dummy;
-    for ( let i = 180 ; i >= 10 ; i -= 10 ) {
+    
+    for ( let i = filledRow ; i >= 10 ; i -= 10 ) {
         for ( let j = i ; j <= i+9 ; j++ ) {
             dummy = toyRoom.children[j-10].style.opacity;
             toyRoom.children[j].style.opacity = dummy;
         }
     }
+
     for ( let k = 0 ; k <= 9 ; k++ ) {
         toyRoom.children[k].style.opacity = 0.5;
     }
+
 }   // end of dropMountain()
 
 
 
-function timeAction() {
-    
-    if (boxFalling && boxExists) {
-        boxFall();
-    }
-
-
-}
 
 function boxFall() {
     let a = toyRoom.lastChild.style.top;
     let b = a.substring(0,a.length-2);
     let c = eval(b) + 1;
+    
+    //if (checkGround()) toyRoom.lastChild.style.top = c + 'px';
+    
     toyRoom.lastChild.style.top = c + 'px';
+    if (!checkGround()) {
+        toyRoom.lastChild.style.top = a;
+        //console.log('back off!');
+    }
+
+
+    
+    toyRoom.lastChild.innerText = '>__<';
+
 }
 
 
-function moveHorizontal() {
+function moveHorizontal(step) {
 // moves box left or right depending on stepX
 
     if (boxExists) {
         let a = toyRoom.lastChild.style.left;
-        let b = eval(a.substring(0,a.length-2)) + stepX;
+        let b = eval(a.substring(0,a.length-2)) + step;
         if ( (b>=0) && (b<xDim) ) toyRoom.lastChild.style.left = b + 'px';
     }
 }   // end of moveHorizontal()
 
 
-// ---------- Main Body ----------------------------------------- //
+function moveVertical(step) {
+    if (boxExists) {
+        let a = toyRoom.lastChild.style.top;
+
+
+        let b = eval(a.substring(0,a.length-2)) + step;
+
+
+        if ( b>=0 ) {
+            toyRoom.lastChild.style.top = b + 'px';
+            if (!checkGround()) {
+                toyRoom.lastChild.style.top = a;
+                console.log('back off!');
+            }
+        } else {
+            toyRoom.lastChild.style.top = '0px';
+        }
+
+    }
+}
+
+
+
+function checkGround() {
+
+    if (boxExists) {
+
+        let a = toyRoom.lastChild.style.left;
+        let x = (a.substring(0,a.length-2) / xInc);
+        //console.log(x);
+
+        let b = toyRoom.lastChild.style.top;
+        let y = Math.ceil( (b.substring(0,b.length-2) / yInc) );
+        //console.log(x + ' is x, y is ' + y);
+
+        let c = 10 * y + x;
+        //console.log(c);
+
+        return (toyRoom.children[c].style.opacity==1) ? false : true;
+        
+    }
+
+}
+
+
+
+function copyBlock() {
+    //console.log(clone);
+    //console.log(ghost);
+    //console.log(gridBlocks);
+    //console.log(gridBlocks[13].style.opacity);
+
+}
+
+
+// ----------------- MAIN BODY ----------------------------------------- //
 
 
 setBoard();
 
+var blockPile = toyRoom.children;       // this is shallow copying, i think
+
+
+checkRow();         // must do setBoard() first
+
+//makeNewBox();       // must do setBoard() first
+createBlockAgent();
+
+//console.log(blockPile);
+
+
+// runs continuously
 var timeFlow = setInterval(timeAction,timeInc);
 
-document.addEventListener('keydown', keyAction);
+// event listeners
+document.addEventListener('keydown', keyDownAction);
+document.addEventListener('keyup', keyUpAction);
+
 
 
 
