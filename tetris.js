@@ -36,11 +36,11 @@ var setOpacity = {
     flip : function(num) {return (num == this.low) ? this.high : this.low;} };
 
 // other settings
-var timeInc = 5;              // time interval used in 'var timeFlow'
+var timeInc = 2;              // time interval used in 'var timeFlow'
 var timeTick = 0;               // setInterval counter in timeAction()
 //var stepY = 0;                  // negative to move up, positive to move down
 var yMove = {
-    setting : { fallV : 10, downV : 1 },         // set these manually to adjust speed
+    setting : { fallV : 20, downV : 1 },         // set these manually to adjust speed
     actual : { fallV : 0, downV : 0 },
     flip : { fallV : function() { yMove.actual.fallV = (yMove.actual.fallV==0) ? yMove.setting.fallV : 0; } },
     press : {
@@ -220,7 +220,7 @@ var ghost = [new ghostType(0,0), new ghostType(), new ghostType(), new ghostType
 function setBoard() {
 // fills toyRoom with empty boxes. These will turn into the PILE one by one.
 
-    let rarity = 0.01;                   // used for randomly placing blocks on board. delete later.
+    let rarity = 0.00;                   // used for randomly placing blocks on board. delete later.
 
     for ( let i = 0 ; i < 200 ; i++ ) {
         // creating four elements to makeup the tetris piece
@@ -256,6 +256,7 @@ function setBoard() {
             checkRow();
 
         }   // end of onclick function def
+
 
     }   // end of for loop, iterated over only the first 200 blocks
 
@@ -350,7 +351,7 @@ function keyDownAction(ev) {
         case 'KeyN':
             resetTetrisShape();
             break;
-        case 'KeyI':
+        case 'Space':
             integrateBlocks();
             break;
         case 'KeyF':
@@ -722,6 +723,8 @@ resetTetrisShape();     // put the tetris piece on the board
 
 // runs continuously
 var timeFlow = setInterval(timeAction,timeInc);
+
+yMove.flip.fallV();
 
 // event listeners
 document.addEventListener('keydown', keyDownAction);
