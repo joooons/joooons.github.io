@@ -13,15 +13,13 @@
 
 
 // DOM elements
-var toyRoom = document.getElementById('toyRoom');
-var blockPile = toyRoom.children;
-    // blockPile
-
-var moveButtons = document.getElementById('controller');
+    var toyRoom = document.getElementById('toyRoom');
+    var blockPile = toyRoom.children;
+        // blockPile
+    var moveButtons = document.getElementById('controller');
 
 
 // dimension variables
-
     console.log(`screen resolution is ${window.screen.width} x ${window.screen.height}, and device pixel ratio is ${window.devicePixelRatio}.`);
     console.log(`navigator.userAgent is ${navigator.userAgent}`);
     // why check screen dimensions? So I can adjust the tetris board size...
@@ -47,36 +45,20 @@ var moveButtons = document.getElementById('controller');
 
 
 // color settings
-var blockBackgroundColor = 'rgba(50, 150, 250, 0.3)';
-var blockBoxShadow = '0px 0px 5px 0px inset blue';
-var tetrisBackgroundColor = 'rgba(100, 130, 250, 0.1)';
-var tetrisBoxShadow = '-2px -2px 9px 0px #05A inset';
-var setOpacity = { 
-    low : 0.1,                  // low setting of opacity
-    high : 0.6,                   // high setting of opacity
-    flip : function(num) {return (num == this.low) ? this.high : this.low;} };
+    var blockBackgroundColor = 'rgba(50, 150, 250, 0.3)';
+    var blockBoxShadow = '0px 0px 5px 0px inset blue';
+    var tetrisBackgroundColor = 'rgba(100, 130, 250, 0.1)';
+    var tetrisBoxShadow = '-2px -2px 9px 0px #05A inset';
+    var setOpacity = { 
+        low : 0.1,                  // low setting of opacity
+        high : 0.6,                   // high setting of opacity
+        flip : function(num) {return (num == this.low) ? this.high : this.low;} };
 
 // other settings
 var timeInc = 2;              // time interval used in 'var timeFlow'
 var timeTick = 0;               // setInterval counter in timeAction()
-var yMove = {
-    setting : { fallV : 20, downV : 1 },         // set these manually to adjust speed
-    actual : { fallV : 0, downV : 0 },
-    flip : { fallV : function() { yMove.actual.fallV = (yMove.actual.fallV==0) ? yMove.setting.fallV : 0; } },
-    press : {
-        down : function() { yMove.actual.downV = yMove.setting.downV; },
-        up : function() { yMove.actual.downV = 0 } },
-    check : {
-        fallV : function() { return (yMove.actual.fallV==0) ? false : true; },
-        downV : function() { return (yMove.actual.downV==0) ? false : true; } },
-    demand : function() {
-        // if true, there is demand to move 1 pixel down on this time iteration.
-        if (yMove.check.downV()) { 
-            return ( (timeTick%yMove.actual.downV) == 0 ) ? true : false;
-        } else {
-            return ( (timeTick%yMove.actual.fallV) == 0 ) ? true : false;
-        } } 
-    };
+var stagnantCounter = 0;        // counts how long the tetris piece stays in one place
+
     
     
 
@@ -127,6 +109,32 @@ var currentTetris = {
         if (this.pose == rotateMatrix[this.form].length) this.pose = 0;
         if (this.pose < 0 ) this.pose = rotateMatrix[this.form].length - 1;
     } };
+
+
+
+var yMove = {
+        setting : { fallV : 20, downV : 1 },         // set these manually to adjust speed
+        actual : { fallV : 0, downV : 0 },
+        flip : { fallV : function() { yMove.actual.fallV = (yMove.actual.fallV==0) ? yMove.setting.fallV : 0; } },
+        press : {
+            down : function() { yMove.actual.downV = yMove.setting.downV; },
+            up : function() { yMove.actual.downV = 0 } },
+        check : {
+            fallV : function() { return (yMove.actual.fallV==0) ? false : true; },
+            downV : function() { return (yMove.actual.downV==0) ? false : true; } },
+        demand : function() {
+            // if true, there is demand to move 1 pixel down on this time iteration.
+            if (yMove.check.downV()) { 
+                return ( (timeTick%yMove.actual.downV) == 0 ) ? true : false;
+            } else {
+                return ( (timeTick%yMove.actual.fallV) == 0 ) ? true : false;
+            } } 
+        };
+
+
+
+
+
 
 var rotateMatrix = [];
     // this is the rotation matrix. For the given form and pose, this is the tranformation...
@@ -328,6 +336,8 @@ function timeAction() {
     timeTick++;                     // general use clicker
     tetrisBlink();                  // animates the facial expression. pretty useless.
     boxFall();                      // make tetris fall continually
+
+    integrateBlocks();
 
 }   // end of timeAction()
 
@@ -544,7 +554,7 @@ function checkRow() {
             }
         }
         
-        console.log(`row ${i/10} has ${count}`);
+        //console.log(`row ${i/10} has ${count}`);
 
         if ( count == ( numOfBlocksX ) ) {
 
@@ -692,11 +702,21 @@ function integrateBlocks() {
     a = ( a && yMove.check.fallV() );
 
     if (a) {
-        for (let i = 0 ; i <= 3 ; i++ ) {
-            blockPile[ghost[i].ceil()].style.opacity = setOpacity.high;
+        // console.log(`stagnantCounter is ${stagnantCounter}`);
+
+        stagnantCounter++;
+    
+        
+
+        if (stagnantCounter == 200) {
+            for (let i = 0 ; i <= 3 ; i++ ) { blockPile[ghost[i].ceil()].style.opacity = setOpacity.high; }
+            resetTetrisShape();
+            checkRow();
         }
-        resetTetrisShape();
-        checkRow();
+
+    }  else {
+        stagnantCounter = 0;
+        //console.log('not stagnant!');
     }
 
 }
