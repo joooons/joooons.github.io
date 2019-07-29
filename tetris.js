@@ -13,8 +13,10 @@
 
 
 // DOM elements
-var toyRoom = document.getElementById('toyRoom');   
+var toyRoom = document.getElementById('toyRoom');
 var blockPile = toyRoom.children;
+    // blockPile
+
 var moveButtons = document.getElementById('controller');
 
 
@@ -38,7 +40,6 @@ var setOpacity = {
 // other settings
 var timeInc = 2;              // time interval used in 'var timeFlow'
 var timeTick = 0;               // setInterval counter in timeAction()
-//var stepY = 0;                  // negative to move up, positive to move down
 var yMove = {
     setting : { fallV : 20, downV : 1 },         // set these manually to adjust speed
     actual : { fallV : 0, downV : 0 },
@@ -58,6 +59,8 @@ var yMove = {
         } } 
     };
     
+    
+
     
 
 
@@ -215,7 +218,6 @@ var ghost = [new ghostType(0,0), new ghostType(), new ghostType(), new ghostType
 
 
 // ---------- Functions ------------------------------------------ //
-
 
 function setBoard() {
 // fills toyRoom with empty boxes. These will turn into the PILE one by one.
@@ -714,23 +716,32 @@ function crashFree() {
 // ----------------- MAIN BODY ----------------------------------------- //
 
 
+let x = window.screen.width;
+let y = window.screen.height;
+let ratio = window.devicePixelRatio;
+alert(`screen res is ${x}x${y}, and device pixel ratio is ${ratio}.`);
+
+
+
+
 // before the game starts...
 setBoard();
 checkRow();             // after random blocks are generated, check for row completion
 createBlockAgent();     // create the four elements for the tetris block
 resetTetrisShape();     // put the tetris piece on the board
+    // fill the toyRoom with invisible blocks
+    // remove any row that is completely filled
+    // 
 
-
-// runs continuously
 var timeFlow = setInterval(timeAction,timeInc);
+    // this is the time flow environment. Everything happens in time increments of 'timeInc'
 
+// set tetris piece to start falling right away
 yMove.flip.fallV();
 
 // event listeners
 document.addEventListener('keydown', keyDownAction);
 document.addEventListener('keyup', keyUpAction);
-
-
 
 
 
