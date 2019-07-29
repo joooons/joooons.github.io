@@ -21,10 +21,29 @@ var moveButtons = document.getElementById('controller');
 
 
 // dimension variables
-var xDim = toyRoom.offsetWidth;
-var yDim = toyRoom.offsetHeight;
-var xInc = xDim / 10;           // box size in x direction
-var yInc = yDim / 20;           // box size in y direction. basically same as xInc
+
+    console.log(`screen resolution is ${window.screen.width} x ${window.screen.height}, and device pixel ratio is ${window.devicePixelRatio}.`);
+    console.log(`navigator.userAgent is ${navigator.userAgent}`);
+    // why check screen dimensions? So I can adjust the tetris board size...
+
+    var numOfBlocksY = 16;
+    //var numOfBlocksX = numOfBlocksY / 2 ;
+    var numOfBlocksX = 10;
+    var numTotal = numOfBlocksX * numOfBlocksY;
+    
+    var screenOffset = 240;                     // length that I found by trial and error
+    var yDim = (window.screen.height-screenOffset) - (window.screen.height-screenOffset) % numOfBlocksY;
+    var xDim = yDim * (numOfBlocksX / numOfBlocksY);
+    
+    var yInc = yDim / numOfBlocksY;           // box size in y direction. basically same as xInc
+    var xInc = xDim / numOfBlocksX;           // box size in x direction
+
+    toyRoom.style.height = yDim + 'px';
+    toyRoom.style.width = xDim + 'px';
+
+    console.log(`xDim: ${xDim}   yDim: ${yDim}   xInc: ${xInc}   yInc: ${yInc}`);
+    console.log(`toyRoom.style.height: ${toyRoom.style.height}`);
+
 
 
 // color settings
@@ -33,8 +52,8 @@ var blockBoxShadow = '0px 0px 5px 0px inset blue';
 var tetrisBackgroundColor = 'rgba(100, 130, 250, 0.1)';
 var tetrisBoxShadow = '-2px -2px 9px 0px #05A inset';
 var setOpacity = { 
-    low : 0.2,                  // low setting of opacity
-    high : 1,                   // high setting of opacity
+    low : 0.1,                  // low setting of opacity
+    high : 0.6,                   // high setting of opacity
     flip : function(num) {return (num == this.low) ? this.high : this.low;} };
 
 // other settings
@@ -200,8 +219,8 @@ function ghostType(x, y) {
         this.x = px.off(left) + xStep;
         this.y = px.off(top) + yStep; },
         
-    this.floor = function() { return 10 * (Math.floor(this.y/yInc)) + (this.x/xInc); },     // outputs index
-    this.ceil = function() { return 10 * (Math.ceil(this.y/yInc)) + (this.x/xInc); } };     // outputs index
+    this.floor = function() { return numOfBlocksX * (Math.floor(this.y/yInc)) + (this.x/xInc); },     // outputs index
+    this.ceil = function() { return numOfBlocksX * (Math.ceil(this.y/yInc)) + (this.x/xInc); } };     // outputs index
 
 var ghost = [new ghostType(0,0), new ghostType(), new ghostType(), new ghostType() ];
 
@@ -224,7 +243,7 @@ function setBoard() {
 
     let rarity = 0.00;                   // used for randomly placing blocks on board. delete later.
 
-    for ( let i = 0 ; i < 200 ; i++ ) {
+    for ( let i = 0 ; i < numTotal ; i++ ) {
         // creating four elements to makeup the tetris piece
 
         var p = document.createElement('div');
@@ -327,7 +346,7 @@ function tetrisBlink() {
               ( (a>60) && (a<100) ) ];
 
     for ( let i = 0 ; i <= 3 ; i++ ) {
-        (b[i])? blockPile[i+200].innerText = "-__-": blockPile[i+200].innerText = "o__o";
+        (b[i])? blockPile[i+numTotal].innerText = "-__-": blockPile[i+numTotal].innerText = "o__o";
     }
     
 }
@@ -419,7 +438,7 @@ function createBlockAgent() {
 
         var p = document.createElement('div');
         
-        p.style.fontSize = '8pt';
+        p.style.fontSize = '4pt';
         p.style.color = 'black';
         p.style.fontWeight = 'bold';
         p.style.textAlign = 'center';
@@ -440,7 +459,7 @@ function createBlockAgent() {
         p.style.position = 'absolute';
         
         p.style.left = '0px';      // actually, this doesn't matter...
-        p.style.top = -yInc + 'px';                 // ... cuz this puts it outside the boundary. invisible.
+        p.style.top = '0px';                 // ... cuz this puts it outside the boundary. invisible.
 
         toyRoom.appendChild(p); 
     
@@ -464,8 +483,8 @@ function resetTetrisShape() {
     currentTetris.pose = 0;
 
     for ( let i = 0 ; i <=3 ; i++ ) {
-        blockPile[i+200].style.left = tetrisForms[currentTetris.form][i].x + 'px';
-        blockPile[i+200].style.top = tetrisForms[currentTetris.form][i].y + 'px';
+        blockPile[i+numTotal].style.left = tetrisForms[currentTetris.form][i].x + 'px';
+        blockPile[i+numTotal].style.top = tetrisForms[currentTetris.form][i].y + 'px';
     }
 
     console.log('form: ' + currentTetris.form + ' pose: ' + currentTetris.pose);
@@ -485,8 +504,8 @@ function blockToGhost( arr ) {
     // ghost[].x and ghost[].y are numbers, NOT strings
 
     for ( let i = 0 ; i <= 3 ; i++ ) {
-        ghost[i].x = px.off(blockPile[i+200].style.left) + arr[i].x ;
-        ghost[i].y = px.off(blockPile[i+200].style.top) + arr[i].y ;
+        ghost[i].x = px.off(blockPile[i+numTotal].style.left) + arr[i].x ;
+        ghost[i].y = px.off(blockPile[i+numTotal].style.top) + arr[i].y ;
     }
 }
 
@@ -496,8 +515,8 @@ function ghostToBlock() {
     // blockPile[].style.left and blockPile[].style.top are strings.
 
     for ( let i = 0 ; i <= 3 ; i++ ) {
-        blockPile[i+200].style.left = ghost[i].x + 'px';
-        blockPile[i+200].style.top = ghost[i].y + 'px';
+        blockPile[i+numTotal].style.left = ghost[i].x + 'px';
+        blockPile[i+numTotal].style.top = ghost[i].y + 'px';
     }
 
 }
@@ -512,36 +531,43 @@ function ghostToBlock() {
 
 
 function checkRow() {
+    // checks every row to see if it is completely filled up with blocks.
 
-    for (let i = 0 ; i <= 190 ; i += 10 ) {
-    // 'i' refers to the first index of each row
+    for (let i = 0 ; i < numTotal ; i += numOfBlocksX ) {
+        // 'i' refers to the first index of each row
         
         let count = 0;
 
-        for (let j = i; j <= i+9 ; j++) count += eval(blockPile[j].style.opacity);
+        for (let j = i; j < i + numOfBlocksX ; j++) { 
+            if ( blockPile[j].style.opacity == setOpacity.high ) {
+                count++;
+            }
+        }
         
-        if (count==10) {
+        console.log(`row ${i/10} has ${count}`);
+
+        if ( count == ( numOfBlocksX ) ) {
 
             let r = 0;
             let t = setInterval(rowSpin,10);
             function rowSpin() {
                 r += 4;
-                for ( let j = i ; j <= i+9 ; j++ ) {
+                for ( let j = i ; j < i + numOfBlocksX ; j++ ) {
                     //blockPile[j].style.transformOrigin = '50% 100%';
                     blockPile[j].style.transform = "rotateX(" + r + "deg)";
                 }
                 if ( r > 90 ) {
                     clearInterval(t);
-                    for ( let j = i ; j <= i+9 ; j++ ) {
+                    for ( let j = i ; j < i + numOfBlocksX ; j++ ) {
                         blockPile[j].style.opacity = setOpacity.low;
                         blockPile[j].style.transform = "rotateX(0deg)";
                     }
                     
                     dropMountain(i);    // 'i' refers to the row that filled up
                 }
-            }   // end of rowSpin()
+            } // end of rowSpin()
 
-        }   // end of if
+        } // end of if
 
     }   // end of for
 
@@ -557,14 +583,14 @@ function checkRow() {
 function dropMountain(filledRow) {
 // from the filled row up, drop the pile of blocks
     
-    for ( let i = filledRow ; i >= 10 ; i -= 10 ) {
-        for ( let j = i ; j <= i+9 ; j++ ) {
-            let a = blockPile[j-10].style.opacity;
+    for ( let i = filledRow ; i >= numOfBlocksX ; i -= numOfBlocksX ) {
+        for ( let j = i ; j < i + numOfBlocksX ; j++ ) {
+            let a = blockPile[j-numOfBlocksX].style.opacity;
             blockPile[j].style.opacity = a;
         }
     }
 
-    for ( let k = 0 ; k <= 9 ; k++ ) blockPile[k].style.opacity = setOpacity.low;
+    for ( let k = 0 ; k < numOfBlocksX ; k++ ) blockPile[k].style.opacity = setOpacity.low;
 
 }   // end of dropMountain()
 
@@ -583,7 +609,7 @@ function boxFall() {
         if (crashFree()) {
             ghostToBlock();
             for ( let i = 0 ; i <= 3 ; i++ ) {
-                blockPile[i+200].innerText = '>__<';
+                blockPile[i+numTotal].innerText = '>__<';
             }
 
         }
@@ -693,7 +719,7 @@ function crashFree() {
         if (ghost[i].x > wall.right) return false;
         if (ghost[i].y > wall.floor) return false;
 
-        // check for block collisions
+        // check for block collisions       
         if ( blockPile[ ghost[i].floor() ].style.opacity == setOpacity.high ) return false;
         if ( blockPile[ ghost[i].ceil()  ].style.opacity == setOpacity.high ) return false;
     }
@@ -716,10 +742,10 @@ function crashFree() {
 // ----------------- MAIN BODY ----------------------------------------- //
 
 
-let x = window.screen.width;
-let y = window.screen.height;
-let ratio = window.devicePixelRatio;
-alert(`screen res is ${x}x${y}, and device pixel ratio is ${ratio}.`);
+
+//if ( /Chrome/i.test( navigator.userAgent ) ) alert('this is Chrome!');
+    // this useless code just checks the navigator object for the word 'Chrome'
+    // I don't actually need this right now. But it's nice to know.
 
 
 
