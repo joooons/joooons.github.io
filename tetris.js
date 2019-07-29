@@ -20,16 +20,18 @@
 
 
 // dimension variables
-    console.log(`screen resolution is ${window.screen.width} x ${window.screen.height}, and device pixel ratio is ${window.devicePixelRatio}.`);
-    console.log(`navigator.userAgent is ${navigator.userAgent}`);
-    // why check screen dimensions? So I can adjust the tetris board size...
+    //console.log(`screen resolution is ${window.screen.width} x ${window.screen.height}, and device pixel ratio is ${window.devicePixelRatio}.`);
+    //console.log(`navigator.userAgent is ${navigator.userAgent}`);
+    alert(`screen resolution is ${window.screen.width} x ${window.screen.height}, and device pixel ratio is ${window.devicePixelRatio}.`);
+    alert(`navigator.userAgent is ${navigator.userAgent}`);
+        // why check screen dimensions? So I can adjust the tetris board size...    
 
-    var numOfBlocksY = 16;
+    var numOfBlocksY = 12;
     //var numOfBlocksX = numOfBlocksY / 2 ;
-    var numOfBlocksX = 10;
+    var numOfBlocksX = 12;
     var numTotal = numOfBlocksX * numOfBlocksY;
     
-    var screenOffset = 240;                     // length that I found by trial and error
+    var screenOffset = Math.ceil(window.screen.height * 0.28);                     // length that I found by trial and error
     var yDim = (window.screen.height-screenOffset) - (window.screen.height-screenOffset) % numOfBlocksY;
     var xDim = yDim * (numOfBlocksX / numOfBlocksY);
     
@@ -50,8 +52,8 @@
     var tetrisBackgroundColor = 'rgba(100, 130, 250, 0.1)';
     var tetrisBoxShadow = '-2px -2px 9px 0px #05A inset';
     var setOpacity = { 
-        low : 0.1,                  // low setting of opacity
-        high : 0.6,                   // high setting of opacity
+        low : 0.3,                  // low setting of opacity
+        high : 1,                   // high setting of opacity
         flip : function(num) {return (num == this.low) ? this.high : this.low;} };
 
 // other settings
