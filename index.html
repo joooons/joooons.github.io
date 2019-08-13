@@ -2,67 +2,25 @@
 
 <head>
     <title>
-        Tetris?
+        what am i... :(
     </title>
+
+    <link rel="icon" href="icon.jpg">
 
     <!--internally embedded style. I might change this later-->
     <style>
         body {
-            font-family: calibri, sans-serif;
-            font-size: 10pt;
-            color: #BBB;
-            
-            // background-image: url('bkgd1.png');
-
-            background-size: cover;
-            user-select: none;
-        }
-
-        h1 {
             text-align: center;
-            font-size: 10pt;
         }
-
         
         article {
-            text-align: center;
-        }
-
-        #controller {
-            text-align: center;
-        }
-
-        .button {
-            background-color: #DDD;
             color: black;
-            font-size: 15pt;
-            font-weight: bold;
-            text-align: center;
-            line-height: 1;
-            width: 22px;
-            height: 22px;
-            display: inline-block;
-            user-select: none;
         }
-
-
-        #toyRoom {
-            background-color: #FFF;
-            width: 280px;
-            height: 560px;
+        
+        iframe {
+            width: 700px;
+            height: 620px;
             display: inline-block;
-            position: relative;
-            overflow: hidden;
-            user-select: none;
-            
-            // background-image: url('sky.jpg');
-
-            background-position: center;
-            background-size: cover;
-        }
-
-        #toyRoom:hover {
-            box-shadow: 0px 0px 15px 0px gray;
         }
 
 
@@ -74,38 +32,29 @@
 <body>
 
     <header>
-        <h1>N: reset to top / F: toggle fall / space: integrate<br>
-        Arrows: to move / A: rotate counter / S: rotate clockwise / click: flip block</h1>
+        What is this...
     </header>
 
 
     <nav>
     </nav>
 
-    <div id='controller'>
-        <div class='button' id='leftButton'>←</div>
-        <div class='button' id='dropButton'>↓</div>
-        <div class='button' id='rightButton'>→</div>
-        <div class='button' id='rotate'>R</div>
-        <div class='button' id='rotate'>N</div>
-        <div class='button' id='integrate'>!</div>
-        
-    </div>
 
-    <br>
     <article>
-        <div id="toyRoom" >
-            
-        </div>
+        <iframe src='tetris.html'>
+
+        </iframe>
     </article>
 
 
     <footer>
+        
     </footer>
 
 
     <!--script at end of body tag-->
     <script src="tetris.js">
+
     </script>
 
 </body>
