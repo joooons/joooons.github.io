@@ -1,0 +1,134 @@
+/* This is the top */
+
+body {
+    font-family: calibri, sans-serif;
+    font-size: 10pt;
+    color: black;
+    /* background-size: cover; */
+    user-select: none;
+}
+
+
+.flexbox {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    /* align-items: center; */
+    /* align-content: stretch; */
+}
+
+.item {
+    margin: 10px;
+    border: 2px black solid;
+    display: flex;
+    flex-flow: column nowrap;
+    /* justify-content: flex-start; */
+    justify-content: space-between;
+}
+
+.item > div {
+    margin: 6px;
+}
+
+#toyRoom {
+    width: 280px;
+    height: 560px;
+    position: relative;
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    line-height: 4;
+    font-family: snes;
+    font-size: 90pt;
+    letter-spacing: -8px;
+}
+
+#toyRoom span:nth-child(1) { animation: colorchange 2000ms ease-in-out 100ms infinite normal; }
+#toyRoom span:nth-child(2) { animation: colorchange 2000ms ease-in-out 200ms infinite normal; }
+#toyRoom span:nth-child(3) { animation: colorchange 2000ms ease-in-out 300ms infinite normal; }
+#toyRoom span:nth-child(4) { animation: colorchange 2000ms ease-in-out 400ms infinite normal; }
+#toyRoom span:nth-child(5) { animation: colorchange 2000ms ease-in-out 500ms infinite normal; }
+#toyRoom span:nth-child(6) { animation: colorchange 2000ms ease-in-out 600ms infinite normal; }
+#toyRoom span:nth-child(7) { animation: colorchange 2000ms ease-in-out 700ms infinite normal; }
+
+
+@keyframes colorchange {
+0%   {color: black;}
+10%  {color: red;}
+30% {color: black;}
+100% {color: black;}
+}
+
+
+
+#scoreBoard {
+    font-size: 14pt;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #5AF;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+}
+
+.numbers {
+    background-color: rgba( 255, 255, 255, 0);
+    box-shadow: 0px 0px 25px 0px white;
+    border-radius: 12px;
+    
+    width: 120px;
+    height: 30px;
+    min-height: 30px;
+    text-align: center;    
+}
+
+
+#preView {
+    width: 400px;
+    background-color: #AAA;
+    display: inline;
+    overflow: hidden;
+}
+
+
+.info {
+    padding: 10px;
+    background-color: #5AF;
+    /* text-align: left; */
+    /* line-height: 0.2; */
+    display: normal;
+}
+
+.alpha {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: #FFF;
+    display: inline-block;
+    text-align: center;
+    line-height: 0.9;
+    font-size: 24pt;
+    font-weight: bold;
+}
+
+.explain {
+    font-size: 12pt;
+}
+
+.info line {
+    width: 50px;
+    height: 50px;
+    stroke-linecap: round;
+    stroke-width: 2px;
+    stroke: #000;
+    display:  inline-block;
+}
+
+
+@font-face {
+    font-family: snes;
+    src: url('snes.ttf');
+}
+
