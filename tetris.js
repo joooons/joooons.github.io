@@ -1,3 +1,5 @@
+"use strict";
+
 // JS for tetris
 
 // Notes:
