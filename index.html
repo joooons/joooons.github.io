@@ -33,6 +33,18 @@
             justify-content: center;
             align-items: center;
         }
+        
+        .box:hover {
+            transform: scale(1.1,1.1);
+            transition: transform 0.25s ease-in;
+            /* animation: sizechange 2s ease-in; */
+        }
+
+        @keyframes sizechange{
+            0% {transform: scale(0,0);}
+            100% {transform: scale(2,2);}
+        }
+
 
         a {
             color: black;
@@ -40,13 +52,13 @@
         }
 
         a:hover {
-            animation: colorchange 2s ease-in infinite;
+            animation: colorchange 0.25s ease-in;
         }
 
         @keyframes colorchange{
-            0% {color:wheat;}
-            50% {color:orange;}
-            100% {color:wheat;}
+            0% {color:rgb(3, 3, 189);}
+            50% {color:darkblue;}
+            100% {color:black;}
         }
 
     </style>
@@ -59,9 +71,10 @@
 
     <div class='container' id='ana'>
 
-        <div><a href='#'>hello</a></div>
-        <div><a href='tetris.html'>tetris</a></div>
-        <div><a href='#'>o stawp</a></div>
+        <div class='box'><a href='catch.html'>catch</a></div>
+        <div class='box'><a href='tetris.html'>tetris</a></div>
+        <div class='box'><a href='svgartiste.html'>svgärtistë</a></div>
+        <div class='box'><a href='#'>o stawp</a></div>
 
     </div>
 

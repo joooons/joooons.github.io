@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+    <!-- I'm going to try to use jQuery for this.                   -->
+    <!-- and if I learn React JS, then I'll try to use that too.    -->
+
+
+<html>
+    <head>
+        <title>
+            svgärtistë
+        </title>
+
+        <link rel='icon' href='icon.jpg'>
+            <!-- the little icon graphic on the tab -->
+        <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap">
+            <!-- loading some fonts -->
+        <script src='https://code.jquery.com/jquery-3.4.1.js'></script>
+            <!-- loading jQuery -->
+            
+        <!-- <script src="https://cdn.jsdelivr.net/npm/@jaames/iro"></script> -->
+            <!-- color picker iro.js -->
+
+        
+
+
+
+        <style>
+
+                /* Chrome, Safari, Edge, Opera */
+                input[type=number]::-webkit-inner-spin-button, 
+                input[type=number]::-webkit-outer-spin-button { 
+                    -webkit-appearance: none; 
+                    margin: 0; 
+                }
+                    /* The above two sections eliminate the number scroller for number input elements */
+
+                /* Firefox */
+                /* input[type=number] {
+                    -moz-appearance: textfield;
+                } */
+                    /* The above two sections eliminate the number scroller for number input elements */
+
+
+            body {
+                font-family: 'Roboto Mono', monospace;
+                font-size: 8pt;
+                background-color: #E9E9E9;
+            }
+
+            .container {
+                /* background-color: #E9E9E9; */
+                /* background: transparent; */
+                /* width: 90%; */
+                width: 100%;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: left;
+            }
+
+            .left {
+                background-color: #D0D0D0;
+                /* padding: 10px; */
+                margin: 10px 5px 10px 5px;
+                width: 50%;
+                display: flex;
+                flex-flow: column wrap;
+                /* align-items: stretch; */
+            }
+
+            .left > div {
+                background-color: white;
+                overflow-y: auto;
+            }
+            
+
+            #codeSpace {
+                height: 100px;
+                padding: 10px;
+                font-size: 8pt;
+            }
+
+
+            .row {
+                background-color: #7771;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                white-space: pre-wrap;
+                user-select: none;
+                margin: 2px 0px 2px 0px;
+                /* width: 800px; */
+            }
+
+
+            .row > div {
+                /* margin: 3px 2px 3px 3px; */
+                /* min-width: 5px; */
+                /* text-align: right; */
+            }
+
+
+            .row input {
+                background-color: #DEF;
+                margin: 3px 7px 3px 0px;
+                width: 35px;
+                height: 12px;
+                font-size: 8pt;
+                border-width: 0px 0px 0px 0px;
+                text-align: center;
+                -moz-appearance: textfield;
+            }
+
+            .row select {
+                background-color: #DEF;
+                margin: 3px 7px 3px 0px;
+                width: 50px;
+                height: 14px;
+                font-size: 8pt;
+                border-width: 0px 0px 0px 0px;
+                text-align: center;
+            }
+
+            .row .dummy {
+                background: transparent;
+                border-width: 0px 0px 0px 0px;
+            }
+
+            /* .row .filler { */
+            .filler {
+                margin: 3px 2px 3px 3px;
+                min-width: 5px;
+                text-align: right;
+                background: transparent;
+                /* background-color:coral; */
+                min-width: 20px;
+                white-space: pre;
+                /* text-align: right; */
+            }
+
+
+            .row button {
+                width: 30px;
+                height: 20px;
+                font-size: 10pt;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .unselectable {
+                user-select: none;
+            }
+
+            #otherSpace {
+                /* white-space:pre-line; */
+                user-select: none;
+            }
+
+
+            .right {
+                background-color: #D0D0D0;
+                /* padding: 10px; */
+                margin: 10px 5px 10px 5px;
+                width: 40%;
+                display: flex;
+                flex-flow: column wrap;
+                /* align-items: stretch; */
+            }
+            
+            #artCtrl {
+                margin: 10px;
+                display: flex;
+                flex-flow: row wrap;
+            }
+
+            #artCtrl div {
+                /* height: 16px; */
+                /* font-size: 8pt; */
+                /* color: red; */
+                /* background-color: chartreuse; */
+            }
+
+            #artCtrl input {
+                background-color: #DEF;
+                margin: 3px 7px 3px 0px;
+                width: 35px;
+                height: 12px;
+                font-size: 8pt;
+                border-width: 0px 0px 0px 0px;
+                text-align: center;
+            }
+
+            #artCtrl input[type='number'] {
+                -moz-appearance: textfield;
+            }
+
+
+
+            .right > svg {
+                margin: 0px 10px 10px 10px;
+            }
+
+
+
+
+        </style>
+    </head>
+
+
+    <body>
+
+        <div class='container'>
+            
+            <div class='left'>
+            <!-- the LEFT half -->
+
+                <div id='codeSpace'>
+                <!-- codeSpace -->
+                    codeSpace
+
+                </div>
+                
+                <br>
+            
+
+                <div id='logicSpace'>
+                    <!-- logicSpace -->
+                </div>
+
+                <br>
+
+                <div id='otherSpace' >
+                    Nothing to see here. Move along.
+                </div>
+
+            </div>
+
+            <div class='right'>
+                <!-- the RIGHT half -->
+                <div id='artCtrl'></div>
+
+                <!-- <svg width='500' height='500' style='background-color: #FFF;' id='artSpace'> -->
+                <svg style='background-color: #FFF;' id='artSpace'>
+                    <!-- artSpace -->
+    
+                </svg>
+            </div>
+
+        </div>
+
+
+
+        <script src="code.js">
+        </script>
+
+    </body>
+
+
+</html>
