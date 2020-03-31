@@ -1,14 +1,54 @@
 <!DOCTYPE html>
 
 <head>
+
     <title>
-        Wait... is this Tetris?
+        Joon is bored...
     </title>
 
-    <link rel='stylesheet' href='tetris.css'>
-    <link rel='shortcut icon' href='icon.png'>
+    <link rel='shortcut icon' href='iconMain.png'>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Titan+One&display=swap" rel="stylesheet">
+
+    <!-- <meta name='viewport' content='width=device-width, initial-scale=1.0'> -->
+
 
     <style>
+        body {
+            font-family: 'Titan One', cursive;
+            font-size: 60pt;
+            background-color: coral;            
+        }
+
+        .container {
+            background-color:lightsteelblue;
+            
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            top:0px;
+            bottom:0px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:hover {
+            animation: colorchange 2s ease-in infinite;
+        }
+
+        @keyframes colorchange{
+            0% {color:wheat;}
+            50% {color:orange;}
+            100% {color:wheat;}
+        }
+
     </style>
 
 </head>
@@ -17,7 +57,16 @@
 
 <body>
 
-    <p>hello!!!</p>
-    <a href='tetris.html'>Tetris</a>
+    <div class='container' id='ana'>
 
+        <div><a href='#'>hello</a></div>
+        <div><a href='tetris.html'>tetris</a></div>
+        <div><a href='#'>o stawp</a></div>
+
+    </div>
+
+    <script>
+
+    
+    </script>
 </body>
