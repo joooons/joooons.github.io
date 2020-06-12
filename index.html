@@ -1,81 +1,156 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- BOOTSTRAP -->
+    <!-- CSS only -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
 
+    <!-- JS, Popper.js, and jQuery -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> -->
+    
+    <!-- FONT AWESOME -->
+    <script src="https://kit.fontawesome.com/83b688df5a.js" crossorigin="anonymous"></script>
 
-
+    <!-- MY OWN FILES -->
     <link rel="icon" href="./index/icon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Titan+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index/style.css">
+    <script defer src="./index/script.js"></script>
 
-    <!-- <meta name='viewport' content='width=device-width, initial-scale=1.0'> -->
-
-    <title>Joon is bored...</title>
-
-    <style>
-        body {
-            font-family: 'Titan One', cursive;
-            font-size: 60pt;    
-            background-color:lightsteelblue;
-        }
-
-        .container {
-            /* background-color:lightsteelblue; */
-            
-            position: absolute;
-            left: 0px;
-            right: 0px;
-            top:0px;
-            bottom:0px;
-            /* width: 100%;
-            height: 90vh; */
-
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .box:hover {
-            transform: scale(1.1,1.1);
-            transition: transform 0.25s ease-in;
-            /* -webkit-user-select: none; */
-            /* user-select: none; */
-        }
-
-
-        a {
-            color: black;
-            text-decoration: none;
-            transition: color 0.25s;
-            /* -webkit-user-select: none; */
-            user-select: none;
-        }
-
-        a:hover {
-            color:royalblue;
-        }
-
-
-    </style>
+    <title>BORING</title>
 
 </head>
-
-
-
 <body>
+    
 
-    <div class='container' id='ana'>
 
-        <div class='box'><a href='catch.html'>catch</a></div>
-        <div class='box'><a href='tetris.html'>tetris</a></div>
-        <div class='box'><a href='svgartiste.html'>svgärtistë</a></div>
-        <div class='box'><a href='experimental/index.html'>o stawp</a></div>
-
+<div id="main">
+    <div class="container" id="page-1">
+        <div>page 1</div>
+        <h4>Hello there!</h4>
+        <h1>NEIGHBOR!</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur rem quasi nostrum molestiae magnam deleniti, neque voluptatibus distinctio natus delectus.</p>
     </div>
 
-    <script>
+    <div class="container" id="page-2">
+        <div>page 2</div>
+        <h4>Hello there!</h4>
+        <h1>NEIGHBOR!</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit nam voluptates odio eius?</p>
+    </div>
+
+    <div class="container" id="page-3">
+        <div>page 3</div>
+        <h4>Hello there!</h4>
+        <h1>NEIGHBOR!</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus sed pariatur non illo voluptatum eius nisi numquam vel.</p>
+    </div>
+
+    <div class="container" id="page-4">
+        <div>page 4</div>
+        <h4>Hello there!</h4>
+        <h1>NEIGHBOR!</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, alias facilis.</p>
+    </div>
+
+    <div class="container" id="page-5">
+        <div>page 5</div>
+        <h4>Hello there!</h4>
+        <h1>NEIGHBOR!</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+    </div>
+</div>
+
+
+
+
+<div id="menu">
+    <ul>
+        <li>
+            <i class="fas fa-bars" id="menu-toggle"></i>
+            <a href="#page-1">"MEH"-NU</a>
+        </li>
+        
+        <br>
+        
+        <li>
+            <i class="far fa-id-card bg1"></i>
+            <a href="#page-2">ABOUT ME</a>
+        </li>
+        <li>
+            <i class="fas fa-code"></i>
+            <a href="#page-3">PROJECTS</a>
+        </li>
+        <li>
+            <i class="fas fa-envelope"></i>
+            <a href="#page-4">CONTACT</a>
+        </li>
+        <li>
+            <i class="fas fa-graduation-cap"></i>
+            <!-- <span>EDUCATION</span><br> -->
+            <a href="#page-5">EDUCATION</a>
+        </li>
+        <li>
+            <i class="fas fa-briefcase"></i>
+            <a href="#">EXPERIENCE</a>
+        </li>
+    </ul>
+
+
+</div>
+
+
+
+
+
+
 
     
-    </script>
+
+    <!-- UNUSED -->
+    <div style="display:none;">
+        <i class="fas fa-child"></i>
+        <i class="fas fa-house-user"></i>
+        <i class="fas fa-id-card-alt"></i>
+        <i class="fas fa-id-card"></i>
+        <i class="fas fa-id-badge"></i>
+        <i class="far fa-id-badge"></i>
+        <i class="fas fa-portrait"></i>
+        <i class="fas fa-calculator"></i>
+        <i class="fas fa-chess"></i>
+        <i class="fas fa-chess-knight"></i>
+        <i class="fas fa-chess-rook"></i>
+        <i class="fas fa-clipboard"></i>
+        <i class="fas fa-clipboard-list"></i>
+        <i class="fab fa-codepen"></i>
+        <i class="fas fa-coffee"></i>
+        <i class="fas fa-dice"></i>
+        <i class="fas fa-file-code"></i>
+        <i class="far fa-file-code"></i>
+        <i class="fas fa-hammer"></i>
+        <i class="far fa-address-card"></i>
+        <i class="fas fa-address-card"></i>
+        <i class="fas fa-comment"></i>
+        <i class="far fa-comment"></i>
+        <i class="fas fa-comment-alt"></i>
+        <i class="far fa-comment-alt"></i>
+        <i class="far fa-envelope"></i>
+        <i class="fas fa-brain"></i>
+        <i class="fas fa-chalkboard"></i>
+        <i class="fas fa-eraser"></i>
+        <i class="fab fa-black-tie"></i>
+        <i class="fas fa-chart-area"></i>
+        <i class="fas fa-chart-line"></i>
+    </div>
+
+    
+    
+    
+
 </body>
+</html>
+

@@ -1,0 +1,154 @@
+
+
+/* FONT */
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira&display=swap');
+
+
+
+
+
+
+/* VARIABLES */
+:root{
+    --color1: #212121;
+    --color2: #757575;
+    --colorS: #f6416c;
+    --colorD: #BDBDBD;
+    --colorI: #000000;
+
+    --bkgd1: #a9eee6;
+    --bkgd2: #fefaec;
+    --bkgd3: #f9a1bc;
+    --bkgd4: #625772;
+
+    --size1: 30px;
+    --size2: 20px;
+    --size3: 10px;
+
+    --font1: 'Philosopher', sans-serif;
+    --font2: 'Noto Serif', serif;
+    --font3: 'Rubik', sans-serif;
+    --font4: 'Libre Baskerville', serif;
+    --font5: 'Saira', sans-serif;
+
+    --margin1: 10px;
+
+    --menu-wide: 0px;
+
+    --curve1: cubic-bezier(.5,-0.07,.33,1.2);
+    --curve2: cubic-bezier(.3,-0.2,.04,1.2);
+    --curve3: cubic-bezier(.4,.3,.6,1.2);
+}
+
+
+
+
+
+
+
+/* BY ELEMENT TYPE __________________________ */
+
+body {
+    font-size: var(--size2);
+    font-family: var(--font5);
+    background-color: var(--bkgd1);
+    user-select: none;
+}
+
+ul {
+    list-style-type: none;
+    /* margin: 0; */
+    padding-left: 0;
+}
+
+a {
+    text-decoration: none;
+    position: absolute;
+    /* height: 50px;
+    overflow: hidden; */
+    color: var(--colorD);
+    transition: 0.4s var(--curve3);
+}
+
+a:hover {
+    color: var(--colorS);
+}
+
+
+
+
+
+/* BY ELEMENT CLASS ------------------------------*/
+
+
+
+.container {
+    margin: 10px;
+    padding: 10px;
+    /* position: absolute; */
+    background-color: var(--bkgd3);
+    border-radius: 5px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container:nth-child(2n-1) {
+    background-color: var(--bkgd2);
+}
+
+.left {
+    text-align: left;
+}
+
+
+
+
+
+/* BY ID __________________________________ */
+
+#menu {
+    background-color: var(--bkgd2);
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: var(--menu-wide);
+    overflow: hidden;
+}
+
+#main {
+    /* background-color: var(--bkgd1); */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding-left: var(--menu-wide);
+}
+
+
+
+
+
+
+/* ICONS */
+[class*="fa"] {
+    color: var(--colorD);
+    text-align: center;
+    width: 3em;
+    transition: 0.4s var(--curve3);
+    transform-origin: 50% 50%;
+}
+
+[class*="fa"]:hover {
+    color: var(--colorS);
+    /* transform: rotate(360deg); */
+    transform: scaleX(-1);
+}
+
