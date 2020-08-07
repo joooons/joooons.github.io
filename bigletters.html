@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root { font-family: 'Roboto Mono', monospace; }
+        body > div { white-space: pre-wrap;}
+        input { 
+            font-family: 'Roboto Mono', monospace; 
+            /* width: 65px; */
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    
+    <form action="" id="form">
+        <input type="text" id="short" placeholder="a">
+        <div>Enter Text</div>
+        <input id="text1" autofocus autocomplete="off"><br>
+        <input id="text2" autocomplete="off"><br>
+        <input id="text3" autocomplete="off"><br>
+        <input id="text4" autocomplete="off"><br>
+        <input id="text5" autocomplete="off"><br>
+        <input id="text6" autocomplete="off"><br>
+    </form>
+    <!-- <div id="disp1">1</div>
+    <div id="disp2">2</div>
+    <div id="disp3">3</div>
+    <div id="disp4">4</div>
+    <div id="disp5">5</div>
+    <div id="disp6">6</div> -->
+    <br>
+    <div id="copy"></div>
+    <br>
+    <div>TEST</div>
+    <input type="text" id="test">
+    <div id="final1">1</div>
+    <div id="final2">2</div>
+    <div id="final3">3</div>
+    <div id="final4">4</div>
+    <div id="final5">5</div>
+    <div id="final6">6</div>
+
+
+    <script>
+        const form = document.getElementById('form');
+        const arr = new Array(6).fill('');
+        const test = document.getElementById('test');
+
+        function fillText(ev) {
+            let num = ev.target.id.slice(4,5);
+            let str = ev.target.value;
+            let letter = document.getElementById('short').value;
+            arr[num-1] = str;
+            text = `al['${letter}'] = [ "${arr[0]}", "${arr[1]}", "${arr[2]}", "${arr[3]}", "${arr[4]}", "${arr[5]}"];`;
+            document.getElementById('copy').innerHTML = text;
+        }
+
+        form.onchange = ev => { fillText(ev); }
+
+        test.onchange = ev => {
+            let str = test.value;
+            let arr = str.split('');
+            let final = new Array(6).fill('');
+            console.log(arr);
+
+            final.forEach( (str,i) => {
+                let temp = '//  ';
+                let num = i + 1;
+                arr.forEach( char => {
+                    temp += al[char][i] + "  ";
+                });
+                str = temp;
+                let dispID = 'final' + num;
+                document.getElementById(dispID).innerHTML = str; 
+            });
+        }
+
+
+
+
+
+
+        
+        const al = {};
+        (function() {
+            al['A'] = [ "  MMMM  ", "MM    MM", "MMMMMMMM", "MM    MM", "MM    MM", "MM    MM"];
+            al['B'] = [ "MMMMMM  ", "MM    MM", "MMMMMM  ", "MM    MM", "MM    MM", "MMMMMM  "];
+            al['C'] = [ "  MMMM  ", "MM    MM", "MM      ", "MM      ", "MM    MM", "  MMMM  "];
+            al['D'] = [ "MMMMMM  ", "MM    MM", "MM    MM", "MM    MM", "MM    MM", "MMMMMM  "];
+            al['E'] = [ "MMMMMMMM", "MM      ", "MMMMMMMM", "MM      ", "MM      ", "MMMMMMMM"];
+            al['F'] = [ "MMMMMMMM", "MM      ", "MMMMMMMM", "MM      ", "MM      ", "MM      "];
+            al['G'] = [ "  MMMM  ", "MM    MM", "MM      ", "MM  MMMM", "MM    MM", "  MMMM  "];
+            al['H'] = [ "MM    MM", "MM    MM", "MMMMMMMM", "MM    MM", "MM    MM", "MM    MM"];
+            al['I'] = [ "MMMMMM", "  MM  ", "  MM  ", "  MM  ", "  MM  ", "MMMMMM"];
+            al['J'] = [ "MMMMMM", "    MM", "    MM", "    MM", "    MM", "MMMM  "];
+            al['K'] = [ "MM    MM", "MM  MM  ", "MMMM    ", "MM  MM  ", "MM    MM", "MM    MM"];
+            al['L'] = [ "MM    ", "MM    ", "MM    ", "MM    ", "MM    ", "MMMMMM"];
+            al['M'] = [ "MM      MM", "MMMM  MMMM", "MM  MM  MM", "MM      MM", "MM      MM", "MM      MM"];
+            al['N'] = [ "MM    MM", "MMMM  MM", "MM  MMMM", "MM    MM", "MM    MM", "MM    MM"];
+            al['O'] = [ "  MMMM  ", "MM    MM", "MM    MM", "MM    MM", "MM    MM", "  MMMM  "];
+            al['P'] = [ "MMMMMM  ", "MM    MM", "MM    MM", "MMMMMM  ", "MM      ", "MM      "];
+            al['Q'] = [ "  MMMMMM  ", "MM      MM", "MM      MM", "MM  MM  MM", "MM    MM  ", "  MMMM  MM"];
+            al['R'] = [ "MMMMMM  ", "MM    MM", "MMMMMM  ", "MM    MM", "MM    MM", "MM    MM"];
+            al['S'] = [ "  MMMM  ", "MM    MM", "  MM    ", "    MM  ", "MM    MM", "  MMMM  "];
+            al['T'] = [ "MMMMMM", "  MM  ", "  MM  ", "  MM  ", "  MM  ", "  MM  "];
+            al['U'] = [ "MM    MM", "MM    MM", "MM    MM", "MM    MM", "MM    MM", "  MMMM  "];
+            al['V'] = [ "MM      MM", "MM      MM", "MM      MM", "MM      MM", "  MM  MM  ", "    MM    "];
+            al['W'] = [ "MM      MM", "MM      MM", "MM      MM", "MM  MM  MM", "MM  MM  MM", "  MM  MM  "];
+            al['X'] = [ "MM      MM", "  MM  MM  ", "    MM    ", "  MM  MM  ", "MM      MM", "MM      MM"];
+            al['Y'] = [ "MM      MM", "  MM  MM  ", "    MM    ", "    MM    ", "    MM    ", "    MM    "];
+            al['Z'] = [ "MMMMMMMMMM", "      MM  ", "    MM    ", "  MM      ", "MM        ", "MMMMMMMMMM"];
+            al[' '] = [ "    ", "    ", "    ", "    ", "    ", "    "];
+        })();
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

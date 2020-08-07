@@ -24,9 +24,19 @@ const menuWidth = {
 
 icon4.onclick = () => { window.scrollTo(0,300); }
 
-// document.onwheel = () => { console.log(window.scrollY); }
+document.onwheel = () => {
+    let a = Math.floor(window.scrollY);
+    let b = "scroll: ";
+    // document.querySelector('.container').style.height = window.innerHeight;
+    // console.log('window innerheight is ', window.innerHeight);
+    document.querySelector('#floatingBox').innerHTML = b + a;
+    // console.log(window.scrollY); 
+}
+
+
 
 menuToggle.onclick = () => {
+
     menuWidthToggle();
 }
 
@@ -52,6 +62,10 @@ function menuWidthToggle() {
 adjustPageHeight();
 
 function adjustPageHeight() {
-    document.querySelector('.container').style.height = window.innerHeight;
-    console.log('window innerheight is ', window.innerHeight);
+    let a = window.innerHeight;
+    let b = "height: ";
+    // document.querySelector('.container').style.height = window.innerHeight;
+    // console.log('window innerheight is ', window.innerHeight);
+    document.querySelector('#floatingBox').innerHTML = b + a;
 }
+
