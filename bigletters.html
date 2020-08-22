@@ -50,7 +50,7 @@
             border-radius: 10px;
             width: 100%;
             display: grid;
-            grid-template-columns: 70% auto;
+            grid-template-columns: auto 160px;
             align-content: start;
             overflow: hidden;
         }
@@ -177,7 +177,19 @@
         form.onchange = ev => { fillText(ev); }
 
         test.onchange = ev => {
-            let arr = test.value.split('');            
+            let arr = test.value.split('');
+            test.value = '';
+            let exit = false;
+
+            arr.forEach( char => {
+                if ( !al[char] ) {
+                    sayStatus(`I don\'t know "${char}"`);
+                    exit = true;
+                    return;
+                }
+            });
+            if (exit) return display.innerText = '';
+
             let totalText = '';
 
             for ( i=0 ; i<6 ; i++ ) {
@@ -194,7 +206,7 @@
             
             copyToClipboard(totalText);
             sayStatus('text copied');
-            test.value = '';
+            // test.value = '';
             display.innerText = totalText;
         }
 
