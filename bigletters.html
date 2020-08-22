@@ -50,12 +50,20 @@
             border-radius: 10px;
             width: 100%;
             display: grid;
-            grid-template-columns: 100px auto;
+            grid-template-columns: 70% auto;
             align-content: start;
             overflow: hidden;
         }
 
+        #status {
+            color: red;
+            /* transition: 1s; */
+        }
 
+        #status.fade {
+            transition: 3s;
+            color: #fff0;
+        }
 
         #display {
             border: 1px solid black;
@@ -65,10 +73,11 @@
             overflow-x: scroll;
             overflow-y: hidden;
             white-space: pre;
-
         }
 
-
+        .long {
+            width: 90%;
+        }
 
         .pre {
             white-space: pre-wrap;
@@ -108,10 +117,11 @@
         <div id="generator">
             <div>text</div>
             <div id="status"></div>
-            <input type="text" id="test">
+            <input class='long' type="text" id="test">
             <select name="lang" id="lang">
-                <option value="javascript`">javascript</option>
-                <option value="html/css">html/css</option>
+                <option value="javascript">javascript</option>
+                <option value="html">html</option>
+                <option value="css">css</option>
             </select>
             
             <div id="display"></div>
@@ -158,10 +168,10 @@
         }
 
         function sayStatus(message) {
-            document.getElementById('status').innerHTML = message;
-            setTimeout( () => {
-                document.getElementById('status').innerHTML = '';
-            }, 2500 );
+            let status = document.getElementById('status');
+            status.innerHTML = message;
+            status.classList.remove('fade');
+            setTimeout( () => { status.classList.add('fade'); }, 2000 );
         }
 
         form.onchange = ev => { fillText(ev); }
@@ -172,11 +182,14 @@
 
             for ( i=0 ; i<6 ; i++ ) {
                 let lang = document.getElementById('lang').value;
-                let temp = ( lang == 'html/css' ) ? "<!-- " : "//  ";
-                let tail = ( lang == 'html/css' ) ? " -->" : "";
-                arr.forEach( char => { temp += al[char][i] + "  "; });
-                temp += tail + "\n";
-                totalText += temp;
+                let [head,mid,tail] = ['','',''];
+
+                if ( lang == 'javascript' ) [head,tail] = ['//  ', '\n'];
+                if ( lang == 'html' ) [head,tail] = ['<!--  ',' -->\n'];
+                if ( lang == 'css' ) [head,tail] = ['/*  ',' */\n'];
+
+                arr.forEach( char => { mid += al[char][i] + "  "; });
+                totalText += head + mid + tail;
             }
             
             copyToClipboard(totalText);
