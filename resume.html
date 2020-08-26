@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESUME</title>
+    <style>
+
+
+/* ------------ FONTS --------------------------- */
+
+        /* @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+        /* @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap'); */
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+        /* @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap'); */
+        /* @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap'); */
+        @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+        /* @import url('https://fonts.googleapis.com/css2?family=Overpass&display=swap'); */
+        /* @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap'); */
+
+
+        :root {
+            /* --font1: 'Rubik', sans-serif; */
+            --font2: 'Roboto', sans-serif;
+            /* --font3: 'Oswald', sans-serif; */
+            --font4: 'Ubuntu', sans-serif;
+            /* --font5: 'Josefin Sans', sans-serif; */
+            /* --font6: 'Cabin', sans-serif; */
+            --font7: 'Varela Round', sans-serif;
+            /* --font8: 'Overpass', sans-serif; */
+            /* --font9: 'Do Hyeon', sans-serif; */
+
+
+            --color0: #fff0;
+            --color1: #8882;
+            /* --color2: rgb(0, 160, 255); */
+            --color2: rgb(0, 200, 100);
+
+            /* --color3: lightskyblue; */
+            /* --color4: lightgray; */
+            --color5: rgb(0,240,180);
+
+        }
+
+
+
+
+/*  MMMMMM    MM      MM        MMMMMM    MMMM      MMMM     */
+/*  MM    MM    MM  MM            MM    MM    MM  MM    MM   */
+/*  MMMMMM        MM              MM    MMMMMMMM  MM         */
+/*  MM    MM      MM              MM    MM    MM  MM  MMMM   */
+/*  MM    MM      MM              MM    MM    MM  MM    MM   */
+/*  MMMMMM        MM              MM    MM    MM    MMMM     */
+
+        body {
+            /* background: var(--color0); */
+            background: #0001;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: var(--font2);
+            font-size: 9pt;
+        }    
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+
+
+
+
+
+
+/*  MMMMMM    MM      MM          MMMM    MM        MMMM      MMMM      MMMM     */
+/*  MM    MM    MM  MM          MM    MM  MM      MM    MM  MM    MM  MM    MM   */
+/*  MMMMMM        MM            MM        MM      MMMMMMMM    MM        MM       */
+/*  MM    MM      MM            MM        MM      MM    MM      MM        MM     */
+/*  MM    MM      MM            MM    MM  MM      MM    MM  MM    MM  MM    MM   */
+/*  MMMMMM        MM              MMMM    MMMMMM  MM    MM    MMMM      MMMM     */
+
+        .big { font-size: 9pt; }
+
+        .title { font-family: var(--font4);
+                 font-weight: bold; }
+
+        .tags { display: flex;
+                justify-content: flex-start;
+                flex-wrap: wrap; }
+
+        .tag {  background: var(--color2);
+                color: white;
+                font-family: var(--font7);
+                font-size: 7pt;
+                font-weight: bold;
+                border-radius: 8px;
+                padding: 2px 4px 1px 4px;
+                margin-right: 4px; }
+
+        .tag-2 { background: var(--color2);
+                 color: white;
+                 font-family: var(--font7);
+                 font-size: 7pt;
+                 font-weight: bold;
+                 border-radius: 8px;
+                 padding: 2px 4px 1px 4px;
+                 margin-right: 4px;
+                 margin-bottom: 4px; }
+
+        .link:hover {
+            color: red;
+        }
+        
+
+
+
+
+
+/* -------------- THE PAGE ------------------- */
+
+        .page {
+            height: 11in;
+            width: 8.5in;
+            position: relative;
+            background: white;
+            border: 2px solid black;
+            
+        }
+
+
+
+/* ----------------- HEADER ------------------- */
+
+        .head {
+            /* background: var(--color3); */
+            padding: 0.5in 0.5in 0.2in 0.5in;
+            display: grid;
+            grid-template-rows: auto auto;
+            grid-template-columns: 55% auto;
+            gap: 6px;
+        }
+
+        .head > div {
+            /* background: var(--color1); */
+        }
+
+        .name {
+            background: var(--color2);
+            border-radius: 10px 10px 70px 10px;
+            text-align: left;
+            letter-spacing: 4pt;
+            line-height: 1.5;
+            color: white;
+            /* font-family: var(--font8); */
+            font-size: 30pt;
+            grid-row: 1/2;
+            grid-column: 1/2;
+        }
+
+        .story {
+            /* font-size: 10pt; */
+            text-align: justify;
+            grid-row: 2/3;
+            grid-column: 1/3;
+        }
+
+        .contacts {
+            /* font-size: 13pt; */
+            font-weight: bold;
+            text-align: right;
+            grid-row: 1/2;
+            grid-column: 2/3;
+        }
+
+
+
+
+/* ------------- MAIN BODY -------------------------- */
+
+        .main {
+            background: white;
+            padding: 0.2in 0.5in 0.5in 0.5in;
+            /* overflow-y: none; */
+            display: grid;
+            grid-template-columns: 90px auto;
+            gap: 4px;
+        }
+
+        .label {
+            /* background: var(--color3); */
+            font-family: var(--font4);
+            /* border-radius: 5px 5px 60px 5px; */
+        }
+
+        .ribbon {
+            background: var(--color2);
+            width: 70px;
+            border-radius: 5px 5px 25px 5px;
+            padding: 3px;
+            color: white;
+        }
+
+
+
+/* ------------------- CONTENT PROJECT --------------- */
+
+        .content-proj {
+            display: grid;
+            grid-template-columns: 100px auto;
+            gap: 2px;
+            /* white-space: pre-wrap; */
+        }
+
+        .content-proj > div {
+            background: var(--color0);
+        }
+
+        .proj-title {
+            grid-column: 1/3;
+            /* font-weight: bold; */
+        }
+
+        .proj-link { 
+            /* text-align: right;  */
+            font-style: italic;
+        }
+
+        .proj-text {
+            grid-column: 1/3;
+            text-align: justify;
+        }
+
+        .proj-blank {
+            grid-column: 1/3;
+            color: var(--color0);
+        }
+
+
+
+/* ------------------- CONTENT EDUCATION ------------ */
+
+        .content-edu { 
+            /* background: #0f02; */
+            display: grid;
+            grid-template-columns: 35% auto 12%;
+            /* gap: 5px; */
+        }
+
+        .content-edu > div {
+            background: var(--color0);
+        }
+
+        .edu-title {
+            grid-column: 1/2;
+        }
+
+        .edu-link { 
+            font-style: italic; 
+        }
+
+        .edu-course {
+            grid-column: 2/3;
+            /* font-style: italic; */
+        }
+
+        .edu-date {
+            grid-column: 3/4;
+            text-align: right;
+        }
+
+        .edu-blank {
+            grid-column: 1/4;
+            color: var(--color0);
+        }
+
+
+
+/* ------------------- CONTENT EXPERIENCE ----------- */
+
+        .content-exp {
+            display: grid;
+            grid-template-columns: 65% auto;
+            gap: 2px;
+        }
+
+        .content-exp > div {
+            background: var(--color0);
+        }
+
+        .exp-date {
+            text-align: right;
+        }
+
+        .exp-company {
+            font-style: italic;
+        }
+
+        .exp-text {
+            grid-column: 1/3;
+            text-align: justify;
+        }
+
+        .exp-blank {
+            grid-column: 1/3;
+            color: var(--color0);
+        }
+
+
+
+/* -------------- NOTE TO SELF ------------------ */
+
+
+
+
+
+/* ------------- END OF STYLE ------------------ */
+
+    </style>
+</head>
+<body>
+    
+    <div class="page">
+        <div class="head">
+
+            <div class="name title">&nbsp;Joon Chang</div>
+
+            <div class="story just">
+                Hello. I am a self-taught <b>web developer</b> with an engineering background. 
+                I've tinkered with programming in past jobs and found much joy in programming. 
+                I've discovered a great joy in programming, and I'd be happy to get the chance 
+                to put this passion to use.
+            </div>
+            
+            <div class="contacts right">
+                <div><a class="link" href="mailto:joon.s.chang@gmail.com">joon.s.chang@gmail.com</a></div>
+                <div>714 915 1932</div>
+                <div><a class="link" href="https://joooons.github.io" target="_blank">joooons.github.io</a></div>
+                <div><a class="link" href="https://github.com/joooons" target="_blank">github.com/joooons</a></div>
+            </div>
+
+        </div>
+        
+
+
+
+
+        
+        <div class="main">
+
+            <div class="label title big">
+                <div class="ribbon">Project</div>
+            </div>
+
+            <div class="content-proj">
+
+                <div class="proj-title big">
+                    <span class="title">Tetris</span>
+                    <a class="proj-link link" href="https://joooons.github.io/tetris" target="_blank"> &nbsp;&nbsp; joooons.github.io/tetris</a>
+                </div>
+                <div class="proj-text tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                </div>
+                <div class="proj-text just">
+                    The classic game reconstructed with vanilla JavaScript. 
+                    The visuals are mostly DOM elements and a little bit of SVG. 
+                    I added a few niceties, such as the shadow drop guide, rotation adjustments near walls, solidification timer reset at movement, etc.
+                </div>
+                <div class="proj-blank">_</div>
+
+                
+                <!-- <div class="proj-title big">
+                    <span class="title">SVGartiste</span>
+                    <a  class="proj-link link" href="https://joooons.github.io/svgartiste" target="_blank"> &nbsp;&nbsp; joooons.github.io/svgartiste</a>
+                </div>                
+                <div class="proj-text tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">jQuery</span>
+                </div>
+                <div class="proj-text just">
+                    A simple tool for generating a <b>SVG</b> element string for use in web projects. 
+                    I added features that I personally found useful, such as real time preview, gridlines, ability to set single values with a mouse, and manual adjustments with number wheel. 
+                    Each new SVG element you add can be click-and-dragged to new layer position.
+                </div>
+                <div class="proj-blank">_</div> -->
+                
+
+                <!-- <div class="proj-title big">
+                    <span class="title">Vocab Helper</span>
+                    <a class="proj-link link" href="https://joooons.github.io" target="_blank"> &nbsp;&nbsp; doesn't exist</a>
+                </div>
+                <div class="proj-text tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Bootstrap</span>
+                </div>
+                <div class="proj-text just">
+                    A simple web app for helping language learners keep vocabulary fresh on their minds. 
+                    It allows the student to test their knowledge of the multiple definitions of a word. 
+                    It also has a forum for sharing tips for mnemonic tachniques for each word.
+                </div>
+                <div class="proj-blank">_</div> -->
+
+
+                <div class="proj-title big">
+                    <span class="title">Scattergories!</span>
+                    <a class="proj-link link" href="https://theloaflings.web.app/" target="_blank"> &nbsp;&nbsp; https://theloaflings.web.app</a>
+                </div>
+                <div class="proj-text tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">jQuery</span>
+                    <span class="tag">firebase</span>
+                </div>
+                <div class="proj-text just">
+                    This is a firebase project.
+                    This is meant to be played multiplayer.
+                    And that!
+                </div>
+                <div class="proj-blank">_</div>
+
+
+                <div class="proj-title big">
+                    <span class="title">Imitation GO</span>
+                    <a class="proj-link link" href="https://theloafling.herokuapp.com/" target="_blank"> &nbsp;&nbsp; theloafling.herokuapp.com</a>
+                </div>
+                <div class="proj-text tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">underscore</span>
+                    <span class="tag">jQuery</span>
+                    <span class="tag">Node.js</span>
+                </div>                
+                <div class="proj-text just">
+                    The classic game with a twist. 
+                    This is a Heroku project.
+                    Using socket.io and other stuff.
+                    More than one room!
+                    More than two players can join the battle! 
+                    This app was created primarily to practice server-side programming.
+                </div>
+                <div class="proj-blank">_</div>
+                
+            </div>
+
+
+
+            <div class="label title big">
+                <div class="ribbon">Education</div>
+            </div>
+
+            <div class="content-edu">
+                
+                <div class="edu-title big">
+                    <span class="title">
+                        <a class="link" href="https://www.sololearn.com/" target="_blank">SoloLearn</a>
+                    </span>
+                    <a class="edu-link link" href="https://www.sololearn.com/" target="_blank"> &nbsp;&nbsp; www.sololearn.com</a>
+                </div>
+                <div class="edu-course">HTML Fundamentals</div>
+                    <div class="edu-date">Jun 2019</div>
+                <div class="edu-course">CSS Fundamentals</div>
+                    <div class="edu-date">Jun 2019</div>
+                <div class="edu-course">JavaScript Tutorial</div>
+                    <div class="edu-date">Jun 2019</div>
+                <div class="edu-course">SQL Fundamentals</div>
+                    <div class="edu-date">Aug 2019</div>
+                <div class="edu-course">jQuery Tutorial</div>
+                    <div class="edu-date">Sep 2019</div>
+                <div class="edu-blank">___</div>
+
+                <!-- <div class="edu-title big">
+                    <a class="title edu-link" href="https://www.theodinproject.com/" target="_blank">TheOdinProject.com</a>
+                </div>
+                <div class="edu-course">NodeJS: Introduction to Express</div>
+                    <div class="edu-date">Jun 2020</div>
+                <div class="edu-blank">___</div> -->
+
+                <!-- <div class="edu-title big">
+                    <span class="title">Udemy</span>
+                    <a class="edu-link" href="https://www.udemy.com/" target="_blank"> &nbsp;&nbsp; www.udemy.com</a>
+                </div>
+                <div class="edu-course">The Complete Node.js Developer Course (3rd Ed.)</div>
+                    <div class="edu-date">??? 2020</div>
+                <div class="edu-blank">___</div> -->
+
+                <div class="edu-title big">
+                    <span class="title">
+                        <a class="link" href="http://ucsd.edu/" target="_blank">UCSD</a>
+                    </span>
+                    <span class="edu-link"> &nbsp;&nbsp; La Jolla, CA</span>
+                </div>
+                <div class="edu-course">Bachelor of Science in Aerospace Engineering</div>
+                    <div class="edu-date">Jun 2005</div>
+                <div class="edu-blank">___</div>
+
+                
+            </div>
+
+
+
+
+
+
+            <div class="label title big">
+                <div class="ribbon">Experience</div>
+            </div>
+            <!-- <div class="label title big">Experience</div> -->
+
+            <div class="content-exp">
+
+                <div class="big">
+                    <span class="title"><b>HP Facilities Maintenance Engineer</b></span>
+                    <span class="exp-company"> &nbsp;&nbsp; S7 Sea Launch</span>                    
+                </div>
+                <div class="exp-date">Apr 2018 &ndash; May 2019</div>
+                <div class="exp-text just">Managed repair and upgrade projects for spacecraft operation support systems. Performed basic maintenance and troubleshooting of operation support equipment.</div>                
+                <div class="exp-blank">_</div>
+
+                <div class="big">
+                    <span class="title"><b>Facility Engineer</b></span>
+                    <span class="exp-company"> &nbsp;&nbsp; Energia Logistics US</span>
+                </div>
+                <div class="exp-date">Jun 2011 &ndash; Apr 2018</div>
+                <div class="exp-text just">Performed preventive maintenance, inspection, calibration, and troubleshooting of operation support facility systems. Developed and updated standard operating procedures. Provided CAD support with AutoCAD, SketchUp, and Visio. Managed operation and continuous improvement of building automation system. Created a customized work order system program using Access, <b>VBA</b>, and <b>SQL</b>.</div>                
+                <div class="exp-blank">_</div>
+
+                <div class="big">
+                    <span class="title"><b>Staff Engineer</b></span> 
+                    <span class="exp-company"> &nbsp;&nbsp; Astrotech Space Operations</span>
+                </div>
+                <div class="exp-date">Nov 2005 &ndash; Jun 2011</div>
+                <div class="exp-text just">Performed inspection, testing, and calibration on spacecraft operation support equipment. Made revisions to standard operating procedures. Wrote EXCEL/<b>VBA</b> program for automatic environment sensor data processing.</div>                
+                <div class="exp-blank">_</div>
+
+            </div>
+
+
+
+            <div class="label title big">
+                <div class="ribbon">Skills</div>
+            </div>
+            <!-- <div class="label title big">Skills</div> -->
+            
+            <div class="tags">
+                <span class="tag-2">HTML5</span>
+                <span class="tag-2">CSS3</span>
+                <span class="tag-2">JavaScript</span>
+                <span class="tag-2">jQuery</span>
+                <span class="tag-2">Bootstrap</span>
+                <span class="tag-2">Node.js</span>
+                <span class="tag-2">SQL</span>
+                <span class="tag-2">regEx</span>
+                <span class="tag-2">Firebase</span>
+                <span class="tag-2">C#</span>
+                <span class="tag-2">Python</span>
+                <span class="tag-2">C++</span>
+                <span class="tag-2">VBA</span>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+</body>
+</html>
