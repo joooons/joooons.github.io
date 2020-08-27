@@ -42,6 +42,11 @@
             /* --font8: 'Overpass', sans-serif; */
             /* --font9: 'Do Hyeon', sans-serif; */
 
+            --sizeS: 10pt;
+            --sizeM: 11pt;
+            --sizeL: 12pt;
+            --sizeXL: 32pt;
+
 
             --color0: #fff0;
             --color1: #8882;
@@ -69,13 +74,12 @@
 
         body {
             /* background: var(--color0); */
-            background: #0001;
-            /* overflow-x: hidden; */
+            /* background: #0001; */
             display: flex;
             justify-content: center;
             align-items: center;
             font-family: var(--font2);
-            font-size: 9pt;
+            font-size: var(--sizeM);
         }    
 
         a {
@@ -96,7 +100,7 @@
 /*  MM    MM      MM            MM    MM  MM      MM    MM  MM    MM  MM    MM   */
 /*  MMMMMM        MM              MMMM    MMMMMM  MM    MM    MMMM      MMMM     */
 
-        .big { font-size: 9pt; }
+        .big { font-size: var(--sizeL); }
 
         .title { font-family: var(--font4);
                  font-weight: bold; }
@@ -108,7 +112,7 @@
         .tag {  background: var(--color2);
                 color: white;
                 font-family: var(--font7);
-                font-size: 7pt;
+                font-size: var(--sizeS);
                 font-weight: bold;
                 border-radius: 8px;
                 padding: 2px 4px 1px 4px;
@@ -117,7 +121,7 @@
         .tag-2 { background: var(--color2);
                  color: white;
                  font-family: var(--font7);
-                 font-size: 7pt;
+                 font-size: var(--sizeS);
                  font-weight: bold;
                  border-radius: 8px;
                  padding: 2px 4px 1px 4px;
@@ -142,13 +146,15 @@
 /*  MM  MM        MM    MM    MMMM    MMMMMMMM   */
 
         .page {
-            height: 11in;
+            /* height: 11in; */
+            height: 10.5in;
             min-width: 8.5in;
             width: 8.5in;
             position: relative;
             background: white;
-            border: 2px solid black;
-            
+            /* background: pink; */
+            padding: 0.25in 0.75in 0.75in 0.75in;
+            /* border: 2px solid black; */
         }
 
 
@@ -164,11 +170,13 @@
 
         .head {
             /* background: var(--color3); */
-            padding: 0.5in 0.5in 0.2in 0.5in;
+            /* padding: 0.5in 0.5in 0.2in 0.5in; */
+            padding: 0in 0in 0.2in 0in;
             display: grid;
             grid-template-rows: auto auto;
             grid-template-columns: 55% auto;
             gap: 6px;
+            border-bottom: 2px solid black;
         }
 
         .head > div {
@@ -183,20 +191,18 @@
             line-height: 1.5;
             color: white;
             /* font-family: var(--font8); */
-            font-size: 30pt;
+            font-size: var(--sizeXL);
             grid-row: 1/2;
             grid-column: 1/2;
         }
 
         .story {
-            /* font-size: 10pt; */
             text-align: justify;
             grid-row: 2/3;
             grid-column: 1/3;
         }
 
         .contacts {
-            /* font-size: 13pt; */
             font-weight: bold;
             text-align: right;
             grid-row: 1/2;
@@ -219,11 +225,11 @@
 
         .main {
             background: white;
-            padding: 0.2in 0.5in 0.5in 0.5in;
-            /* overflow-y: none; */
+            /* padding: 0.2in 0.5in 0.5in 0.5in; */
+            padding: 0.2in 0in 0in 0in;
             display: grid;
             grid-template-columns: 90px auto;
-            gap: 4px;
+            gap: 20px;
         }
 
         .label {
@@ -299,7 +305,7 @@
         .content-edu { 
             /* background: #0f02; */
             display: grid;
-            grid-template-columns: 35% auto 12%;
+            grid-template-columns: 42% auto 12%;
             /* gap: 5px; */
         }
 
@@ -402,10 +408,10 @@
             <div class="name title">&nbsp;Joon Chang</div>
 
             <div class="story just">
-                Hello. I am a self-taught <b>web developer</b> with an engineering background. 
-                I've tinkered with programming in past jobs and found much joy in programming. 
-                I've discovered a great joy in programming, and I'd be happy to get the chance 
-                to put this passion to use.
+                I am a self-taught software developer 
+                with an engineering background.
+                Tinkering with programming has always been something
+                I enjoy.                
             </div>
             
             <div class="contacts right">
@@ -456,9 +462,7 @@
                     <span class="tag">JavaScript</span>
                 </div>
                 <div class="proj-text just">
-                    The classic game reconstructed with vanilla JavaScript. 
-                    The visuals are mostly DOM elements and a little bit of SVG. 
-                    I added a few niceties, such as the shadow drop guide, rotation adjustments near walls, solidification timer reset at movement, etc.
+                    Tetris made with vanilla javaScript and a lot of DOM element blocks.            
                 </div>
                 <div class="proj-blank">_</div>
 
@@ -540,12 +544,13 @@
                     <span class="tag">CSS</span>
                     <span class="tag">JavaScript</span>
                     <span class="tag">jQuery</span>
-                    <span class="tag">firebase</span>
                 </div>
                 <div class="proj-text just">
-                    This is a firebase project.
-                    This is meant to be played multiplayer.
-                    And that!
+                    A Firebase project.
+                    An online version of Scattergories that you can play
+                    with friends remotely either on your computer or your phone.
+                    Uses the Firestore document-oriented database.
+                    Try it with a friend!
                 </div>
                 <div class="proj-blank">_</div>
 
@@ -573,14 +578,12 @@
                     <span class="tag">underscore</span>
                     <span class="tag">jQuery</span>
                     <span class="tag">Node.js</span>
+                    <span class="tag">RegEx</span>
                 </div>                
                 <div class="proj-text just">
-                    The classic game with a twist. 
-                    This is a Heroku project.
-                    Using socket.io and other stuff.
-                    More than one room!
-                    More than two players can join the battle! 
-                    This app was created primarily to practice server-side programming.
+                    A Heroku project.
+                    An experimental version of Go that can be played with more 
+                    than 2 players. Try it with a friend or two!
                 </div>
                 <div class="proj-blank">_</div>
                 
@@ -686,7 +689,7 @@
                     <span class="exp-company"> &nbsp;&nbsp; Energia Logistics US</span>
                 </div>
                 <div class="exp-date">Jun 2011 &ndash; Apr 2018</div>
-                <div class="exp-text just">Performed preventive maintenance, inspection, calibration, and troubleshooting of operation support facility systems. Developed and updated standard operating procedures. Provided CAD support with AutoCAD, SketchUp, and Visio. Managed operation and continuous improvement of building automation system. Created a customized work order system program using Access, <b>VBA</b>, and <b>SQL</b>.</div>                
+                <div class="exp-text just">Performed preventive maintenance, inspection, calibration, and troubleshooting of operation support facility systems. Developed and updated standard operating procedures. Provided CAD support with AutoCAD, SketchUp, and Visio. Managed operation and continuous improvement of building automation system. Created a customized work order system program using Access, VBA, and SQL.</div>                
                 <div class="exp-blank">_</div>
 
                 <div class="big">
@@ -694,7 +697,7 @@
                     <span class="exp-company"> &nbsp;&nbsp; Astrotech Space Operations</span>
                 </div>
                 <div class="exp-date">Nov 2005 &ndash; Jun 2011</div>
-                <div class="exp-text just">Performed inspection, testing, and calibration on spacecraft operation support equipment. Made revisions to standard operating procedures. Wrote EXCEL/<b>VBA</b> program for automatic environment sensor data processing.</div>                
+                <div class="exp-text just">Performed inspection, testing, and calibration on spacecraft operation support equipment. Made revisions to standard operating procedures. Wrote EXCEL/VBA program for automatic environment sensor data processing.</div>                
                 <div class="exp-blank">_</div>
 
             </div>
@@ -716,19 +719,14 @@
             <!-- <div class="label title big">Skills</div> -->
             
             <div class="tags">
-                <span class="tag-2">HTML5</span>
-                <span class="tag-2">CSS3</span>
-                <span class="tag-2">JavaScript</span>
-                <span class="tag-2">jQuery</span>
-                <span class="tag-2">Bootstrap</span>
-                <span class="tag-2">Node.js</span>
-                <span class="tag-2">SQL</span>
-                <span class="tag-2">regEx</span>
-                <span class="tag-2">Firebase</span>
-                <span class="tag-2">C#</span>
-                <span class="tag-2">Python</span>
-                <span class="tag-2">C++</span>
-                <span class="tag-2">VBA</span>
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">jQuery</span>
+                <span class="tag">Bootstrap</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">SQL</span>
+                <span class="tag">RegEx</span>
             </div>
 
         </div>
