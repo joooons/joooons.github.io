@@ -24,17 +24,18 @@
 /*  MM        MM    MM  MM    MM    MM           MM            MM    MM  MM    MM  MM      MM    MM  MM    MM   */
 /*  MM          MMMM    MM    MM    MM          MM               MMMM      MMMM    MMMMMM    MMMM    MM    MM   */
 
-        /* @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); */
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-        /* @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap'); */
-        @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
-        /* @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap'); */
-        /* @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap'); */
-        @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-        /* @import url('https://fonts.googleapis.com/css2?family=Overpass&display=swap'); */
-        /* @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap'); */
-        @import url('https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@700&display=swap');
 
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@700&display=swap');
+            /* @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); */
+            /* @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap'); */
+            /* @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap'); */
+            /* @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap'); */
+            /* @import url('https://fonts.googleapis.com/css2?family=Overpass&display=swap'); */
+            /* @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap'); */
+        
 
         :root {
             /* --font1: 'Rubik', sans-serif; */
@@ -51,7 +52,6 @@
             --sizeM: 1em;
             --sizeL: 1em;
             --sizeXL: 3em;
-
 
             --color0: #fff0;
             --color1: #8882;
@@ -93,15 +93,6 @@
             text-decoration: none;
         }
 
-        ul {
-            margin: 0;
-            padding-left: 1em;
-            list-style-type: square;
-        }
-
-
-
-
 
 
 
@@ -112,38 +103,47 @@
 /*  MM    MM      MM            MM    MM  MM      MM    MM  MM    MM  MM    MM   */
 /*  MMMMMM        MM              MMMM    MMMMMM  MM    MM    MMMM      MMMM     */
 
-        .big { font-size: var(--sizeL); }
+        .big { 
+            font-size: var(--sizeL); 
+        }
 
-        .title { font-family: var(--font4);
-                 font-weight: bold; }
+        .title { 
+            font-family: var(--font4);
+            font-weight: bold; 
+        }
 
-        .tags { display: flex;
-                justify-content: flex-start;
-                flex-wrap: wrap; }
+        .tags { 
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap; 
+        }
 
         .tag {  
             background: var(--color2);
             color: white;
-            /* color: black; */
+            font-family: var(--font7);
+            font-size: var(--sizeS);
+            /* font-weight: bold; */
+            border-radius: 14pt;
+            padding: 2px 7px 1px 7px;
+            margin: 2px 6px 2px 0px; 
+        }
+
+        .tag-2 { 
+            background: var(--color2);
+            color: white;
             font-family: var(--font7);
             font-size: var(--sizeS);
             font-weight: bold;
-            border-radius: 14pt;
-            padding: 3px 8px 2px 8px;
-            margin: 2px 5px 2px 0px; 
+            border-radius: 8px;
+            padding: 2px 4px 1px 4px;
+            margin-right: 4px;
+            margin-bottom: 4px; 
         }
 
-        .tag-2 { background: var(--color2);
-                 color: white;
-                 font-family: var(--font7);
-                 font-size: var(--sizeS);
-                 font-weight: bold;
-                 border-radius: 8px;
-                 padding: 2px 4px 1px 4px;
-                 margin-right: 4px;
-                 margin-bottom: 4px; }
-
-        .link:hover { color: red; }
+        .link:hover { 
+            color: skyblue; 
+        }
         
 
 
@@ -197,10 +197,6 @@
             font-size: 46pt;
             letter-spacing: 0.3em;
         }
-
-        /* .story {
-            text-align: justify;
-        } */
 
         .contacts {
             grid-column: 3/4;
@@ -273,9 +269,15 @@
             background: var(--color0);
         }
 
+        .proj-flex {
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+        }
+
         .proj-title {
             grid-column: 1/3;
-            /* font-weight: bold; */
+            border-bottom: 0.5px solid var(--color2);
         }
 
         .proj-link { 
@@ -307,31 +309,56 @@
 
         .content-edu { 
             /* background: #0f02; */
-            display: grid;
-            grid-template-columns: 42% auto 12%;
-            /* gap: 5px; */
-        }
-
-        .content-edu > div {
-            background: var(--color0);
+            /* display: grid;
+            grid-template-columns: auto;
+            gap: 5px; */
         }
 
         .edu-title {
-            grid-column: 1/2;
+            /* grid-column: 1/4; */
+            border-bottom: 0.5px solid var(--color2);
         }
 
         .edu-link { 
             font-style: italic; 
         }
 
-        .edu-course {
-            grid-column: 2/3;
+        .edu-grid {
+            grid-column: 1/4;
+            display: grid;
+            grid-template-columns: auto auto 2.5em auto auto 2.5em auto auto;
+        }
+
+        .edu-grid-course {
             padding-top: 0.1em;
+            text-align: left;
+            font-size: var(--sizeS);
+        }
+
+        .edu-grid-date {
+            text-align: right;
+            font-size: var(--sizeS);
+        }
+        
+        .edu-grid-gap {
+            /* background: black; */
+            margin: 0 1em 0 1em;
+        }
+
+        .edu-flex {
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+        }
+
+
+        .edu-course {
+            padding-top: 0.1em;
+            text-align: left;
             /* font-style: italic; */
         }
 
         .edu-date {
-            grid-column: 3/4;
             text-align: right;
         }
 
@@ -355,30 +382,36 @@
 /*  MM  MMMMMMMM  MM      MM  MM        MMMMMMMM  MM    MM  MMMMMM  MMMMMMMM  MM    MM    MMMM    MMMMMMMM   */
 
         .content-exp {
-            display: grid;
+            /* display: grid;
             grid-template-columns: 65% auto;
-            gap: 2px;
+            gap: 2px; */
         }
 
         .content-exp > div {
-            background: var(--color0);
+            /* background: var(--color0); */
         }
 
-        .exp-date {
-            text-align: right;
+        .exp-flex {
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+            border-bottom: 0.5px solid var(--color2);
         }
 
         .exp-company {
             font-style: italic;
         }
 
+        .exp-date {
+            text-align: right;
+        }        
+
         .exp-text {
-            grid-column: 1/3;
             text-align: justify;
+            /* text-align: left; */
         }
 
         .exp-blank {
-            grid-column: 1/3;
             color: var(--color0);
         }
 
@@ -512,23 +545,32 @@
                 <!--    MM    MMMMMMMM    MM    MM    MM  MMMMMM    MMMM     -->
 
                 <div class="proj-title">
-                    <span class="title big">Tetris</span>
-                    <a class="proj-link link" href="https://joooons.github.io/tetris" target="_blank"> &nbsp;&nbsp; joooons.github.io/tetris</a>
-                    <b>&nbsp;|&nbsp;</b>
-                    <a class="proj-link link" href="https://github.com/joooons/joooons.github.io" target="_blank">github.com/joooons/joooons.github.io</a>
+                    <div class="proj-flex">
+                        <span class="title big">Tetris</span>
+
+                        <div>
+                            <a class="proj-link link" href="https://joooons.github.io/tetris" target="_blank"> &nbsp;&nbsp; joooons.github.io/tetris</a>
+                            <!-- <b>&nbsp;|&nbsp;</b> -->
+                            &nbsp;&nbsp;&nbsp;
+                            <a class="proj-link link" href="https://github.com/joooons/joooons.github.io" target="_blank">github.com/joooons/joooons.github.io</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="proj-text just">
+                    My first project after "Hello World", written in vanilla JavaScript.
+                    A mixture of DOM element manipulation, CSS animation, and SVG. 
+                    Some features include a guiding shadow for the descent of the tetris 
+                    piece, incremental speed increase, and a countdown 
+                    after making contact with a horizontal surface.
                 </div>
                 <div class="proj-text tags">
                     <span class="tag">HTML</span>
                     <span class="tag">CSS</span>
                     <span class="tag">JavaScript</span>
                 </div>
-                <div class="proj-text just">
-                    My first project after "Hello World", written in vanilla JavaScript.
-                    This app uses class constructors, objects, arrays, event handlers,
-                    and DOM element manipulation to manage the Tetris piece behavior on 
-                    the board. 
-                    Also includes some SVG and CSS animation.
-                </div>
+
                 <div class="proj-blank">_</div>
 
 
@@ -599,23 +641,28 @@
                 <!--    MMMM      MMMM    MM    MM    MM      MM    MMMMMMMM  MM    MM    MMMM      MMMM    MM    MM  MMMMMM  MMMMMMMM    MMMM     -->
 
                 <div class="proj-title">
-                    <span class="title big">Scattergories!</span>
-                    <a class="proj-link link" href="https://theloaflings.web.app/" target="_blank"> &nbsp;&nbsp; theloaflings.web.app</a>
-                    <b>&nbsp;|&nbsp;</b>
-                    <a class="proj-link link" href="https://github.com/joooons/scatter" target="_blank">github.com/joooons/scatter</a>
+                    <div class="proj-flex">
+                        <span class="title big">Scattergories!</span>
+                        <div>
+                            <a class="proj-link link" href="https://theloaflings.web.app/" target="_blank"> &nbsp;&nbsp; theloaflings.web.app</a>
+                            <!-- <b>&nbsp;|&nbsp;</b> -->
+                            &nbsp;&nbsp;&nbsp;
+                            <a class="proj-link link" href="https://github.com/joooons/scatter" target="_blank">github.com/joooons/scatter</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="proj-text just">
+                    An online version of Scattergories made with the Firebase platform
+                    and the Firestore document-oriented database.
+                    I made this as an alternative to playing Scattergories on the 
+                    Zoom shared screen. Try it with a friend, either on the computer 
+                    or on the phone!
                 </div>
                 <div class="proj-text tags">
                     <span class="tag">HTML</span>
                     <span class="tag">CSS</span>
                     <span class="tag">JavaScript</span>
                     <span class="tag">jQuery</span>
-                </div>
-                <div class="proj-text just">
-                    An online version of Scattergories made using the Firebase platform
-                    and the Firestore document-oriented database.
-                    I made this as an alternative to playing Scattergories on the 
-                    Zoom shared screen. Can be played on the computer or the phone.
-                    Try it with a friend!
                 </div>
                 <div class="proj-blank">_</div>
 
@@ -631,10 +678,23 @@
                 <!--  MMMMMM  MM      MM  MMMMMM    MM    MM    MM    MM    MMMMMM    MMMM    MM    MM          MMMM      MMMM     -->
 
                 <div class="proj-title">
-                    <span class="title big">Imitation Go</span>
-                    <a class="proj-link link" href="https://theloafling.herokuapp.com/" target="_blank"> &nbsp;&nbsp; theloafling.herokuapp.com</a>
-                    <b>&nbsp;|&nbsp;</b>
-                    <a class="proj-link link" href="https://github.com/joooons/loafling" target="_blank">github.com/joooons/loafling</a>
+                    <div class="proj-flex">
+                        <span class="title big">Imitation Go</span>
+                        <div>
+                            <a class="proj-link link" href="https://theloafling.herokuapp.com/" target="_blank"> &nbsp;&nbsp; theloafling.herokuapp.com</a>
+                            <!-- <b>&nbsp;|&nbsp;</b> -->
+                            &nbsp;&nbsp;&nbsp;
+                            <a class="proj-link link" href="https://github.com/joooons/loafling" target="_blank">github.com/joooons/loafling</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="proj-text just">
+                    An experimental version of Go that can be played with more than two
+                    players.
+                    Made with Node.js and socket.io on the Heroku platform.
+                    You can either create or join a room and play Go with up to 5
+                    other players. 
+                    Try it with some of your friends!
                 </div>
                 <div class="proj-text tags">
                     <span class="tag">HTML</span>
@@ -645,15 +705,6 @@
                     <span class="tag">Node.js</span>
                     <span class="tag">RegEx</span>
                 </div>                
-                <div class="proj-text just">
-                    An experimental version of Go that can be played with more than 2
-                    players.
-                    This project was made using Node.js and socket.io on the 
-                    Heroku platform.
-                    Each player can create or join a room and play Go with up to 5
-                    other players.
-                    Try it with a friend or two!
-                </div>
                 <div class="proj-blank">_</div>
                 
             </div>
@@ -679,20 +730,32 @@
                 
                 <div class="edu-title">
                     <span class="title big">
-                        <a class="link" href="https://www.sololearn.com/" target="_blank">SoloLearn</a>
+                        <a class="link" href="https://www.sololearn.com/" target="_blank">
+                            SoloLearn
+                        </a>
                     </span>
-                    <a class="edu-link link" href="https://www.sololearn.com/" target="_blank"> &nbsp;&nbsp; www.sololearn.com</a>
+                    <a class="edu-link link" href="https://www.sololearn.com/" target="_blank">
+                        &nbsp;&nbsp; www.sololearn.com
+                    </a>
                 </div>
-                <div class="edu-course">HTML Fundamentals</div>
-                    <div class="edu-date">Jun 2019</div>
-                <div class="edu-course">CSS Fundamentals</div>
-                    <div class="edu-date">Jun 2019</div>
-                <div class="edu-course">JavaScript Tutorial</div>
-                    <div class="edu-date">Jun 2019</div>
-                <div class="edu-course">SQL Fundamentals</div>
-                    <div class="edu-date">Aug 2019</div>
-                <div class="edu-course">jQuery Tutorial</div>
-                    <div class="edu-date">Sep 2019</div>
+                <div class="edu-grid">
+                    <div class="edu-grid-course">HTML Fundamentals</div>
+                    <div class="edu-grid-date">Jun 2019</div>
+                    <div class="edu-grid-gap"></div>
+                    <div class="edu-grid-course">CSS Fundamentals</div>
+                    <div class="edu-grid-date">Jun 2019</div>
+                    <div class="edu-grid-gap"></div>
+                    <div class="edu-grid-course">JavaScript Tutorial</div>
+                    <div class="edu-grid-date">Jun 2019</div>
+                    
+                    <div class="edu-grid-course">SQL Fundamentals</div>
+                    <div class="edu-grid-date">Aug 2019</div>
+                    <div class="edu-grid-gap"></div>
+                    <div class="edu-grid-course">jQuery Tutorial</div>
+                    <div class="edu-grid-date">Sep 2019</div>
+                    <div class="edu-grid-gap"></div>
+                    
+                </div>
                 <div class="edu-blank">___</div>
 
                 <!-- <div class="edu-title big">
@@ -712,12 +775,20 @@
 
                 <div class="edu-title">
                     <span class="title big">
-                        <a class="link" href="http://ucsd.edu/" target="_blank">UCSD</a>
+                        <a class="link" href="http://ucsd.edu/" target="_blank">
+                            UCSD
+                        </a>
                     </span>
-                    <span class="edu-link"> &nbsp;&nbsp; La Jolla, CA</span>
+                    <span class="edu-link">
+                        &nbsp;&nbsp; La Jolla, CA
+                    </span>
                 </div>
-                <div class="edu-course">Bachelor of Science in Aerospace Engineering</div>
+
+                <div class="edu-flex">
+                    <div class="edu-course">Bachelor of Science in Aerospace Engineering</div>
                     <div class="edu-date">Jun 2005</div>
+                </div>
+                
                 <div class="edu-blank">___</div>
 
             </div>
@@ -744,69 +815,55 @@
 
             <div class="content-exp">
 
-                <div class="">
+                <div class="exp-flex">
                     <span class="title big"><b>HP Facilities Maintenance Engineer</b></span>
-                    <span class="exp-company"> &nbsp;&nbsp; S7 Sea Launch</span>                    
+                    <div>
+                        <span class="exp-company">S7 Sea Launch</span>                    
+                        <span class="exp-date">&nbsp;&nbsp;&nbsp;Apr 2018 &ndash; May 2019</span>
+                    </div>
+                    
                 </div>
-                <div class="exp-date">Apr 2018 &ndash; May 2019</div>
                 <div class="exp-text just">
-                    <ul>
-                        <li>
-                            Managed upgrade/repair projects for spacecraft operation 
-                            support systems. 
-                        </li>
-                        <li>
-                            Performed basic maintenance/troubleshooting 
-                            of operation support equipment.
-                        </li>
-                    </ul>
-                    
-                    
-                    
+                    Managed upgrade/repair projects for maintaining spacecraft processing facility.
+                    Performed basic maintenance/troubleshooting on operation support equipment.
                 </div>                
                 <div class="exp-blank">_</div>
 
-                <div class="">
+                <div class="exp-flex">
                     <span class="title big"><b>Facility Engineer</b></span>
-                    <span class="exp-company"> &nbsp;&nbsp; Energia Logistics US</span>
+                    <div>
+                        <span class="exp-company">Energia Logistics US</span>
+                        <span class="exp-date">&nbsp;&nbsp;&nbsp;Jun 2011 &ndash; Apr 2018</span>
+                    </div>
                 </div>
-                <div class="exp-date">Jun 2011 &ndash; Apr 2018</div>
                 <div class="exp-text just">
-                    <ul>
-                        <li>
-                            Created a customized work order system program using Access, VBA, and SQL.
-                        </li>
-                        <li>
-                            Provided CAD support with AutoCAD, SketchUp, and Visio. 
-                        </li>
-                        <li>
-                            Responsible for managing/troubleshooting/customizing 
-                            site-wide building automation system. 
-                        </li>
-                        <li>
-                            Generated/revised standard operating procedures for testing
-                            and inspecting operation support facility systems.                           .
-                        </li>
-                    </ul>
+                    Responsible for operating/troubleshooting/customizing 
+                    site-wide building automation system. Generated/revised 
+                    standard operating procedures for testing
+                    and inspecting operation support facility systems. 
+                    Provided CAD support with AutoCAD, SketchUp, and Visio. 
+                    Created a customized work order system program using Access, VBA, 
+                    and SQL.
+                    
+                    
+                    
                 </div>                
                 <div class="exp-blank">_</div>
 
-                <div class="">
+                <div class="exp-flex">
                     <span class="title big"><b>Staff Engineer</b></span> 
-                    <span class="exp-company"> &nbsp;&nbsp; Astrotech Space Operations</span>
+                    <div>
+                        <span class="exp-company">Astrotech Space Operations</span>
+                        <span class="exp-date">&nbsp;&nbsp;&nbsp;Nov 2005 &ndash; Jun 2011</span>
+                    </div>
                 </div>
-                <div class="exp-date">Nov 2005 &ndash; Jun 2011</div>
+                
                 <div class="exp-text just">
-                    <ul>
-                        <li>
-                            Wrote time-saving macros using EXCEL/VBA for automating
-                            Payload Processing Faciliity environment reports.
-                        </li>
-                        <li>
-                            Performed inspection/testing/calibration of spacecraft 
-                            operation support equipment and infrastructure.
-                        </li>
-                    </ul>
+                    Performed inspection/testing/calibration of spacecraft 
+                    operation support equipment and infrastructure.
+                    Wrote time-saving EXCEL/VBA macros to automate environmental
+                    data reports for the Payload Processing Faciliity.
+                    
                 </div>
                 <div class="exp-blank">_</div>
 
