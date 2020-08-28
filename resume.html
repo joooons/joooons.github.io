@@ -13,6 +13,10 @@
 
 
 
+
+
+
+
 /*  MMMMMMMM    MMMM    MM    MM  MMMMMM             MM          MMMM      MMMM    MM        MMMM    MMMMMM     */
 /*  MM        MM    MM  MMMM  MM    MM              MM         MM    MM  MM    MM  MM      MM    MM  MM    MM   */
 /*  MMMMMMMM  MM    MM  MM  MMMM    MM             MM          MM        MM    MM  MM      MM    MM  MMMMMM     */
@@ -29,6 +33,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
         /* @import url('https://fonts.googleapis.com/css2?family=Overpass&display=swap'); */
         /* @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap'); */
+        @import url('https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@700&display=swap');
 
 
         :root {
@@ -39,11 +44,10 @@
             /* --font5: 'Josefin Sans', sans-serif; */
             /* --font6: 'Cabin', sans-serif; */
             --font7: 'Varela Round', sans-serif;
-            /* --font8: 'Overpass', sans-serif; */
+            --font8: 'Overpass Mono', monospace;
             /* --font9: 'Do Hyeon', sans-serif; */
 
-            --sizeS: 0.9em;
-            /* --sizeM: 11pt; */
+            --sizeS: 0.8em;
             --sizeM: 1em;
             --sizeL: 1em;
             --sizeXL: 3em;
@@ -51,14 +55,16 @@
 
             --color0: #fff0;
             --color1: #8882;
-            /* --color2: rgb(0, 160, 255); */
-            --color2: rgb(0, 200, 100);
-
+            --color2: rgb(0, 160, 255);
+            /* --color2: rgb(0, 200, 100); */
             /* --color3: lightskyblue; */
             /* --color4: lightgray; */
             --color5: rgb(0,240,180);
 
         }
+
+
+
 
 
 
@@ -74,7 +80,6 @@
 /*  MMMMMM        MM              MM    MM    MM    MMMM     */
 
         body {
-            /* background: var(--color0); */
             background: #0001;
             display: flex;
             justify-content: center;
@@ -91,7 +96,7 @@
         ul {
             margin: 0;
             padding-left: 1em;
-            list-style-type:square;
+            list-style-type: square;
         }
 
 
@@ -122,7 +127,7 @@
                 font-size: var(--sizeS);
                 font-weight: bold;
                 border-radius: 14pt;
-                padding: 3px 7px 2px 7px;
+                padding: 3px 8px 2px 8px;
                 margin: 2px 5px 2px 0px; }
 
         .tag-2 { background: var(--color2);
@@ -135,9 +140,7 @@
                  margin-right: 4px;
                  margin-bottom: 4px; }
 
-        .link:hover {
-            color: red;
-        }
+        .link:hover { color: red; }
         
 
 
@@ -153,15 +156,12 @@
 /*  MM  MM        MM    MM    MMMM    MMMMMMMM   */
 
         .page {
-            /* height: 11in; */
-            height: 10.5in;
+            height: 11in;
             min-width: 8.5in;
             width: 8.5in;
             position: relative;
             background: white;
-            /* background: pink; */
-            padding: 0.25in 0.75in 0.75in 0.75in;
-            border: 2px solid black;
+            /* border: 2px solid black; */
         }
 
 
@@ -176,45 +176,61 @@
 /*  MM  MM    MM  MMMMMMMM  MM    MM  MMMMMM     */
 
         .head {
-            /* background: var(--color3); */
-            /* padding: 0.5in 0.5in 0.2in 0.5in; */
-            padding: 0in 0in 0.2in 0in;
             display: grid;
-            grid-template-rows: auto auto;
-            grid-template-columns: 55% auto;
-            gap: 6px;
-            border-bottom: 2px solid black;
-        }
+            grid-template-columns: 0.75in 2in auto;
+            gap: 1em;
+            text-align: center;
+            padding: 0.5in 0.5in 0.2in 0.5in;
+            
+            /* background: pink; */
 
-        .head > div {
-            /* background: var(--color1); */
+            border-width: 0px 0px 5px 0px;
+            border-style: solid;
+            border-color: var(--color2);
         }
 
         .name {
-            background: var(--color2);
-            border-radius: 10px 10px 70px 10px;
+            /* font-size: var(--sizeXL); */
+            font-size: 35pt;
+
+            font-family: var(--font8);
+            
+            letter-spacing: 0.3em;
+            margin-top: 5px;
+            line-height: 0.8em;
+
+            /* background: pink; */
+
             text-align: left;
-            letter-spacing: 4pt;
-            line-height: 1.5;
-            color: white;
-            /* font-family: var(--font8); */
-            font-size: var(--sizeXL);
-            grid-row: 1/2;
-            grid-column: 1/2;
+            padding: 0;
         }
 
         .story {
             text-align: justify;
-            grid-row: 2/3;
-            grid-column: 1/3;
+            background: pink;
         }
 
         .contacts {
-            font-weight: bold;
+            display: flex;
+            flex-flow: column;
+            justify-content: space-between;
+            /* background: var(--color2); */
+            /* background: pink; */
             text-align: right;
-            grid-row: 1/2;
-            grid-column: 2/3;
+            /* background: white; */
+            /* font-size: 1px; */
+            /* padding: 0.5em 0.5in 0.5em 0.5in; */
         }
+
+        .contact {
+            font-weight: bold;
+            /* color: black; */
+        }
+
+        a .contact {
+            color: black;
+        }
+
 
 
 
@@ -232,27 +248,21 @@
 
         .main {
             background: white;
-            /* padding: 0.2in 0.5in 0.5in 0.5in; */
-            padding: 0.2in 0in 0in 0in;
+            padding: 0.2in 0.5in 0.5in 0.5in;
             display: grid;
-            grid-template-columns: 90px auto;
-            gap: 20px;
+            grid-template-columns: 0.75in auto;
+            gap: 1em;
         }
 
         .label {
-            /* background: var(--color3); */
             font-family: var(--font4);
-            /* border-radius: 5px 5px 60px 5px; */
+            /* background: pink; */
+            /* border-style: solid;
+            border-width: 0px 5px 8px 0px;
+            border-color: #fff var(--color2) #fff #fff; */
         }
 
-        .ribbon {
-            /* background: var(--color2); */
-            width: 70px;
-            /* border-radius: 5px 5px 25px 5px; */
-            /* padding: 3px; */
-            /* color: white; */
-            color: black;
-        }
+
 
 
 
@@ -388,7 +398,45 @@
 
 
 
-/* -------------- NOTE TO SELF ------------------ */
+
+
+
+
+
+
+
+
+/*  MM      MM  MMMMMMMM  MMMMMM    MMMMMM    MMMM          MMMMMM    MMMMMM    MMMMMM  MM    MM  MMMMMM   */
+/*  MMMM  MMMM  MM        MM    MM    MM    MM    MM        MM    MM  MM    MM    MM    MMMM  MM    MM     */
+/*  MM  MM  MM  MMMMMMMM  MM    MM    MM    MMMMMMMM        MM    MM  MMMMMM      MM    MM  MMMM    MM     */
+/*  MM      MM  MM        MM    MM    MM    MM    MM        MMMMMM    MM    MM    MM    MM    MM    MM     */
+/*  MM      MM  MM        MM    MM    MM    MM    MM        MM        MM    MM    MM    MM    MM    MM     */
+/*  MM      MM  MMMMMMMM  MMMMMM    MMMMMM  MM    MM        MM        MM    MM  MMMMMM  MM    MM    MM     */
+
+
+@media print {
+    body { background: transparent; }
+
+    .page {
+        border: none;
+        padding: 0.25in 0.75in 0.25in 0.75in;
+    }
+
+    .head { padding: 0in 0in 0.2in 0in; }
+
+    .main { padding: 0.2in 0in 0in 0in; }
+
+}
+
+
+/* body is white */
+/* no border */
+/* margin shorter */
+
+
+
+
+
 
 
 
@@ -412,24 +460,56 @@
         <!--  MM    MM  MMMMMMMM  MM    MM  MMMMMM     -->
 
         <div class="head">
-
-            <div class="name title">&nbsp;Joon Chang</div>
-
-            <div class="story just">
-                I am a self-taught software developer with an engineering background.
-                I recently developed an addiction to programming and I'm looking for 
-                a career to get this out of my system.
-            </div>
             
-            <div class="contacts right">
-                <div><a class="link" href="mailto:joon.s.chang@gmail.com">joon.s.chang@gmail.com</a></div>
-                <div>714 915 1932</div>
-                <div><a class="link" href="https://joooons.github.io" target="_blank">joooons.github.io</a></div>
-                <div><a class="link" href="https://github.com/joooons" target="_blank">github.com/joooons</a></div>
+            <img src="resume/qr.png" width="72px" alt="">
+            <!-- <br> -->
+
+            <div class="name title">
+                JOON CHANG
             </div>
+                
+            <!-- <div class="story just">
+                I am a self-taught software developer with an engineering background
+                and a long-standing penchant for coding.
+            </div> -->
+
+            <div class="contacts">
+                <div class="contact">
+                    <a class="link contact" href="mailto:joon.s.chang@gmail.com">
+                        joon.s.chang@gmail.com
+                    </a>
+                </div>
+                <!-- <b class="contact">&nbsp;|&nbsp;</b> -->
+                <div class="contact">
+                    714 915 1932
+                </div>
+                <!-- <b class="contact">&nbsp;|&nbsp;</b> -->
+                <div class="contact">
+                    <a class="link contact" href="https://joooons.github.io" target="_blank">
+                        joooons.github.io
+                    </a>
+                </div>
+                <!-- <b class="contact">&nbsp;|&nbsp;</b> -->
+                    <a class="link contact" href="https://github.com/joooons" target="_blank">
+                        github.com/joooons
+                    </a>
+            </div>
+        
+
+
+
+
 
         </div>
         
+
+
+
+
+        
+
+
+
 
 
 
@@ -443,7 +523,7 @@
         <div class="main">
 
             <div class="label title big">
-                <div class="ribbon">Project</div>
+                Project
             </div>
 
             <div class="content-proj">
@@ -469,11 +549,11 @@
                     <span class="tag">JavaScript</span>
                 </div>
                 <div class="proj-text just">
-                    Tetris made with vanilla javaScript.
-                    This is the first project I made after "Hello World".
-                    I tinkered with a little bit of SVG and CSS animation, but most
-                    of the game is made with decorated &lt;div&gt; blocks.
-
+                    My first project after "Hello World", written in vanilla JavaScript.
+                    This app uses class constructors, objects, arrays, event handlers,
+                    and DOM element manipulation to manage the Tetris piece behavior on 
+                    the board. 
+                    Also includes some SVG and CSS animation.
                 </div>
                 <div class="proj-blank">_</div>
 
@@ -557,11 +637,11 @@
                     <span class="tag">jQuery</span>
                 </div>
                 <div class="proj-text just">
-                    An online version of Scattergories made on the Firebase platform
-                    using the Firestore document-oriented database.
+                    An online version of Scattergories made using the Firebase platform
+                    and the Firestore document-oriented database.
                     I made this as an alternative to playing Scattergories on the 
-                    Zoom shared screen. You can play this on the computer or the phone.
-                    Try it with a friend
+                    Zoom shared screen. Can be played on the computer or the phone.
+                    Try it with a friend!
                 </div>
                 <div class="proj-blank">_</div>
 
@@ -592,12 +672,12 @@
                     <span class="tag">RegEx</span>
                 </div>                
                 <div class="proj-text just">
-                    An personal curiosity experiment to answer the 
-                    question, "would the game of Go work for 3 or more
-                    players?" 
-                    A Heroku project using Node.js and socket.io. 
-                    Allows players to create a room and play with a limited number of
-                    players. 
+                    An experimental version of Go that can be played with more than 2
+                    players.
+                    This project was made using Node.js and socket.io on the 
+                    Heroku platform.
+                    Each player can create or join a room and play Go with up to 5
+                    other players.
                     Try it with a friend or two!
                 </div>
                 <div class="proj-blank">_</div>
@@ -618,7 +698,7 @@
             <!--  MMMMMMMM  MMMMMM      MMMM      MMMM    MM    MM    MM    MMMMMM    MMMM    MM    MM   -->
 
             <div class="label title big">
-                <div class="ribbon">Education</div>
+                Education
             </div>
 
             <div class="content-edu">
@@ -685,9 +765,8 @@
             <!--  MMMMMMMM  MM      MM  MM        MMMMMMMM  MM    MM  MMMMMM  MMMMMMMM  MM    MM    MMMM    MMMMMMMM   -->
 
             <div class="label title big">
-                <div class="ribbon">Experience</div>
+                Experience
             </div>
-            <!-- <div class="label title big">Experience</div> -->
 
             <div class="content-exp">
 
@@ -724,19 +803,15 @@
                             Created a customized work order system program using Access, VBA, and SQL.
                         </li>
                         <li>
-                            Responsible for managing/troubleshooting/customizing 
-                            building automation system. 
-                        </li>
-                        <li>
                             Provided CAD support with AutoCAD, SketchUp, and Visio. 
                         </li>
-
                         <li>
-                            Performed preventive maintenance, inspection, calibration, 
-                            and troubleshooting of operation support facility systems. 
+                            Responsible for managing/troubleshooting/customizing 
+                            site-wide building automation system. 
                         </li>
                         <li>
-                            Generated standard operating procedures for new processes.
+                            Generated/revised standard operating procedures for testing
+                            and inspecting operation support facility systems.                           .
                         </li>
                     </ul>
                 </div>                
@@ -750,22 +825,13 @@
                 <div class="exp-text just">
                     <ul>
                         <li>
-                            Wrote time-saving EXCEL/VBA macros for automating
+                            Wrote time-saving macros using EXCEL/VBA for automating
                             Payload Processing Faciliity environment reports.
-                        </li>
-                        <li>
-                            Contributed to in calculating quantity distance for the VAFB branch
-                            of Astrotech.
                         </li>
                         <li>
                             Performed inspection/testing/calibration of spacecraft 
                             operation support equipment and infrastructure.
                         </li>
-                        <li>
-                            Made revisions to standard operating procedures. 
-                        </li>
-                        
-                        
                     </ul>
                 </div>
                 <div class="exp-blank">_</div>
@@ -784,9 +850,8 @@
             <!--    MMMM    MM    MM  MMMMMM  MMMMMM  MMMMMM    MMMM     -->
 
             <div class="label title big">
-                <div class="ribbon">Skills</div>
+                Skills
             </div>
-            <!-- <div class="label title big">Skills</div> -->
             
             <div class="tags">
                 <span class="tag">HTML5</span>
