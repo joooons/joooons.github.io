@@ -161,7 +161,6 @@
             width: 8.5in;
             position: relative;
             background: white;
-            /* border: 2px solid black; */
         }
 
 
@@ -177,54 +176,42 @@
 
         .head {
             display: grid;
-            grid-template-columns: 0.75in 2in auto;
+            grid-template-columns: 0.75in 2.7in auto;
             gap: 1em;
             text-align: center;
             padding: 0.5in 0.5in 0.2in 0.5in;
-            
-            /* background: pink; */
-
-            border-width: 0px 0px 5px 0px;
+            border-width: 0px 0px 2px 0px;
             border-style: solid;
             border-color: var(--color2);
         }
 
-        .name {
-            /* font-size: var(--sizeXL); */
-            font-size: 35pt;
-
-            font-family: var(--font8);
-            
-            letter-spacing: 0.3em;
-            margin-top: 5px;
-            line-height: 0.8em;
-
+        .svgframe {
             /* background: pink; */
-
-            text-align: left;
-            padding: 0;
         }
 
-        .story {
+        .svgname {
+            font-family: var(--font8);
+            font-size: 46pt;
+            letter-spacing: 0.3em;
+        }
+
+        /* .story {
             text-align: justify;
-            background: pink;
-        }
+        } */
 
         .contacts {
+            grid-column: 3/4;
             display: flex;
             flex-flow: column;
             justify-content: space-between;
-            /* background: var(--color2); */
             /* background: pink; */
             text-align: right;
-            /* background: white; */
-            /* font-size: 1px; */
-            /* padding: 0.5em 0.5in 0.5em 0.5in; */
+            /* padding-right: 0.5in; */
+
         }
 
         .contact {
             font-weight: bold;
-            /* color: black; */
         }
 
         a .contact {
@@ -256,10 +243,6 @@
 
         .label {
             font-family: var(--font4);
-            /* background: pink; */
-            /* border-style: solid;
-            border-width: 0px 5px 8px 0px;
-            border-color: #fff var(--color2) #fff #fff; */
         }
 
 
@@ -461,45 +444,33 @@
 
         <div class="head">
             
-            <img src="resume/qr.png" width="72px" alt="">
-            <!-- <br> -->
+            <!-- <img src="resume/qr.png" width="72px" alt=""> -->
+            <div class="thick"></div>
 
-            <div class="name title">
-                JOON CHANG
-            </div>
-                
-            <!-- <div class="story just">
-                I am a self-taught software developer with an engineering background
-                and a long-standing penchant for coding.
-            </div> -->
+            <svg height="93px" width="400" class="svgframe">
+                <text x="-2" y="45" fill="black" class="svgname">
+                    JOON
+                </text>
+                <text x="-2" y="92" fill="black" class="svgname">
+                    CHANG
+                </text>
+            </svg>
 
-            <div class="contacts">
-                <div class="contact">
-                    <a class="link contact" href="mailto:joon.s.chang@gmail.com">
-                        joon.s.chang@gmail.com
-                    </a>
-                </div>
-                <!-- <b class="contact">&nbsp;|&nbsp;</b> -->
+            <div class="contacts thick">
+                <a class="link contact" href="mailto:joon.s.chang@gmail.com">
+                    joon.s.chang@gmail.com
+                </a>
+                <a class="link contact" href="https://github.com/joooons" target="_blank">
+                    github.com/joooons
+                </a>
+                <a class="link contact" href="https://joooons.github.io" target="_blank">
+                    joooons.github.io
+                </a>
                 <div class="contact">
                     714 915 1932
-                </div>
-                <!-- <b class="contact">&nbsp;|&nbsp;</b> -->
-                <div class="contact">
-                    <a class="link contact" href="https://joooons.github.io" target="_blank">
-                        joooons.github.io
-                    </a>
-                </div>
-                <!-- <b class="contact">&nbsp;|&nbsp;</b> -->
-                    <a class="link contact" href="https://github.com/joooons" target="_blank">
-                        github.com/joooons
-                    </a>
+                </div>        
             </div>
         
-
-
-
-
-
         </div>
         
 
@@ -854,8 +825,8 @@
             </div>
             
             <div class="tags">
-                <span class="tag">HTML5</span>
-                <span class="tag">CSS3</span>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
                 <span class="tag">JavaScript</span>
                 <span class="tag">jQuery</span>
                 <span class="tag">Bootstrap</span>
