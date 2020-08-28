@@ -136,11 +136,8 @@ body {
 
 .info {
     padding: 10px;
-    /* background-color: #5DF; */
-    /* background-image: linear-gradient(to top, #3CA 0%, #5AF 100%); */
-    /* text-align: left; */
-    /* line-height: 0.2; */
     display: normal;
+    /* border: 1px solid; */
 }
 
 .alpha {
@@ -157,6 +154,11 @@ body {
 
 .explain {
     font-size: 12pt;
+}
+
+.explain.big {
+    font-size: 25pt;
+    font-weight: bold;
 }
 
 .info line {
