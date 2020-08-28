@@ -42,10 +42,11 @@
             /* --font8: 'Overpass', sans-serif; */
             /* --font9: 'Do Hyeon', sans-serif; */
 
-            --sizeS: 10pt;
-            --sizeM: 11pt;
-            --sizeL: 12pt;
-            --sizeXL: 32pt;
+            --sizeS: 0.9em;
+            /* --sizeM: 11pt; */
+            --sizeM: 1em;
+            --sizeL: 1em;
+            --sizeXL: 3em;
 
 
             --color0: #fff0;
@@ -74,7 +75,7 @@
 
         body {
             /* background: var(--color0); */
-            /* background: #0001; */
+            background: #0001;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -85,6 +86,12 @@
         a {
             color: black;
             text-decoration: none;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 1em;
+            list-style-type:square;
         }
 
 
@@ -114,9 +121,9 @@
                 font-family: var(--font7);
                 font-size: var(--sizeS);
                 font-weight: bold;
-                border-radius: 8px;
-                padding: 2px 4px 1px 4px;
-                margin-right: 4px; }
+                border-radius: 14pt;
+                padding: 3px 7px 2px 7px;
+                margin: 2px 5px 2px 0px; }
 
         .tag-2 { background: var(--color2);
                  color: white;
@@ -154,7 +161,7 @@
             background: white;
             /* background: pink; */
             padding: 0.25in 0.75in 0.75in 0.75in;
-            /* border: 2px solid black; */
+            border: 2px solid black;
         }
 
 
@@ -323,6 +330,7 @@
 
         .edu-course {
             grid-column: 2/3;
+            padding-top: 0.1em;
             /* font-style: italic; */
         }
 
@@ -408,10 +416,9 @@
             <div class="name title">&nbsp;Joon Chang</div>
 
             <div class="story just">
-                I am a self-taught software developer 
-                with an engineering background.
-                Tinkering with programming has always been something
-                I enjoy.                
+                I am a self-taught software developer with an engineering background.
+                I recently developed an addiction to programming and I'm looking for 
+                a career to get this out of my system.
             </div>
             
             <div class="contacts right">
@@ -450,8 +457,8 @@
                 <!--    MM    MM          MM    MM    MM    MM    MM    MM   -->
                 <!--    MM    MMMMMMMM    MM    MM    MM  MMMMMM    MMMM     -->
 
-                <div class="proj-title big">
-                    <span class="title">Tetris</span>
+                <div class="proj-title">
+                    <span class="title big">Tetris</span>
                     <a class="proj-link link" href="https://joooons.github.io/tetris" target="_blank"> &nbsp;&nbsp; joooons.github.io/tetris</a>
                     <b>&nbsp;|&nbsp;</b>
                     <a class="proj-link link" href="https://github.com/joooons/joooons.github.io" target="_blank">github.com/joooons/joooons.github.io</a>
@@ -462,7 +469,11 @@
                     <span class="tag">JavaScript</span>
                 </div>
                 <div class="proj-text just">
-                    Tetris made with vanilla javaScript and a lot of DOM element blocks.            
+                    Tetris made with vanilla javaScript.
+                    This is the first project I made after "Hello World".
+                    I tinkered with a little bit of SVG and CSS animation, but most
+                    of the game is made with decorated &lt;div&gt; blocks.
+
                 </div>
                 <div class="proj-blank">_</div>
 
@@ -477,8 +488,8 @@
                 <!--  MM    MM    MM  MM    MM    MM  MM    MM  MM    MM    MM      MM    MM    MM    MM    MM         -->
                 <!--    MMMM        MM        MMMM    MM    MM  MM    MM    MM    MMMMMM    MMMM      MM    MMMMMMMM   -->
 
-                <!-- <div class="proj-title big">
-                    <span class="title">SVGartiste</span>
+                <!-- <div class="proj-title">
+                    <span class="title big">SVGartiste</span>
                     <a  class="proj-link link" href="https://joooons.github.io/svgartiste" target="_blank"> &nbsp;&nbsp; joooons.github.io/svgartiste</a>
                 </div>                
                 <div class="proj-text tags">
@@ -506,8 +517,8 @@
                 <!--    MM  MM    MM    MM  MM    MM  MM    MM  MM    MM        MM    MM  MM        MM      MM        MM        MM    MM   -->
                 <!--      MM        MMMM      MMMM    MM    MM  MMMMMM          MM    MM  MMMMMMMM  MMMMMM  MM        MMMMMMMM  MM    MM   -->
 
-                <!-- <div class="proj-title big">
-                    <span class="title">Vocab Helper</span>
+                <!-- <div class="proj-title">
+                    <span class="title big">Vocab Helper</span>
                     <a class="proj-link link" href="https://joooons.github.io" target="_blank"> &nbsp;&nbsp; doesn't exist</a>
                 </div>
                 <div class="proj-text tags">
@@ -533,8 +544,8 @@
                 <!--  MM    MM  MM    MM  MM    MM    MM      MM    MM        MM    MM  MM    MM  MM    MM  MM    MM    MM    MM        MM    MM   -->
                 <!--    MMMM      MMMM    MM    MM    MM      MM    MMMMMMMM  MM    MM    MMMM      MMMM    MM    MM  MMMMMM  MMMMMMMM    MMMM     -->
 
-                <div class="proj-title big">
-                    <span class="title">Scattergories!</span>
+                <div class="proj-title">
+                    <span class="title big">Scattergories!</span>
                     <a class="proj-link link" href="https://theloaflings.web.app/" target="_blank"> &nbsp;&nbsp; theloaflings.web.app</a>
                     <b>&nbsp;|&nbsp;</b>
                     <a class="proj-link link" href="https://github.com/joooons/scatter" target="_blank">github.com/joooons/scatter</a>
@@ -546,11 +557,11 @@
                     <span class="tag">jQuery</span>
                 </div>
                 <div class="proj-text just">
-                    A Firebase project.
-                    An online version of Scattergories that you can play
-                    with friends remotely either on your computer or your phone.
-                    Uses the Firestore document-oriented database.
-                    Try it with a friend!
+                    An online version of Scattergories made on the Firebase platform
+                    using the Firestore document-oriented database.
+                    I made this as an alternative to playing Scattergories on the 
+                    Zoom shared screen. You can play this on the computer or the phone.
+                    Try it with a friend
                 </div>
                 <div class="proj-blank">_</div>
 
@@ -565,8 +576,8 @@
                 <!--    MM    MM      MM    MM      MM    MM    MM    MM      MM    MM    MM  MM    MM        MM    MM  MM    MM   -->
                 <!--  MMMMMM  MM      MM  MMMMMM    MM    MM    MM    MM    MMMMMM    MMMM    MM    MM          MMMM      MMMM     -->
 
-                <div class="proj-title big">
-                    <span class="title">Imitation GO</span>
+                <div class="proj-title">
+                    <span class="title big">Imitation Go</span>
                     <a class="proj-link link" href="https://theloafling.herokuapp.com/" target="_blank"> &nbsp;&nbsp; theloafling.herokuapp.com</a>
                     <b>&nbsp;|&nbsp;</b>
                     <a class="proj-link link" href="https://github.com/joooons/loafling" target="_blank">github.com/joooons/loafling</a>
@@ -581,9 +592,13 @@
                     <span class="tag">RegEx</span>
                 </div>                
                 <div class="proj-text just">
-                    A Heroku project.
-                    An experimental version of Go that can be played with more 
-                    than 2 players. Try it with a friend or two!
+                    An personal curiosity experiment to answer the 
+                    question, "would the game of Go work for 3 or more
+                    players?" 
+                    A Heroku project using Node.js and socket.io. 
+                    Allows players to create a room and play with a limited number of
+                    players. 
+                    Try it with a friend or two!
                 </div>
                 <div class="proj-blank">_</div>
                 
@@ -608,8 +623,8 @@
 
             <div class="content-edu">
                 
-                <div class="edu-title big">
-                    <span class="title">
+                <div class="edu-title">
+                    <span class="title big">
                         <a class="link" href="https://www.sololearn.com/" target="_blank">SoloLearn</a>
                     </span>
                     <a class="edu-link link" href="https://www.sololearn.com/" target="_blank"> &nbsp;&nbsp; www.sololearn.com</a>
@@ -641,8 +656,8 @@
                     <div class="edu-date">??? 2020</div>
                 <div class="edu-blank">___</div> -->
 
-                <div class="edu-title big">
-                    <span class="title">
+                <div class="edu-title">
+                    <span class="title big">
                         <a class="link" href="http://ucsd.edu/" target="_blank">UCSD</a>
                     </span>
                     <span class="edu-link"> &nbsp;&nbsp; La Jolla, CA</span>
@@ -676,28 +691,83 @@
 
             <div class="content-exp">
 
-                <div class="big">
-                    <span class="title"><b>HP Facilities Maintenance Engineer</b></span>
+                <div class="">
+                    <span class="title big"><b>HP Facilities Maintenance Engineer</b></span>
                     <span class="exp-company"> &nbsp;&nbsp; S7 Sea Launch</span>                    
                 </div>
                 <div class="exp-date">Apr 2018 &ndash; May 2019</div>
-                <div class="exp-text just">Managed repair and upgrade projects for spacecraft operation support systems. Performed basic maintenance and troubleshooting of operation support equipment.</div>                
+                <div class="exp-text just">
+                    <ul>
+                        <li>
+                            Managed upgrade/repair projects for spacecraft operation 
+                            support systems. 
+                        </li>
+                        <li>
+                            Performed basic maintenance/troubleshooting 
+                            of operation support equipment.
+                        </li>
+                    </ul>
+                    
+                    
+                    
+                </div>                
                 <div class="exp-blank">_</div>
 
-                <div class="big">
-                    <span class="title"><b>Facility Engineer</b></span>
+                <div class="">
+                    <span class="title big"><b>Facility Engineer</b></span>
                     <span class="exp-company"> &nbsp;&nbsp; Energia Logistics US</span>
                 </div>
                 <div class="exp-date">Jun 2011 &ndash; Apr 2018</div>
-                <div class="exp-text just">Performed preventive maintenance, inspection, calibration, and troubleshooting of operation support facility systems. Developed and updated standard operating procedures. Provided CAD support with AutoCAD, SketchUp, and Visio. Managed operation and continuous improvement of building automation system. Created a customized work order system program using Access, VBA, and SQL.</div>                
+                <div class="exp-text just">
+                    <ul>
+                        <li>
+                            Created a customized work order system program using Access, VBA, and SQL.
+                        </li>
+                        <li>
+                            Responsible for managing/troubleshooting/customizing 
+                            building automation system. 
+                        </li>
+                        <li>
+                            Provided CAD support with AutoCAD, SketchUp, and Visio. 
+                        </li>
+
+                        <li>
+                            Performed preventive maintenance, inspection, calibration, 
+                            and troubleshooting of operation support facility systems. 
+                        </li>
+                        <li>
+                            Generated standard operating procedures for new processes.
+                        </li>
+                    </ul>
+                </div>                
                 <div class="exp-blank">_</div>
 
-                <div class="big">
-                    <span class="title"><b>Staff Engineer</b></span> 
+                <div class="">
+                    <span class="title big"><b>Staff Engineer</b></span> 
                     <span class="exp-company"> &nbsp;&nbsp; Astrotech Space Operations</span>
                 </div>
                 <div class="exp-date">Nov 2005 &ndash; Jun 2011</div>
-                <div class="exp-text just">Performed inspection, testing, and calibration on spacecraft operation support equipment. Made revisions to standard operating procedures. Wrote EXCEL/VBA program for automatic environment sensor data processing.</div>                
+                <div class="exp-text just">
+                    <ul>
+                        <li>
+                            Wrote time-saving EXCEL/VBA macros for automating
+                            Payload Processing Faciliity environment reports.
+                        </li>
+                        <li>
+                            Contributed to in calculating quantity distance for the VAFB branch
+                            of Astrotech.
+                        </li>
+                        <li>
+                            Performed inspection/testing/calibration of spacecraft 
+                            operation support equipment and infrastructure.
+                        </li>
+                        <li>
+                            Made revisions to standard operating procedures. 
+                        </li>
+                        
+                        
+                    </ul>
+                </div>
                 <div class="exp-blank">_</div>
 
             </div>
