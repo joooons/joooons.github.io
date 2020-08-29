@@ -115,6 +115,54 @@ nav {
 /*  MM    MM      MM              MM    MM    MM   */
 /*  MMMMMM        MM            MMMMMM  MMMMMM     */
 
+
+#bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #fff3;
+    width: 100%;
+    text-align: right;
+    padding-right: 0.5em;
+}
+
+
+#bars {
+    font-size: var(--sizeM);
+    cursor: pointer;
+}
+
+
+#menu {
+    position: fixed;
+    left: 0px;
+    top: 0;
+    height: 100%;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: start;
+    align-items: center;
+
+    overflow: hidden;
+    background:#0005;
+    width: 0px;
+
+    /* padding: 1vh; */
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+}
+
+#menu.hello { width: 50%; }
+
+#menu a{
+    color: white;
+    font-size: var(--sizeM);
+
+}
+
+
+
 #intro {
     height: 100vh;
     display: flex;
@@ -140,3 +188,9 @@ nav {
     color: white;
     background: skyblue;
 }
+
+
+@media (max-width: 600px) {
+    #menu.hello { width: 100%; }
+}
+
