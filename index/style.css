@@ -81,6 +81,11 @@ nav {
     display: none;
 }
 
+a {
+    text-decoration: none;
+}
+
+
 
 
 
@@ -103,7 +108,11 @@ nav {
     /* box-sizing: border-box; */
 }
 
-
+.right {
+    text-align: right;
+    /* background: pink; */
+    width: 100%;
+}
 
 
 
@@ -123,12 +132,12 @@ nav {
     background: #fff3;
     width: 100%;
     text-align: right;
+    font-size: var(--sizeM);
     padding-right: 0.5em;
 }
 
 
 #bars {
-    font-size: var(--sizeM);
     cursor: pointer;
 }
 
@@ -142,25 +151,35 @@ nav {
     display: flex;
     flex-flow: column;
     justify-content: start;
-    align-items: center;
+    align-items: stretch;
 
     overflow: hidden;
-    background:#0005;
-    width: 0px;
+    background:#0009;
+    width: 100%;
+    left: -100%;
 
-    /* padding: 1vh; */
     transition-duration: 1s;
     transition-timing-function: ease-in-out;
 }
 
-#menu.hello { width: 50%; }
+#menu.hello { 
+    left: 0%;
+}
 
 #menu a{
     color: white;
     font-size: var(--sizeM);
-
+    text-align: center;
 }
 
+#menu .right {
+    /* background: pink; */
+    padding: 10px;
+}
+
+#close {
+    cursor: pointer;
+}
 
 
 #intro {
