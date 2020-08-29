@@ -1,6 +1,14 @@
 
 
-/* FONT */
+
+
+/*  MMMMMMMM    MMMM    MM    MM  MMMMMM    MMMM     */
+/*  MM        MM    MM  MMMM  MM    MM    MM    MM   */
+/*  MMMMMMMM  MM    MM  MM  MMMM    MM      MM       */
+/*  MM        MM    MM  MM    MM    MM        MM     */
+/*  MM        MM    MM  MM    MM    MM    MM    MM   */
+/*  MM          MMMM    MM    MM    MM      MMMM     */
+
 @import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
@@ -11,8 +19,13 @@
 
 
 
+/*  MM      MM    MMMM    MMMMMM    MMMMMM    MMMM    MMMMMM    MM      MMMMMMMM    MMMM     */
+/*  MM      MM  MM    MM  MM    MM    MM    MM    MM  MM    MM  MM      MM        MM    MM   */
+/*  MM      MM  MMMMMMMM  MMMMMM      MM    MMMMMMMM  MMMMMM    MM      MMMMMMMM    MM       */
+/*  MM      MM  MM    MM  MM    MM    MM    MM    MM  MM    MM  MM      MM            MM     */
+/*    MM  MM    MM    MM  MM    MM    MM    MM    MM  MM    MM  MM      MM        MM    MM   */
+/*      MM      MM    MM  MM    MM  MMMMMM  MM    MM  MMMMMM    MMMMMM  MMMMMMMM    MMMM     */
 
-/* VARIABLES */
 :root{
     --color1: #212121;
     --color2: #757575;
@@ -25,9 +38,9 @@
     --bkgd3: #f9a1bc;
     --bkgd4: #625772;
 
-    --size1: 30px;
-    --size2: 20px;
-    --size3: 10px;
+    --sizeS: 1em;
+    --sizeM: 3em;
+    --sizeL: 5em;
 
     --font1: 'Philosopher', sans-serif;
     --font2: 'Noto Serif', serif;
@@ -46,3 +59,84 @@
 
 
 
+
+
+/*  MMMMMM    MMMM      MMMM      MMMM     */
+/*    MM    MM    MM  MM    MM  MM    MM   */
+/*    MM    MMMMMMMM  MM          MM       */
+/*    MM    MM    MM  MM  MMMM      MM     */
+/*    MM    MM    MM  MM    MM  MM    MM   */
+/*    MM    MM    MM    MMMM      MMMM     */
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+nav {
+    display: none;
+}
+
+
+
+
+/*    MMMM    MMMMMMMM  MM    MM  MMMMMMMM  MMMMMM      MMMM    MM              MMMM    MM        MMMM      MMMM      MMMM    MMMMMMMM    MMMM     */
+/*  MM    MM  MM        MMMM  MM  MM        MM    MM  MM    MM  MM            MM    MM  MM      MM    MM  MM    MM  MM    MM  MM        MM    MM   */
+/*  MM        MMMMMMMM  MM  MMMM  MMMMMMMM  MMMMMM    MMMMMMMM  MM            MM        MM      MMMMMMMM    MM        MM      MMMMMMMM    MM       */
+/*  MM  MMMM  MM        MM    MM  MM        MM    MM  MM    MM  MM            MM        MM      MM    MM      MM        MM    MM            MM     */
+/*  MM    MM  MM        MM    MM  MM        MM    MM  MM    MM  MM            MM    MM  MM      MM    MM  MM    MM  MM    MM  MM        MM    MM   */
+/*    MMMM    MMMMMMMM  MM    MM  MMMMMMMM  MM    MM  MM    MM  MMMMMM          MMMM    MMMMMM  MM    MM    MMMM      MMMM    MMMMMMMM    MMMM     */
+
+
+
+.col {
+    background: #0001;
+    font-family: var(--font1);
+    font-size: var(--sizeS);
+    display: flex;
+    justify-content: center;
+    padding: 5vw;
+    /* box-sizing: border-box; */
+}
+
+
+
+
+
+
+/*  MMMMMM    MM      MM        MMMMMM  MMMMMM     */
+/*  MM    MM    MM  MM            MM    MM    MM   */
+/*  MMMMMM        MM              MM    MM    MM   */
+/*  MM    MM      MM              MM    MM    MM   */
+/*  MM    MM      MM              MM    MM    MM   */
+/*  MMMMMM        MM            MMMMMM  MMMMMM     */
+
+#intro {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font2);
+    font-size: var(--sizeL);
+    color: white;
+    background-image: url("/index/japan.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+#contacts {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font2);
+    font-size: var(--sizeL);
+    color: white;
+    background: skyblue;
+}
