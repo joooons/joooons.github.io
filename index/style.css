@@ -455,16 +455,40 @@ a:hover {
 /*    MM  MM      MMMM      MMMM    MM    MM    MM    MM    MM    MMMM      MM      MMMM     */
 
 #contacts {
-    height: 50vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: var(--font2);
-    font-size: var(--sizeM);
-    color: white;
-    background: skyblue;
+    /* height: 50vh; */
+    width: 100%;
+    background: #EEE;
 }
 
+.contact-grid {
+    display: grid;
+    /* height: 75%; */
+    grid-template-columns: 30% auto;
+    /* gap: 5px; */
+    column-gap: 4px;
+    /* row-gap: 5px; */
+    margin-top: 4px;
+}
+
+.contact {
+    background: white;
+    font-family: var(--font3);
+    font-size: 3vw;
+    display: flex;
+    padding: 4vw 0 4vw 0;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.contact:nth-child(odd) {
+    justify-content: flex-end;
+    padding-right: 5vw;
+}
+
+.contact:nth-child(even) {
+    justify-content: start;
+    padding-left: 5vw;
+}
 
 
 
