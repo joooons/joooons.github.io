@@ -54,7 +54,7 @@
 
     --menu-wide: 0px;
 
-    --curve1: cubic-bezier(.5,-0.07,.33,1.2);
+    --curve1: cubic-bezier(.5,0.2,.33,1);
     --curve2: cubic-bezier(.3,-0.2,.04,1.2);
     --curve3: cubic-bezier(.4,.3,.6,1.2);
 }
@@ -77,6 +77,10 @@ body, html {
     margin: 0;
 }
 
+body.noscroll {
+    overflow: hidden;
+}
+
 
 h3 {
     font-size: var(--sizeL);
@@ -91,11 +95,11 @@ ul {
 a {
     text-decoration: none;
     transition-duration: 0.3s;
+    color: black;
 }
 
 a:hover {
     text-decoration: none;
-    color: greenyellow;
 }
 
 
@@ -144,6 +148,7 @@ a:hover {
 
 
 #bars {
+    color: black;
     cursor: pointer;
 }
 
@@ -179,8 +184,9 @@ a:hover {
     width: 100%;
     left: -100%;
 
-    transition-duration: 1s;
+    transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
+    transition-timing-function: var(--curve1);
 }
 
 #menu.hello { 
@@ -248,27 +254,17 @@ a:hover {
 
 .bundle {
     font-family: var(--font5);
+    background: skyblue;
 }
 
-.bundle.odd {
-    /* background-image: linear-gradient( 109.6deg,  rgba(5,84,94,1) 16%, #bbb 91.1% ); */
-    background: lightgoldenrodyellow;
-}
-
-.bundle.even {
-    background-image: linear-gradient(160deg, #a1c4fd 0%, #c2e9fb 100%);
-    background: lightgreen;
-}
+.bundle:nth-child(4n+2) { background: lightblue; }
+.bundle:nth-child(4n+3) { background: lightblue; }
 
 
 
-.bkgd-img {
-    width: 40vw;
-    height: 30vw;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
+
+
 
 
 
@@ -284,6 +280,14 @@ a:hover {
 /*  MMMMMMMMMM  MM    MM  MM    MM  MM    MM  MM    MM               */
 /*    MM  MM    MMMMMM    MM    MM    MMMM    MMMMMM    MM  MM  MM   */
 
+.bkgd-img {
+    width: 40vw;
+    height: 30vw;
+    /* filter: blur(4px); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 #bkgd-image-1 { background-image: url("/index/resumeSnap.png"); }
 #bkgd-image-2 { background-image: url("/index/tetrisSnap.png"); }
@@ -291,6 +295,21 @@ a:hover {
 #bkgd-image-4 { background-image: url("/index/minimal.webp"); }
 #bkgd-image-5 { background-image: url("/index/minimal.webp"); }
 #bkgd-image-6 { background-image: url("/index/minimal.webp"); }
+
+
+
+
+
+
+
+
+
+/*            MM    MM  MM      MM              MMMM    MMMMMMMM   */
+/*            MMMM  MM  MM      MM            MM    MM  MM         */
+/*            MM  MMMM  MM      MM              MM      MMMMMMMM   */
+/*            MM    MM  MM  MM  MM                MM    MM         */
+/*            MM    MM  MM  MM  MM            MM    MM  MM         */
+/*        MM  MM    MM    MM  MM          MM    MMMM    MMMMMMMM   */
 
 .nw {
     width: 100%;
@@ -301,7 +320,28 @@ a:hover {
     align-items: center;
 }
 
+.se {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: flex-start;
+    font-size: 2em;
+}
 
+
+
+
+
+
+
+/*            MMMMMMMM    MMMM    MMMMMM    MMMMMMMM    MMMM    MMMMMM      MMMM    MM    MM  MM    MM  MMMMMM     */
+/*            MM        MM    MM  MM    MM  MM        MM    MM  MM    MM  MM    MM  MM    MM  MMMM  MM  MM    MM   */
+/*            MMMMMMMM  MM    MM  MMMMMM    MMMMMMMM  MM        MMMMMM    MM    MM  MM    MM  MM  MMMM  MM    MM   */
+/*            MM        MM    MM  MM    MM  MM        MM  MMMM  MM    MM  MM    MM  MM    MM  MM    MM  MM    MM   */
+/*            MM        MM    MM  MM    MM  MM        MM    MM  MM    MM  MM    MM  MM    MM  MM    MM  MM    MM   */
+/*        MM  MM          MMMM    MM    MM  MMMMMMMM    MMMM    MM    MM    MMMM      MMMM    MM    MM  MMMMMM     */
 
 .foreground {
     width: 100%;
@@ -313,24 +353,27 @@ a:hover {
     align-items: center;
 }
 
+.foreground img {
+    transition: 0.3s;
+}
 
-.foreground .app-title {
+.foreground img:hover{
+    width: 50px;
+}
+
+
+.app-title {
     font-size: 4em;
 }
 
-
-
-
-
-.se {
-    width: 100%;
-    height: 100%;
-    padding: 30px;
-    display: flex;
-    /* justify-content: center; */
-    align-items: flex-start;
-    font-size: 2em;
+.app-title:hover {
+    color: red;
 }
+
+
+
+
+
 
 
 
