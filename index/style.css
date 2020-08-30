@@ -254,11 +254,11 @@ a:hover {
 
 .bundle {
     font-family: var(--font5);
-    background: skyblue;
+    background: #11CBD7;
 }
 
-.bundle:nth-child(4n+2) { background: lightblue; }
-.bundle:nth-child(4n+3) { background: lightblue; }
+.bundle:nth-child(4n+2) { background: #A9EEE6; }
+.bundle:nth-child(4n+3) { background: #A9EEE6; }
 
 
 
@@ -323,11 +323,12 @@ a:hover {
 .se {
     width: 100%;
     height: 100%;
-    padding: 30px;
+    padding: 30px 80px 30px 30px;
     display: flex;
     /* justify-content: center; */
     align-items: flex-start;
-    font-size: 2em;
+    font-size: 2.2vw;
+    text-align: justify;
 }
 
 
@@ -344,13 +345,15 @@ a:hover {
 /*        MM  MM          MMMM    MM    MM  MMMMMMMM    MMMM    MM    MM    MMMM      MMMM    MM    MM  MMMMMM     */
 
 .foreground {
+    position: relative;
     width: 100%;
     height: 100%;
-    background: #fffd;
+    /* background: #fffd; */
     display: flex;
     flex-flow: column;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
 }
 
 .foreground img {
@@ -363,16 +366,43 @@ a:hover {
 
 
 .app-title {
-    font-size: 4em;
+    font-size: 3em;
 }
 
 .app-title:hover {
     color: red;
 }
 
+.top-lid {
+    background: #FFF9;
+    position: absolute;
+    height: 75%;
+    width: 100%;
+    top: -75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 0.3s;
+}
+.top-lid.show {
+    top: 0%;
+}
 
 
-
+.bot-lid {
+    background: #FFF9;
+    position: absolute;
+    height: 25%;
+    width: 100%;
+    bottom: -25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 0.3s;
+}
+.bot-lid.show {
+    bottom: 0%;
+}
 
 
 
@@ -416,12 +446,12 @@ a:hover {
 /*              MM      MM  MM        MM    MM    MM    MM    MM        MM    MM    MM    MM  MM        MM    MM      MM       */
 /*              MM      MM  MMMMMMMM  MMMMMM    MMMMMM  MM    MM          MMMM  MM    MMMM    MMMMMMMM  MM    MM      MM       */
 
-@media (max-width: 1000px) {
+@media (max-width: 992px) {
     /* WHEN SCREEN IS SMALL */
     
     .nw {
-        width: 100%;
-        height: 100%;
+        /* width: 100%; */
+        /* height: 100%; */
         padding: 30px;
         display: flex;
         justify-content: center;
@@ -429,12 +459,20 @@ a:hover {
     }
     
     .se {
-        padding: 0px 30px 30px 30px;
+        /* width: 100%; */
+        /* height: 100%; */
+        padding: 0px 7vw 30px 7vw;
+        display: flex;
+        /* justify-content: center; */
+        align-items: flex-start;
+        font-size: 3vw;
+        text-align: justify;
     }
 
+    
     .bkgd-img {
-        width: 90vw;
-        height: 60vw;
+        width: 80vw;
+        height: 50vw;
     }
 
 }
