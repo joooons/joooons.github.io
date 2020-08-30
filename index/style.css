@@ -286,7 +286,8 @@ a:hover {
     /* filter: blur(4px); */
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    /* background-size: cover; */
+    background-size: 130%;
 }
 
 #bkgd-image-1 { background-image: url("/index/resumeSnap.png"); }
@@ -314,7 +315,7 @@ a:hover {
 .nw {
     width: 100%;
     height: 100%;
-    padding: 30px 0px 30px 30px;
+    padding: 3vw 0vw 3vw 3vw;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -323,7 +324,7 @@ a:hover {
 .se {
     width: 100%;
     height: 100%;
-    padding: 30px 80px 30px 30px;
+    padding: 3vw 7vw 3vw 3vw;
     display: flex;
     flex-flow: column;
     justify-content: start;
@@ -345,8 +346,25 @@ a:hover {
 /*            MM        MM    MM  MM    MM  MM        MM    MM  MM    MM  MM    MM  MM    MM  MM    MM  MM    MM   */
 /*        MM  MM          MMMM    MM    MM  MMMMMMMM    MMMM    MM    MM    MMMM      MMMM    MM    MM  MMMMMM     */
 
+
+.frame {
+    position: relative;
+    overflow: hidden;
+    /* background: pink; */
+}
+
+.foreground-abs {
+    position: absolute;
+    /* background: pink; */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
 .foreground {
     position: relative;
+    /* top: -50px; */
     width: 100%;
     height: 100%;
     /* background: #fffd; */
@@ -356,6 +374,8 @@ a:hover {
     align-items: center;
     overflow: hidden;
 }
+
+
 
 .foreground img {
     width: 3vw;
@@ -460,20 +480,15 @@ a:hover {
     /* WHEN SCREEN IS SMALL */
     
     .nw {
-        /* width: 100%; */
-        /* height: 100%; */
-        padding: 30px;
+        padding: 8vw 6vw 3vw 6vw;
         display: flex;
         justify-content: center;
         align-items: center;
     }
     
     .se {
-        /* width: 100%; */
-        /* height: 100%; */
-        padding: 0px 7vw 14vw 7vw;
+        padding: 0px 6vw 14vw 6vw;
         display: flex;
-        /* justify-content: center; */
         align-items: flex-start;
         font-size: 3vw;
         text-align: justify;
@@ -493,12 +508,13 @@ a:hover {
         width: 5.8vw;
     }
 
-
-
-
-
-
-
+    .app-title {
+        font-size: 7vw;
+    }
+    
+    .app-desc {
+        font-size: 4vw;
+    }
 
 
 

@@ -9,6 +9,7 @@ const bar = document.getElementById('bar');
 const menu = document.getElementById('menu');
 const close = document.getElementById('close');
 const menuItem = document.getElementsByClassName('menu-item');
+const bkgdImg = document.getElementsByClassName('bkgd-img');
 const foreground = document.getElementsByClassName('foreground');
 const topLid = document.getElementsByClassName('top-lid');
 const botLid = document.getElementsByClassName('bot-lid');
@@ -38,6 +39,7 @@ for ( i=0 ; i<foreground.length ; i++ ) {
     foreground[num].onmouseover = () => {
         topLid[num].classList.add('show');
         botLid[num].classList.add('show');
+        bkgdImg[num].style.filter = 'blur(2px)';
     }
 }
 
@@ -46,6 +48,7 @@ for ( i=0 ; i<foreground.length ; i++ ) {
     foreground[i].onmouseout = () => {
         topLid[num].classList.remove('show');
         botLid[num].classList.remove('show');
+        bkgdImg[num].style.filter = 'blur(0px)';
     }
 }
 
