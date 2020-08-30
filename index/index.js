@@ -39,7 +39,7 @@ for ( i=0 ; i<foreground.length ; i++ ) {
     foreground[num].onmouseover = () => {
         topLid[num].classList.add('show');
         botLid[num].classList.add('show');
-        bkgdImg[num].style.filter = 'blur(2px)';
+        bkgdImg[num].classList.add('blur');
     }
 }
 
@@ -48,7 +48,7 @@ for ( i=0 ; i<foreground.length ; i++ ) {
     foreground[i].onmouseout = () => {
         topLid[num].classList.remove('show');
         botLid[num].classList.remove('show');
-        bkgdImg[num].style.filter = 'blur(0px)';
+        bkgdImg[num].classList.remove('blur');
     }
 }
 

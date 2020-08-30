@@ -283,11 +283,13 @@ a:hover {
 .bkgd-img {
     width: 40vw;
     height: 30vw;
-    /* filter: blur(4px); */
     background-position: center;
     background-repeat: no-repeat;
     /* background-size: cover; */
     background-size: 130%;
+}
+.bkgd-img.blur {
+    filter: blur(2px);
 }
 
 #bkgd-image-1 { background-image: url("/index/resumeSnap.png"); }
