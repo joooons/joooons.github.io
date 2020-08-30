@@ -18,12 +18,12 @@ const botLid = document.getElementsByClassName('bot-lid');
 
 
 bars.onclick = () => {
-    if (menu.classList.contains('hello')) { menulist.close(); } 
+    if (menu.classList.contains('show')) { menulist.close(); } 
     else { menulist.open(); }
 }
 
 close.onclick = () => {
-    if (menu.classList.contains('hello')) { menulist.close(); } 
+    if (menu.classList.contains('show')) { menulist.close(); } 
     else { menulist.open(); }
 }
 
@@ -58,11 +58,11 @@ for ( i=0 ; i<foreground.length ; i++ ) {
 
 const menulist = {
     open : function() {
-            $(bar).fadeOut(200, function() { menu.classList.add('hello'); });
+            $(bar).fadeOut(200, function() { menu.classList.add('show'); });
             document.body.classList.add('noscroll');
         },
     close : function() {
-            menu.classList.remove('hello'); 
+            menu.classList.remove('show'); 
             $(bar).delay(300).fadeIn(200);
             document.body.classList.remove('noscroll');
         }

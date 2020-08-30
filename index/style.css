@@ -139,7 +139,6 @@ a:hover {
     position: fixed;
     top: 0;
     right: 0;
-    /* background: #fff3; */
     width: 100%;
     text-align: right;
     font-size: var(--sizeM);
@@ -172,7 +171,7 @@ a:hover {
     position: fixed;
     left: 0px;
     top: 0;
-    height: 100%;
+    height: 150%;
 
     display: flex;
     flex-flow: column;
@@ -189,13 +188,13 @@ a:hover {
     transition-timing-function: var(--curve1);
 }
 
-#menu.hello { 
+#menu.show { 
     left: 0%;
 }
 
 #menu a{
     color: white;
-    font-size: var(--sizeM);
+    font-size: 6vh;
     text-align: center;
 }
 
@@ -254,11 +253,11 @@ a:hover {
 
 .bundle {
     font-family: var(--font5);
-    background: #11CBD7;
+    background: #f1f3f8;
 }
 
-.bundle:nth-child(4n+2) { background: #A9EEE6; }
-.bundle:nth-child(4n+3) { background: #A9EEE6; }
+.bundle:nth-child(4n+2) { background: #d6e0f0; }
+.bundle:nth-child(4n+3) { background: #d6e0f0; }
 
 
 
@@ -285,19 +284,19 @@ a:hover {
     height: 30vw;
     background-position: center;
     background-repeat: no-repeat;
-    /* background-size: cover; */
-    background-size: 130%;
+    background-size: cover;
+    /* background-size: 130%; */
 }
 .bkgd-img.blur {
     filter: blur(2px);
 }
 
-#bkgd-image-1 { background-image: url("/index/resumeSnap.png"); }
+/* #bkgd-image-1 { background-image: url("/index/resumeSnap.png"); } */
 #bkgd-image-2 { background-image: url("/index/tetrisSnap.png"); }
-#bkgd-image-3 { background-image: url("/index/minimal.webp"); }
-#bkgd-image-4 { background-image: url("/index/minimal.webp"); }
-#bkgd-image-5 { background-image: url("/index/minimal.webp"); }
-#bkgd-image-6 { background-image: url("/index/minimal.webp"); }
+#bkgd-image-3 { background-image: url("/index/scatterSnap.png"); }
+#bkgd-image-4 { background-image: url("/index/goSnap.png"); }
+#bkgd-image-5 { background-image: url("/index/svgartisteSnap.png"); }
+#bkgd-image-6 { background-image: url("/index/biglettersSnap2.png"); }
 
 
 
