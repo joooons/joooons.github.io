@@ -19,6 +19,8 @@
 
 
 
+
+
 /*  MM      MM    MMMM    MMMMMM    MMMMMM    MMMM    MMMMMM    MM      MMMMMMMM    MMMM     */
 /*  MM      MM  MM    MM  MM    MM    MM    MM    MM  MM    MM  MM      MM        MM    MM   */
 /*  MM      MM  MMMMMMMM  MMMMMM      MM    MMMMMMMM  MMMMMM    MM      MMMMMMMM    MM       */
@@ -61,6 +63,8 @@
 
 
 
+
+
 /*  MMMMMM    MMMM      MMMM      MMMM     */
 /*    MM    MM    MM  MM    MM  MM    MM   */
 /*    MM    MMMMMMMM  MM          MM       */
@@ -77,13 +81,17 @@ ul {
     list-style-type: none;
 }
 
-nav {
-    display: none;
-}
 
 a {
     text-decoration: none;
+    transition-duration: 0.3s;
 }
+
+a:hover {
+    text-decoration: none;
+    color: greenyellow;
+}
+
 
 
 
@@ -96,18 +104,6 @@ a {
 /*  MM    MM  MM        MM    MM  MM        MM    MM  MM    MM  MM            MM    MM  MM      MM    MM  MM    MM  MM    MM  MM        MM    MM   */
 /*    MMMM    MMMMMMMM  MM    MM  MMMMMMMM  MM    MM  MM    MM  MMMMMM          MMMM    MMMMMM  MM    MM    MMMM      MMMM    MMMMMMMM    MMMM     */
 
-
-
-.col {
-    background: #0001;
-    font-family: var(--font1);
-    font-size: var(--sizeS);
-    display: flex;
-    justify-content: center;
-    padding: 5vw;
-    /* box-sizing: border-box; */
-}
-
 .right {
     text-align: right;
     /* background: pink; */
@@ -117,19 +113,23 @@ a {
 
 
 
-/*  MMMMMM    MM      MM        MMMMMM  MMMMMM     */
-/*  MM    MM    MM  MM            MM    MM    MM   */
-/*  MMMMMM        MM              MM    MM    MM   */
-/*  MM    MM      MM              MM    MM    MM   */
-/*  MM    MM      MM              MM    MM    MM   */
-/*  MMMMMM        MM            MMMMMM  MMMMMM     */
 
+
+
+
+
+/*    MM  MM    MMMMMM      MMMM    MMMMMM     */
+/*  MMMMMMMMMM  MM    MM  MM    MM  MM    MM   */
+/*    MM  MM    MMMMMM    MMMMMMMM  MMMMMM     */
+/*    MM  MM    MM    MM  MM    MM  MM    MM   */
+/*  MMMMMMMMMM  MM    MM  MM    MM  MM    MM   */
+/*    MM  MM    MMMMMM    MM    MM  MM    MM   */
 
 #bar {
     position: fixed;
     top: 0;
     right: 0;
-    background: #fff3;
+    /* background: #fff3; */
     width: 100%;
     text-align: right;
     font-size: var(--sizeM);
@@ -141,6 +141,21 @@ a {
     cursor: pointer;
 }
 
+
+
+
+
+
+
+
+
+
+/*    MM  MM    MM      MM  MMMMMMMM  MM    MM  MM    MM   */
+/*  MMMMMMMMMM  MMMM  MMMM  MM        MMMM  MM  MM    MM   */
+/*    MM  MM    MM  MM  MM  MMMMMMMM  MM  MMMM  MM    MM   */
+/*    MM  MM    MM      MM  MM        MM    MM  MM    MM   */
+/*  MMMMMMMMMM  MM      MM  MM        MM    MM  MM    MM   */
+/*    MM  MM    MM      MM  MMMMMMMM  MM    MM    MMMM     */
 
 #menu {
     position: fixed;
@@ -182,8 +197,24 @@ a {
 }
 
 
+
+
+
+
+
+
+
+
+
+/*    MM  MM    MMMMMM  MM    MM  MMMMMM  MMMMMM      MMMM     */
+/*  MMMMMMMMMM    MM    MMMM  MM    MM    MM    MM  MM    MM   */
+/*    MM  MM      MM    MM  MMMM    MM    MMMMMM    MM    MM   */
+/*    MM  MM      MM    MM    MM    MM    MM    MM  MM    MM   */
+/*  MMMMMMMMMM    MM    MM    MM    MM    MM    MM  MM    MM   */
+/*    MM  MM    MMMMMM  MM    MM    MM    MM    MM    MMMM     */
+
 #intro {
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -197,19 +228,151 @@ a {
 }
 
 
+
+
+
+
+
+/*              MMMM      MMMM    MMMMMM    MMMMMM     */
+/*            MM    MM  MM    MM  MM    MM  MM    MM   */
+/*            MM        MMMMMMMM  MMMMMM    MM    MM   */
+/*            MM        MM    MM  MM    MM  MM    MM   */
+/*            MM    MM  MM    MM  MM    MM  MM    MM   */
+/*        MM    MMMM    MM    MM  MM    MM  MMMMMM     */
+
+
+.bundle {
+    font-family: var(--font5);
+}
+
+.bundle.odd {
+    /* background-image: linear-gradient( 109.6deg,  rgba(5,84,94,1) 16%, #bbb 91.1% ); */
+    background: lightgoldenrodyellow;
+}
+
+.bundle.even {
+    background-image: linear-gradient(160deg, #a1c4fd 0%, #c2e9fb 100%);
+    background: lightgreen;
+}
+
+
+
+
+
+
+.nw {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#bkgd-image-1 {
+    width: 40vw;
+    height: 30vw;
+    background-image: url("/index/tetrisSnap.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.foreground {
+    width:100%;
+    height: 100%;
+    background: #fffd;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.foreground .app-title {
+    font-size: 4em;
+}
+
+
+
+
+
+.se {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: flex-start;
+    font-size: 2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*    MM  MM      MMMM      MMMM    MM    MM  MMMMMM    MMMM      MMMM    MMMMMM    MMMM     */
+/*  MMMMMMMMMM  MM    MM  MM    MM  MMMM  MM    MM    MM    MM  MM    MM    MM    MM    MM   */
+/*    MM  MM    MM        MM    MM  MM  MMMM    MM    MMMMMMMM  MM          MM      MM       */
+/*    MM  MM    MM        MM    MM  MM    MM    MM    MM    MM  MM          MM        MM     */
+/*  MMMMMMMMMM  MM    MM  MM    MM  MM    MM    MM    MM    MM  MM    MM    MM    MM    MM   */
+/*    MM  MM      MMMM      MMMM    MM    MM    MM    MM    MM    MMMM      MM      MMMM     */
+
 #contacts {
     height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: var(--font2);
-    font-size: var(--sizeL);
+    font-size: var(--sizeM);
     color: white;
     background: skyblue;
 }
 
 
-@media (max-width: 600px) {
-    #menu.hello { width: 100%; }
+
+
+
+
+
+/*              MM      MM  MMMMMMMM  MMMMMM    MMMMMM    MMMM            MMMMMM    MM    MM  MMMMMMMM  MMMMMM    MM      MM   */
+/*              MMMM  MMMM  MM        MM    MM    MM    MM    MM        MM      MM  MM    MM  MM        MM    MM    MM  MM     */
+/*              MM  MM  MM  MMMMMMMM  MM    MM    MM    MMMMMMMM        MM      MM  MM    MM  MMMMMMMM  MMMMMM        MM       */
+/*              MM      MM  MM        MM    MM    MM    MM    MM        MM  MM  MM  MM    MM  MM        MM    MM      MM       */
+/*              MM      MM  MM        MM    MM    MM    MM    MM        MM    MM    MM    MM  MM        MM    MM      MM       */
+/*              MM      MM  MMMMMMMM  MMMMMM    MMMMMM  MM    MM          MMMM  MM    MMMM    MMMMMMMM  MM    MM      MM       */
+
+@media (max-width: 1000px) {
+    /* WHEN SCREEN IS SMALL */
+    
+
+
+    .nw {
+        width: 100%;
+        height: 100%;
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #bkgd-image-1 {
+        width: 90vw;
+        height: 60vw;
+        /* background-image: url("/index/tetrisSnap.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover; */
+    }
+
 }
+
+
+
 
