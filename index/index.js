@@ -5,6 +5,8 @@ $(document).ready(function() {
 console.log('index.js at your service!');
 
 
+
+
 const bar = document.getElementById('bar');
 const menu = document.getElementById('menu');
 const close = document.getElementById('close');
@@ -13,6 +15,24 @@ const bkgdImg = document.getElementsByClassName('bkgd-img');
 const foreground = document.getElementsByClassName('foreground');
 const topLid = document.getElementsByClassName('top-lid');
 const botLid = document.getElementsByClassName('bot-lid');
+
+
+
+
+const menulist = {
+    open :  function() {
+            $(bar).fadeOut(200, function() { menu.classList.add('show'); });
+            document.body.classList.add('noscroll');
+            },
+    close : function() {
+            menu.classList.remove('show'); 
+            $(bar).delay(300).fadeIn(200);
+            document.body.classList.remove('noscroll');
+            }
+}
+
+
+
 
 
 
@@ -56,17 +76,7 @@ for ( i=0 ; i<foreground.length ; i++ ) {
 
 
 
-const menulist = {
-    open : function() {
-            $(bar).fadeOut(200, function() { menu.classList.add('show'); });
-            document.body.classList.add('noscroll');
-        },
-    close : function() {
-            menu.classList.remove('show'); 
-            $(bar).delay(300).fadeIn(200);
-            document.body.classList.remove('noscroll');
-        }
-}
+
 
 
 
