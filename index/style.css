@@ -402,7 +402,7 @@ a:hover {
 }
 
 .app-desc {
-    font-size: 2vw;
+    font-size: 1.6vw;
 }
 
 .top-lid {
@@ -511,11 +511,13 @@ a:hover {
     }
 
     .app-title {
-        font-size: 7vw;
+        width: 100%;
+        text-align: center;
+        font-size: 6vw;
     }
     
     .app-desc {
-        font-size: 4vw;
+        font-size: 3vw;
     }
 
 
