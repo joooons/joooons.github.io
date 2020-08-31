@@ -60,93 +60,42 @@
                 </div>
 
                 <div class="info" >
-                    <!-- <span>INSTRUCTIONS</span> -->
-                    <!-- <table border="0">
-                        <tr>
-                            <td colspan="2">
-                                <span class="alpha">P</span>
-                                <svg width="90" height="30">
-                                    <line x1="4" x2="86" y1="19" y2="19" />
-                                    <line x1="4" x2="7" y1="19" y2="16" />
-                                    <line x1="4" x2="7" y1="19" y2="22" />
-                                </svg>
-                            </td>
-                            <td colspan="5">
-                                <span class="explain">PAUSE</span>
-                            </td>
-                        </tr>
 
-                        <tr>
-                            <td colspan="1">
-                                <span class="explain">ROTATE</span>
-                            </td>
-                            <td colspan="2">
-                                <svg width="80" height="30">
-                                    <line x1="4" x2="76" y1="17" y2="17" />
-                                    <line x1="76" x2="73" y1="17" y2="14" />
-                                    <line x1="76" x2="73" y1="17" y2="20" />
-                                </svg>
-                            </td>
-                            <td>
-                                <span class="alpha">↑</span>
-                            </td>
-                            <td colspan="3">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="1">
-                                <span class="explain">MOVE LEFT</span>
-                            </td>
-                            <td>
-                                <svg width="45" height="30">
-                                    <line x1="4" x2="41" y1="17" y2="17" />
-                                    <line x1="41" x2="38" y1="17" y2="14" />
-                                    <line x1="41" x2="38" y1="17" y2="20" />
-                                </svg>
-                            </td>
-                            <td>
-                                <span class="alpha">←</span>
-                            </td>
-                            <td>
-                                <span class="alpha">↓</span>
-                            </td>
-                            <td>
-                                <span class="alpha">→</span>
-                            </td>
-                            <td>
-                                <svg width="45" height="30">
-                                    <line x1="4" x2="41" y1="17" y2="17" />
-                                    <line x1="4" x2="7" y1="17" y2="14" />
-                                    <line x1="4" x2="7" y1="17" y2="20" />
-                                </svg>
-                            </td>
-                            <td>
-                                <span class="explain">MOVE RIGHT</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="3">
-                            </td>
-                            <td colspan="3">
-                                <svg width="116" height="30">
-                                    <line x1="16" x2="112" y1="17" y2="17" />
-                                    <line x1="16" x2="16" y1="17" y2="4" />
-                                    <line x1="16" x2="19" y1="4" y2="7" />
-                                    <line x1="16" x2="13" y1="4" y2="7" />
-                                </svg>
-                            </td>
-                            <td>
-                                <span class="explain">DROP</span>
-                            </td>
-                        </tr>
-                    </table> -->
                     <svg width="380" height="160">
-                        <rect x='10' y='10' width='30' height='30' fill=#fff stroke-width=1 stroke=#000 rx='5' /><rect x='10' y='50' width='30' height='30' fill=#fff stroke-width=1 stroke=#000 rx='5' /><rect x='170' y='90' width='30' height='30' fill=#fff stroke-width=1 stroke=#000 rx='5' /><rect x='210' y='90' width='30' height='30' fill=#fff stroke-width=1 stroke=#000 rx='5' /><rect x='250' y='90' width='30' height='30' fill=#fff stroke-width=1 stroke=#000 rx='5' /><rect x='210' y='50' width='30' height='30' fill=#fff stroke-width=1 stroke=#000 rx='5' /><line x1='225' y1='54' x2='225' y2='76' stroke=#000 stroke-width='4px' stroke-linecap=round /><line x1='174' y1='105' x2='196' y2='105' stroke=#000 stroke-width='4px' stroke-linecap=round /><line x1='225' y1='94' x2='225' y2='116' stroke=#000 stroke-width='4px' stroke-linecap=round /><line x1='254' y1='105' x2='276' y2='105' stroke=#000 stroke-width='4px' stroke-linecap=round /><line x1='225' y1='54' x2='215' y2='64' stroke=#000 stroke-width='4px' stroke-linecap=round /><line x1='225' y1='54' x2='235' y2='64' stroke=#000 stroke-width='4px' stroke-linecap=round /><line x1='174' y1='105' x2='184' y2='95' stroke=#000 stroke-width='4px' stroke-linecap=round /><line x1='174' y1='105' x2='184' y2='115' stroke=#000 stroke-width='4px' stroke-linecap=round /><line x1='225' y1='116' x2='235' y2='106' stroke=#000 stroke-width='4px' stroke-linecap=round /><line x1='225' y1='116' x2='215' y2='106' stroke=#000 stroke-width='4px' stroke-linecap=round /><line x1='276' y1='105' x2='266' y2='95' stroke=#000 stroke-width='4px' stroke-linecap=round /><line x1='276' y1='105' x2='266' y2='115' stroke=#000 stroke-width='4px' stroke-linecap=round />
-                        <text x='16' y='35' class="explain big">P</text>
+                        <rect x='10' y='10' width='30' height='30' fill=#fff stroke-width=1 stroke=#000 rx='5' />
+                        <rect x='10' y='50' width='30' height='30' fill=#fff stroke-width=1 stroke=#000 rx='5' />
+
+                        <rect id="clickL" x='170' y='90' width='30' height='30' fill=#fff stroke-width=1 stroke=#000 rx=5 />
+                            <!-- Left -->
+
+                        <rect id="clickD" x='210' y='90' width='30' height='30' fill=#fff stroke-width=1 stroke=#000 rx='5' />
+                            <!-- down -->
+
+                        <rect id="clickR" x='250' y='90' width='30' height='30' fill=#fff stroke-width=1 stroke=#000 rx='5' />
+                            <!-- right -->
+
+                        <rect id="clickU" x='210' y='50' width='30' height='30' fill=#fff stroke-width=1 stroke=#000 rx='5' />
+                            <!-- up -->
+
+                        <line x1='225' y1='54' x2='225' y2='76' stroke=#000 stroke-width=1 stroke-linecap=round />
+                        <line x1='174' y1='105' x2='196' y2='105' stroke=#000 stroke-width=1 stroke-linecap=round />
+                        <line x1='225' y1='94' x2='225' y2='116' stroke=#000 stroke-width=4 stroke-linecap=round />
+
+                        <line x1='254' y1='105' x2='276' y2='105' stroke=#000 stroke-width='4px' stroke-linecap=round />
+                        <line x1='225' y1='54' x2='215' y2='64' stroke=#000 stroke-width='4px' stroke-linecap=round />
+                        <line x1='225' y1='54' x2='235' y2='64' stroke=#000 stroke-width='4px' stroke-linecap=round />
+
+                        <line x1='174' y1='105' x2='184' y2='95' stroke=#000 stroke-width='4px' stroke-linecap=round />
+                        <line x1='174' y1='105' x2='184' y2='115' stroke=#000 stroke-width='4px' stroke-linecap=round />
+                        <line x1='225' y1='116' x2='235' y2='106' stroke=#000 stroke-width='4px' stroke-linecap=round />
+
+                        <line x1='225' y1='116' x2='215' y2='106' stroke=#000 stroke-width='4px' stroke-linecap=round />
+                        <line x1='276' y1='105' x2='266' y2='95' stroke=#000 stroke-width='4px' stroke-linecap=round />
+                        <line x1='276' y1='105' x2='266' y2='115' stroke=#000 stroke-width='4px' stroke-linecap=round />
+
+                        <text id="clickP" x='16' y='35' class="explain big">P</text>
                         <text x='46' y='30' class="explain">PAUSE</text>
-                        <text x='14' y='75' class="explain big">N</text>
+                        <text id="clickN" x='14' y='75' class="explain big">N</text>
                         <text x='46' y='70' class="explain">NEXT PIECE</text>
                         <text x='86' y='110' class="explain">MOVE LEFT</text>
                         <text x='290' y='110' class="explain">MOVE RIGHT</text>

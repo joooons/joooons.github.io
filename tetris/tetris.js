@@ -121,7 +121,8 @@
     const blingSound = new Sound('./tetris/shroom.wav');
     const plopSound = new Sound('./tetris/plop.mp3');
     const thudSound = new Sound('./tetris/thud.mp3');
-    const mainMusic = new Sound('./tetris/mainM.mp3');
+    // const mainMusic = new Sound('./tetris/mainM.mp3');
+    const mainMusic = new Sound('./tetris/Pixel Beats - Sadness.mp3');
         mainMusic.elem.loop = true;
 
 
@@ -402,6 +403,14 @@ function delayIntro() {
             p.style.position = 'relative';
             p.style.top = '-230px';
             p.innerText = 'press any key';
+
+            p.onclick = () => {
+                // This allows mobile users to start game without a keyboard.
+                gameMode.playing();
+                blingSound.play();
+                startGame(); 
+            }
+
         toyRoom.appendChild(p);
         gameMode.starting();
     } , 2000);
@@ -874,6 +883,39 @@ function actByTime() {
 
 
 
+
+document.getElementById('clickL').onclick = () => {
+    if ( gameMode.current == 'playing' ) { moveLeftRight(translateMatrix.left); }
+}
+
+document.getElementById('clickR').onclick = () => {
+    if ( gameMode.current == 'playing' ) { moveLeftRight(translateMatrix.right); }
+}
+
+document.getElementById('clickU').onclick = () => {
+    if ( gameMode.current == 'playing' ) {  moveRotate('left'); }
+}
+
+document.getElementById('clickD').onmousedown = () => {
+    if ( gameMode.current == 'playing' ) {  yMove.press(); }
+}
+
+document.getElementById('clickD').onmouseup = () => {
+    if ( gameMode.current == 'playing' ) {  yMove.release(); }
+}
+
+document.getElementById('clickP').onclick = () => {
+    if ( gameMode.current == 'playing' ) {
+        pauseGame('on');
+    } else if ( gameMode.current == 'paused' ) {
+        pauseGame('off');
+        yMove.release();  
+    }  
+}
+
+document.getElementById('clickN').onclick = () => {
+    if ( gameMode.current == 'playing' ) { resetTetrisPiece(); }
+}
 
 
 
