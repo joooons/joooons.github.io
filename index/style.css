@@ -14,8 +14,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Saira&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Neuton:wght@800&display=swap');
 
-
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap'); 
 
 
 
@@ -49,6 +50,8 @@
     --font3: 'Rubik', sans-serif;
     --font4: 'Libre Baskerville', serif;
     --font5: 'Saira', sans-serif;
+    --font6: 'Neuton', serif;
+    --font7: 'Dosis', sans-serif;
 
     --margin1: 10px;
 
@@ -75,6 +78,7 @@
 body, html {
     height: 100%;
     margin: 0;
+    color: navy;
 }
 
 body.noscroll {
@@ -84,7 +88,8 @@ body.noscroll {
 
 h3 {
     font-size: var(--sizeL);
-    font-family: var(--font2);
+    font-family: var(--font1);
+    /* font-family: "Aliseo"; */
 }
 
 
@@ -96,13 +101,17 @@ ul {
 a {
     text-decoration: none;
     transition-duration: 0.3s;
-    color: black;
+    color: navy;
 }
 
 a:hover {
+    color: navy;
     text-decoration: none;
 }
 
+b {
+    color: red;
+}
 
 
 
@@ -138,7 +147,7 @@ a:hover {
 
 #bar {
     position: fixed;
-    top: 0;
+    top: -200px;
     right: 0;
     width: 100%;
     text-align: right;
@@ -148,7 +157,7 @@ a:hover {
 
 
 #bars {
-    color: black;
+    color: navy;
     cursor: pointer;
 }
 
@@ -226,17 +235,49 @@ a:hover {
 /*    MM  MM    MMMMMM  MM    MM    MM    MM    MM    MMMM     */
 
 #intro {
+    position: relative;
     height: 100vh;
     display: flex;
     flex-flow: column;
     justify-content: center;
-    align-items: center;
-    font-family: var(--font2);
-    color: white;
-    background-image: url("/index/japan.jpg");
-    background-position: center;
+    align-items: flex-start;
+    font-family: var(--font6);
+    /* color: white; */
+    color: navy;
+    /* background-image: url("/index/japan.jpg"); */
+    background-image: url("/index/croods.png");
+    background-position: left bottom;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-position-x: 10vw;
+    background-position-y: 20vh;
+    /* background-size: cover; */
+    background-size: auto 120%;
+}
+
+
+#intro .intro-text {
+    position: absolute;
+    width: 65vw;
+    height: auto;
+    right: 0;
+    top: 20vh;
+    /* background: pink; */
+}
+
+#intro h3 {
+    font-family: var(--font6);
+    color: navy;
+    font-size: 6vw;
+    width: 100%;
+    text-align: left;
+}
+
+#intro div {
+    font-family: var(--font6);
+    color: navy;
+    font-size: 3vw;
+    width: 100%;
+    text-align: left;
 }
 
 
@@ -253,7 +294,7 @@ a:hover {
 /*        MM  MMMMMM      MMMM    MM    MM  MMMMMM    MMMMMM  MMMMMMMM   */
 
 .bundle {
-    font-family: var(--font5);
+    font-family: var(--font7);
     /* background: #f1f3f8; */
     border-style: solid;
     border-color: #EEE;
@@ -262,47 +303,6 @@ a:hover {
 
 /* .bundle:nth-child(4n+2) { background: #d6e0f0; } */
 /* .bundle:nth-child(4n+3) { background: #d6e0f0; } */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*    MM  MM    MMMMMM    MM    MM    MMMM    MMMMMM                 */
-/*  MMMMMMMMMM  MM    MM  MM  MM    MM    MM  MM    MM               */
-/*    MM  MM    MMMMMM    MMMM      MM        MM    MM               */
-/*    MM  MM    MM    MM  MM  MM    MM  MMMM  MM    MM               */
-/*  MMMMMMMMMM  MM    MM  MM    MM  MM    MM  MM    MM               */
-/*    MM  MM    MMMMMM    MM    MM    MMMM    MMMMMM    MM  MM  MM   */
-
-.bkgd-img {
-    width: 40vw;
-    height: 30vw;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* background-size: 130%; */
-}
-.bkgd-img.blur {
-    filter: blur(2px);
-}
-
-/* #bkgd-image-1 { background-image: url("/index/resumeSnap.png"); } */
-#bkgd-image-2 { background-image: url("/index/tetrisSnap.png"); }
-#bkgd-image-3 { background-image: url("/index/scatterSnap.png"); }
-#bkgd-image-4 { background-image: url("/index/goSnap.png"); }
-#bkgd-image-5 { background-image: url("/index/svgartisteSnap.png"); }
-#bkgd-image-6 { background-image: url("/index/biglettersSnap2.png"); }
-
-
 
 
 
@@ -344,19 +344,67 @@ a:hover {
 
 
 
-/*            MMMMMMMM    MMMM    MMMMMM    MMMMMMMM    MMMM    MMMMMM      MMMM    MM    MM  MM    MM  MMMMMM     */
-/*            MM        MM    MM  MM    MM  MM        MM    MM  MM    MM  MM    MM  MM    MM  MMMM  MM  MM    MM   */
-/*            MMMMMMMM  MM    MM  MMMMMM    MMMMMMMM  MM        MMMMMM    MM    MM  MM    MM  MM  MMMM  MM    MM   */
-/*            MM        MM    MM  MM    MM  MM        MM  MMMM  MM    MM  MM    MM  MM    MM  MM    MM  MM    MM   */
-/*            MM        MM    MM  MM    MM  MM        MM    MM  MM    MM  MM    MM  MM    MM  MM    MM  MM    MM   */
-/*        MM  MM          MMMM    MM    MM  MMMMMMMM    MMMM    MM    MM    MMMM      MMMM    MM    MM  MMMMMM     */
-
+/*            MMMMMMMM  MMMMMM      MMMM    MM      MM  MMMMMMMM   */
+/*            MM        MM    MM  MM    MM  MMMM  MMMM  MM         */
+/*            MMMMMMMM  MMMMMM    MMMMMMMM  MM  MM  MM  MMMMMMMM   */
+/*            MM        MM    MM  MM    MM  MM      MM  MM         */
+/*            MM        MM    MM  MM    MM  MM      MM  MM         */
+/*        MM  MM        MM    MM  MM    MM  MM      MM  MMMMMMMM   */
 
 .frame {
     position: relative;
     overflow: hidden;
     /* box-shadow: 5px 5px 10px 0px #AAA; */
 }
+
+
+
+
+
+
+
+
+/*    MM  MM    MMMMMM    MM    MM    MMMM    MMMMMM                 */
+/*  MMMMMMMMMM  MM    MM  MM  MM    MM    MM  MM    MM               */
+/*    MM  MM    MMMMMM    MMMM      MM        MM    MM               */
+/*    MM  MM    MM    MM  MM  MM    MM  MMMM  MM    MM               */
+/*  MMMMMMMMMM  MM    MM  MM    MM  MM    MM  MM    MM               */
+/*    MM  MM    MMMMMM    MM    MM    MMMM    MMMMMM    MM  MM  MM   */
+
+.bkgd-img {
+    width: 40vw;
+    height: 30vw;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    background-size: 120%;
+}
+.bkgd-img.blur {
+    filter: blur(2px);
+}
+
+/* #bkgd-image-1 { background-image: url("/index/resumeSnap.png"); } */
+#bkgd-image-2 { background-image: url("/index/tetrisSnap.png"); }
+#bkgd-image-3 { background-image: url("/index/scatterSnap.png"); }
+#bkgd-image-4 { background-image: url("/index/goSnap.png"); }
+#bkgd-image-5 { background-image: url("/index/svgartisteSnap.png"); }
+#bkgd-image-6 { background-image: url("/index/biglettersSnap2.png"); }
+
+
+
+
+
+
+
+
+
+
+/*            MMMMMMMM    MMMM    MMMMMM    MMMMMMMM    MMMM    MMMMMM      MMMM    MM    MM  MM    MM  MMMMMM     */
+/*            MM        MM    MM  MM    MM  MM        MM    MM  MM    MM  MM    MM  MM    MM  MMMM  MM  MM    MM   */
+/*            MMMMMMMM  MM    MM  MMMMMM    MMMMMMMM  MM        MMMMMM    MM    MM  MM    MM  MM  MMMM  MM    MM   */
+/*            MM        MM    MM  MM    MM  MM        MM  MMMM  MM    MM  MM    MM  MM    MM  MM    MM  MM    MM   */
+/*            MM        MM    MM  MM    MM  MM        MM    MM  MM    MM  MM    MM  MM    MM  MM    MM  MM    MM   */
+/*        MM  MM          MMMM    MM    MM  MMMMMMMM    MMMM    MM    MM    MMMM      MMMM    MM    MM  MMMMMM     */
 
 .foreground-abs {
     position: absolute;
@@ -387,7 +435,8 @@ a:hover {
     transition: 0.3s;
 }
 .foreground img:hover{
-    width: 3.5vw;
+    transform: scale(1.1);
+    /* width: 3.5vw; */
 }
 
 .app-link {
@@ -396,24 +445,73 @@ a:hover {
     transition: 0.3s;
 }
 .app-link:hover {
-    color:black;
-    font-size: 2.2em;
+    color: black;
+    transform: scale(1.2);
 }
+
 
 .app-title {
     font-size: 3vw;
+    width: 100%;
+    /* color: red; */
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.app-title > div {
+    font-size: 1em;
+}
+
+.app-tags {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+}
+
+.app-tags > div {
+    background: navy;
+    color: white;
+    font-family: var(--font3);
+    font-size: 0.5em;
+    font-weight: bold;
+    border-radius: 14pt;
+    padding: 2px 7px 1px 7px;
+    margin: 2px 6px 2px 0px; 
 }
 
 .app-desc {
     font-size: 1.6vw;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*            MM      MMMMMM  MMMMMM      MMMM     */
+/*            MM        MM    MM    MM  MM    MM   */
+/*            MM        MM    MM    MM    MM       */
+/*            MM        MM    MM    MM      MM     */
+/*            MM        MM    MM    MM  MM    MM   */
+/*        MM  MMMMMM  MMMMMM  MMMMMM      MMMM     */
+
+
 .top-lid {
     background: #FFF9;
     position: absolute;
-    height: 75%;
+    height: 50%;
     width: 100%;
-    top: -75%;
+    top: -50%;
+    font-size: 1.9vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -423,13 +521,12 @@ a:hover {
     top: 0%;
 }
 
-
 .bot-lid {
     background: #FFF9;
     position: absolute;
-    height: 25%;
+    height: 50%;
     width: 100%;
-    bottom: -25%;
+    bottom: -50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -438,7 +535,6 @@ a:hover {
 .bot-lid.show {
     bottom: 0%;
 }
-
 
 
 
@@ -509,6 +605,56 @@ a:hover {
 @media (max-width: 992px) {
     /* WHEN SCREEN IS SMALL */
     
+
+    #bar {
+        top: 0px;
+    }
+
+    #intro {
+        background-image: url("/index/croods.png");
+        background-position: left bottom;
+        background-repeat: no-repeat;
+        background-position-x: 20vw;
+        background-position-y: 50vh;
+        /* background-size: cover; */
+        background-size: auto 90%;
+    }
+    
+    
+    #intro .intro-text {
+        width: 80%;
+        left: 10vw;
+        top: 20vh;
+        /* background: pink; */
+    }
+    
+    #intro h3 {
+        font-size: 8vh;
+        text-align: left;
+    }
+    
+    #intro div {
+        font-size: 4vh;
+        text-align: left;
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     .bundle:nth-child(odd) {
         border-width: 0 0 0 0;
     }
@@ -537,24 +683,24 @@ a:hover {
     }
 
     .foreground img {
-        width: 5vw;
+        width: 5.2vw;
         transition: 0.3s;
     }
     .foreground img:hover{
-        width: 5.8vw;
+        transform: scale(1.2);
     }
 
     .app-title {
-        width: 100%;
-        text-align: center;
-        font-size: 6vw;
+        font-size: 5vw;
     }
     
     .app-desc {
         font-size: 3vw;
     }
 
-
+    .top-lid {
+        font-size: 3vw;
+    }
 
 
 
