@@ -9,14 +9,14 @@
 /*  MM        MM    MM  MM    MM    MM    MM    MM   */
 /*  MM          MMMM    MM    MM    MM      MMMM     */
 
-@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Saira&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Saira&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Neuton:wght@800&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
 
 
 
@@ -30,36 +30,18 @@
 /*      MM      MM    MM  MM    MM  MMMMMM  MM    MM  MMMMMM    MMMMMM  MMMMMMMM    MMMM     */
 
 :root{
-    --color1: #212121;
-    --color2: #757575;
-    --colorS: #f6416c;
-    --colorD: #BDBDBD;
-    --colorI: #000000;
 
-    --bkgd1: #a9eee6;
-    --bkgd2: #fefaec;
-    --bkgd3: #f9a1bc;
-    --bkgd4: #625772;
+    --color1: navy;
 
-    --sizeS: 1em;
-    --sizeM: 3em;
-    --sizeL: 5em;
-
-    --font1: 'Philosopher', sans-serif;
-    --font2: 'Noto Serif', serif;
+    /* --font1: 'Philosopher', sans-serif; */
+    /* --font2: 'Noto Serif', serif; */
     --font3: 'Rubik', sans-serif;
-    --font4: 'Libre Baskerville', serif;
-    --font5: 'Saira', sans-serif;
+    /* --font4: 'Libre Baskerville', serif; */
+    /* --font5: 'Saira', sans-serif; */
     --font6: 'Neuton', serif;
     --font7: 'Dosis', sans-serif;
+    --font8: 'Oxygen', sans-serif;
 
-    --margin1: 10px;
-
-    --menu-wide: 0px;
-
-    --curve1: cubic-bezier(.5,0.2,.33,1);
-    --curve2: cubic-bezier(.3,-0.2,.04,1.2);
-    --curve3: cubic-bezier(.4,.3,.6,1.2);
 }
 
 
@@ -78,7 +60,8 @@
 body, html {
     height: 100%;
     margin: 0;
-    color: navy;
+    color: var(--color1);
+    font-family: var(--font8);
 }
 
 body.noscroll {
@@ -87,9 +70,8 @@ body.noscroll {
 
 
 h3 {
-    font-size: var(--sizeL);
-    font-family: var(--font1);
-    /* font-family: "Aliseo"; */
+    font-size: 5em;
+    /* font-family: var(--font1); */
 }
 
 
@@ -101,11 +83,11 @@ ul {
 a {
     text-decoration: none;
     transition-duration: 0.3s;
-    color: navy;
+    color: var(--color1);
 }
 
 a:hover {
-    color: navy;
+    color: var(--color1);
     text-decoration: none;
 }
 
@@ -126,7 +108,6 @@ b {
 
 .right {
     text-align: right;
-    /* background: pink; */
     width: 100%;
 }
 
@@ -151,13 +132,17 @@ b {
     right: 0;
     width: 100%;
     text-align: right;
-    font-size: var(--sizeM);
+    font-size: 3em;
     padding-right: 0.5em;
+    transition-duration: 1s;
+}
+#bar.hide {
+    top: -200px;
 }
 
 
 #bars {
-    color: navy;
+    color: var(--color1);
     cursor: pointer;
 }
 
@@ -195,7 +180,6 @@ b {
 
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
-    /* transition-timing-function: var(--curve1); */
 }
 
 #menu.show { 
@@ -242,16 +226,14 @@ b {
     justify-content: center;
     align-items: flex-start;
     font-family: var(--font6);
-    /* color: white; */
-    color: navy;
-    /* background-image: url("/index/japan.jpg"); */
+    color: var(--color1);
     background-image: url("/index/croods.png");
     background-position: left bottom;
     background-repeat: no-repeat;
     background-position-x: 10vw;
     background-position-y: 20vh;
     /* background-size: cover; */
-    background-size: auto 120%;
+    background-size: auto 100%;
 }
 
 
@@ -265,21 +247,20 @@ b {
 }
 
 #intro h3 {
-    font-family: var(--font6);
-    color: navy;
+    /* font-family: var(--font6); */
+    color: var(--color1);
     font-size: 6vw;
     width: 100%;
     text-align: left;
 }
 
 #intro div {
-    font-family: var(--font6);
-    color: navy;
+    /* font-family: var(--font6); */
+    color: var(--color1);
     font-size: 3vw;
     width: 100%;
     text-align: left;
 }
-
 
 
 
@@ -294,7 +275,7 @@ b {
 /*        MM  MMMMMM      MMMM    MM    MM  MMMMMM    MMMMMM  MMMMMMMM   */
 
 .bundle {
-    font-family: var(--font7);
+    font-family: var(--font3);
     /* background: #f1f3f8; */
     border-style: solid;
     border-color: #EEE;
@@ -377,7 +358,7 @@ b {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     /* background-size: cover; */
-    background-size: 120%;
+    background-size: 130%;
 }
 .bkgd-img.blur {
     filter: blur(2px);
@@ -440,12 +421,12 @@ b {
 }
 
 .app-link {
-    color:black;
+    color: var(--color1);
     font-size: 2em;
     transition: 0.3s;
 }
 .app-link:hover {
-    color: black;
+    color: var(--color1);
     transform: scale(1.2);
 }
 
@@ -453,7 +434,6 @@ b {
 .app-title {
     font-size: 3vw;
     width: 100%;
-    /* color: red; */
     display: flex;
     flex-flow: row;
     justify-content: space-between;
@@ -605,7 +585,6 @@ b {
 @media (max-width: 992px) {
     /* WHEN SCREEN IS SMALL */
     
-
     #bar {
         top: 0px;
     }
@@ -615,9 +594,9 @@ b {
         background-position: left bottom;
         background-repeat: no-repeat;
         background-position-x: 20vw;
-        background-position-y: 50vh;
+        background-position-y: 45vh;
         /* background-size: cover; */
-        background-size: auto 80%;
+        background-size: auto 100%;
     }
     
     
@@ -637,20 +616,6 @@ b {
         font-size: 4vh;
         text-align: left;
     }
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -660,16 +625,15 @@ b {
     }
 
 
-
     .nw {
-        padding: 8vw 6vw 3vw 6vw;
+        padding: 8vw 6vw 0vw 6vw;
         display: flex;
         justify-content: center;
         align-items: center;
     }
     
     .se {
-        padding: 0px 6vw 14vw 6vw;
+        padding: 3vw 6vw 14vw 6vw;
         display: flex;
         align-items: flex-start;
         font-size: 3vw;
@@ -701,7 +665,6 @@ b {
     .top-lid {
         font-size: 3vw;
     }
-
 
 
 }

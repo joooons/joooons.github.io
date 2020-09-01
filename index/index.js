@@ -35,6 +35,19 @@ const menulist = {
 
 
 
+window.onscroll = () => {
+    console.log(window.innerHeight, Math.floor(window.scrollY));
+    let H = window.innerHeight;
+    let Y = window.scrollY;
+    if ( Y > 0.8*H ) {
+        bar.classList.add('hide');
+    } else {
+        bar.classList.remove('hide');
+    }
+}
+
+
+
 
 
 bars.onclick = () => {
