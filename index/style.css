@@ -189,13 +189,13 @@ b {
     align-items: stretch;
 
     overflow: hidden;
-    background:#0009;
+    background:#000C;
     width: 100%;
     left: -100%;
 
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
-    transition-timing-function: var(--curve1);
+    /* transition-timing-function: var(--curve1); */
 }
 
 #menu.show { 
@@ -203,13 +203,13 @@ b {
 }
 
 #menu a{
+    font-family: var(--font7);
     color: white;
-    font-size: 6vh;
+    font-size: 5vh;
     text-align: center;
 }
 
 #menu .right {
-    /* background: pink; */
     padding: 10px;
 }
 
@@ -617,19 +617,19 @@ b {
         background-position-x: 20vw;
         background-position-y: 50vh;
         /* background-size: cover; */
-        background-size: auto 90%;
+        background-size: auto 80%;
     }
     
     
     #intro .intro-text {
         width: 80%;
         left: 10vw;
-        top: 20vh;
+        top: 15vh;
         /* background: pink; */
     }
     
     #intro h3 {
-        font-size: 8vh;
+        font-size: 7.5vh;
         text-align: left;
     }
     
