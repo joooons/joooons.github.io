@@ -247,11 +247,26 @@ a:hover {
 /*            MM    MM  MM    MM  MM    MM  MM    MM  MM      MM         */
 /*        MM  MMMMMM      MMMM    MM    MM  MMMMMM    MMMMMM  MMMMMMMM   */
 
+
+.layer {
+    width: 100%;
+    background: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
 .bundle {
+    margin: 10vw 0 10vw 0;
+    width: 80vw;
+    background: lightgreen;
+
     font-family: var(--font1);
-    border-style: solid;
-    border-color: #EEE;
-    border-width: 4px 0 0 0;
+    display: flex;
+    flex-flow: column;
+    box-shadow: 5px 5px 10px 0 red;
+    
 }
 
 
@@ -307,7 +322,15 @@ a:hover {
     /* box-shadow: 5px 5px 10px 0px #AAA; */
 }
 
+.img-frame {
+    position: relative;
+    overflow: hidden;
+}
 
+.text-frame {
+    position: relative;
+    overflow: hidden;
+}
 
 
 
@@ -322,11 +345,10 @@ a:hover {
 /*    MM  MM    MMMMMM    MM    MM    MMMM    MMMMMM    MM  MM  MM   */
 
 .bkgd-img {
-    width: 40vw;
-    height: 30vw;
+    height: 40vw;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-size: 130%;
+    background-size: 100%;
 }
 .bkgd-img.blur {
     filter: blur(2px);
@@ -583,9 +605,9 @@ a:hover {
 
 
 
-    .bundle:nth-child(odd) {
+    /* .bundle:nth-child(odd) {
         border-width: 0 0 0 0;
-    }
+    } */
 
 
     .nw {
@@ -605,8 +627,10 @@ a:hover {
 
     
     .bkgd-img {
-        width: 80vw;
+        /* width: auto; */
         height: 50vw;
+        background-position: 50% 50%;
+        background-size: 100%;
     }
 
     .foreground img {
