@@ -207,18 +207,26 @@ a:hover {
 #intro {
     position: relative;
     height: 100vh;
+
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: flex-start;
+
     font-family: var(--font2);
     color: var(--color1);
+
     background-image: url("/index/croods.png");
     background-position: left bottom;
     background-repeat: no-repeat;
     background-position-x: 10vw;
     background-position-y: 20vh;
     background-size: auto 100%;
+
+    box-sizing: border-box;
+    border-style: solid;
+    border-color: #EEE;
+    border-width: 0 0 4px 0;
 }
 
 #intro .intro-text {
@@ -294,7 +302,7 @@ a:hover {
 
 .layer {
     width: 100%;
-    background: pink;
+    /* background: pink; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -304,68 +312,28 @@ a:hover {
 .bundle {
     margin: 10vw 0 10vw 0;
     width: 80vw;
-    background: lightgreen;
-
     font-family: var(--font1);
     display: flex;
-    flex-flow: column;
-    box-shadow: 5px 5px 10px 0 red;
+    flex-flow: row;
+    border-radius: 1vw;
+    overflow: hidden;
+    box-shadow: 2px 2px 4px 0px #0007;
     
-}
-
-
-
-
-
-
-
-/*            MM    MM  MM      MM              MMMM    MMMMMMMM   */
-/*            MMMM  MM  MM      MM            MM    MM  MM         */
-/*            MM  MMMM  MM      MM              MM      MMMMMMMM   */
-/*            MM    MM  MM  MM  MM                MM    MM         */
-/*            MM    MM  MM  MM  MM            MM    MM  MM         */
-/*        MM  MM    MM    MM  MM          MM    MMMM    MMMMMMMM   */
-
-.nw {
-    width: 100%;
-    height: 100%;
-    padding: 3vw 0vw 3vw 3vw;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.se {
-    width: 100%;
-    height: 100%;
-    padding: 3vw 7vw 3vw 3vw;
-    display: flex;
-    flex-flow: column;
-    justify-content: start;
-    align-items: flex-start;
-    font-size: 2.2vw;
-    text-align: justify;
 }
 
 
 @media (max-width: 992px) {
     /* WHEN SCREEN IS SMALL */
-
-    .nw {
-        padding: 8vw 6vw 0vw 6vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
     
-    .se {
-        padding: 3vw 6vw 14vw 6vw;
-        display: flex;
-        align-items: flex-start;
-        font-size: 3vw;
-        text-align: justify;
+    .bundle {
+        flex-flow: column;
     }
+
 }
+
+
+
+
 
 
 
@@ -381,21 +349,35 @@ a:hover {
 /*            MM        MM    MM  MM    MM  MM      MM  MM         */
 /*        MM  MM        MM    MM  MM    MM  MM      MM  MMMMMMMM   */
 
-.frame {
-    position: relative;
-    overflow: hidden;
-    /* box-shadow: 5px 5px 10px 0px #AAA; */
-}
-
 .img-frame {
     position: relative;
     overflow: hidden;
+    width: 50%;
 }
 
 .text-frame {
     position: relative;
     overflow: hidden;
+    padding: 1em;
+    width: 50%;
 }
+
+
+@media (max-width: 992px) {
+    /* WHEN SCREEN IS SMALL */
+
+    .img-frame {
+        width: 100%;
+    }
+    
+    .text-frame {
+        width: 100%;
+    }
+    
+
+
+}
+
 
 
 
@@ -410,13 +392,14 @@ a:hover {
 /*    MM  MM    MMMMMM    MM    MM    MMMM    MMMMMM    MM  MM  MM   */
 
 .bkgd-img {
-    height: 40vw;
+    width: auto;
+    height: 30vw;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
 }
 .bkgd-img.blur {
-    filter: blur(2px);
+    /* filter: blur(2px); */
 }
 
 #bkgd-image-2 { background-image: url("/index/tetrisSnap.png"); }
@@ -429,7 +412,7 @@ a:hover {
     /* WHEN SCREEN IS SMALL */
 
     .bkgd-img {
-        /* width: auto; */
+        width: auto;
         height: 50vw;
         background-position: 50% 50%;
         background-size: 100%;
@@ -572,7 +555,7 @@ a:hover {
 
 
 .top-lid {
-    background: #FFF9;
+    background: #FFFC;
     position: absolute;
     height: 50%;
     width: 100%;
@@ -588,7 +571,7 @@ a:hover {
 }
 
 .bot-lid {
-    background: #FFF9;
+    background: #FFFA;
     position: absolute;
     height: 50%;
     width: 100%;
@@ -633,13 +616,17 @@ a:hover {
 #contacts {
     width: 100%;
     background: #EEE;
+    /* box-sizing: border-box; */
+    border-style: solid;
+    border-color: #EEE;
+    border-width: 4px 0 0 0;
 }
 
 .contact-grid {
     display: grid;
     grid-template-columns: 30% auto;
     column-gap: 4px;
-    margin-top: 4px;
+    /* margin-top: 4px; */
 }
 
 .contact {
