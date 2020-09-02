@@ -38,6 +38,8 @@
     --font3: 'Dosis', sans-serif;
     --font4: 'Oxygen', sans-serif;
 
+    --dim1: 992px;
+
 }
 
 
@@ -122,7 +124,13 @@ a:hover {
     cursor: pointer;
 }
 
+@media (max-width: 992px) {
 
+    #bar {
+        top: 0px;
+    }
+
+}
 
 
 
@@ -236,6 +244,42 @@ a:hover {
 }
 
 
+@media (max-width: 992px) {
+    /* WHEN SCREEN IS SMALL */
+
+    
+    #intro {
+        background-image: url("/index/croods.png");
+        background-position: left bottom;
+        background-repeat: no-repeat;
+        background-position-x: 20vw;
+        background-position-y: 45vh;
+        background-size: auto 100%;
+    }
+    
+    
+    #intro .intro-text {
+        width: 80%;
+        left: 10vw;
+        top: 15vh;
+    }
+    
+    #intro h3 {
+        font-size: 7.5vh;
+        text-align: left;
+    }
+    
+    #intro div {
+        font-size: 4vh;
+        text-align: left;
+    }
+
+}
+
+
+
+
+
 
 
 
@@ -304,6 +348,27 @@ a:hover {
 }
 
 
+@media (max-width: 992px) {
+    /* WHEN SCREEN IS SMALL */
+
+    .nw {
+        padding: 8vw 6vw 0vw 6vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .se {
+        padding: 3vw 6vw 14vw 6vw;
+        display: flex;
+        align-items: flex-start;
+        font-size: 3vw;
+        text-align: justify;
+    }
+}
+
+
+
 
 
 
@@ -360,7 +425,16 @@ a:hover {
 #bkgd-image-5 { background-image: url("/index/svgartisteSnap.png"); }
 #bkgd-image-6 { background-image: url("/index/biglettersSnap2.png"); }
 
+@media (max-width: 992px) {
+    /* WHEN SCREEN IS SMALL */
 
+    .bkgd-img {
+        /* width: auto; */
+        height: 50vw;
+        background-position: 50% 50%;
+        background-size: 100%;
+    }
+}
 
 
 
@@ -397,17 +471,6 @@ a:hover {
     overflow: hidden;
 }
 
-
-
-.foreground img {
-    width: 3vw;
-    transition: 0.3s;
-}
-.foreground img:hover{
-    transform: scale(1.1);
-    /* width: 3.5vw; */
-}
-
 .app-link {
     /* color: var(--color1); */
     color: black;
@@ -419,6 +482,19 @@ a:hover {
     color: black;
     transform: scale(1.2);
 }
+
+.foreground img {
+    width: 3vw;
+    transition: 0.3s;
+}
+.foreground img:hover{
+    transform: scale(1.1);
+    /* width: 3.5vw; */
+}
+
+
+
+
 
 
 .app-title {
@@ -458,8 +534,25 @@ a:hover {
 .app-desc b { color: red; }
 
 
+@media (max-width: 992px) {
+    /* WHEN SCREEN IS SMALL */
 
+    .foreground img {
+        width: 5.2vw;
+        transition: 0.3s;
+    }
+    .foreground img:hover{
+        transform: scale(1.2);
+    }
 
+    .app-title {
+        font-size: 5vw;
+    }
+    
+    .app-desc {
+        font-size: 3vw;
+    }
+}
 
 
 
@@ -508,6 +601,17 @@ a:hover {
 .bot-lid.show {
     bottom: 0%;
 }
+
+
+@media (max-width: 992px) {
+    /* WHEN SCREEN IS SMALL */
+
+    .top-lid {
+        font-size: 3vw;
+    }
+
+}
+
 
 
 
@@ -568,94 +672,5 @@ a:hover {
 /*              MM      MM  MM        MM    MM    MM    MM    MM        MM  MM  MM  MM    MM  MM        MM    MM      MM       */
 /*              MM      MM  MM        MM    MM    MM    MM    MM        MM    MM    MM    MM  MM        MM    MM      MM       */
 /*              MM      MM  MMMMMMMM  MMMMMM    MMMMMM  MM    MM          MMMM  MM    MMMM    MMMMMMMM  MM    MM      MM       */
-
-@media (max-width: 992px) {
-    /* WHEN SCREEN IS SMALL */
-    
-    #bar {
-        top: 0px;
-    }
-
-    #intro {
-        background-image: url("/index/croods.png");
-        background-position: left bottom;
-        background-repeat: no-repeat;
-        background-position-x: 20vw;
-        background-position-y: 45vh;
-        background-size: auto 100%;
-    }
-    
-    
-    #intro .intro-text {
-        width: 80%;
-        left: 10vw;
-        top: 15vh;
-    }
-    
-    #intro h3 {
-        font-size: 7.5vh;
-        text-align: left;
-    }
-    
-    #intro div {
-        font-size: 4vh;
-        text-align: left;
-    }
-
-
-
-
-    /* .bundle:nth-child(odd) {
-        border-width: 0 0 0 0;
-    } */
-
-
-    .nw {
-        padding: 8vw 6vw 0vw 6vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .se {
-        padding: 3vw 6vw 14vw 6vw;
-        display: flex;
-        align-items: flex-start;
-        font-size: 3vw;
-        text-align: justify;
-    }
-
-    
-    .bkgd-img {
-        /* width: auto; */
-        height: 50vw;
-        background-position: 50% 50%;
-        background-size: 100%;
-    }
-
-    .foreground img {
-        width: 5.2vw;
-        transition: 0.3s;
-    }
-    .foreground img:hover{
-        transform: scale(1.2);
-    }
-
-    .app-title {
-        font-size: 5vw;
-    }
-    
-    .app-desc {
-        font-size: 3vw;
-    }
-
-    .top-lid {
-        font-size: 3vw;
-    }
-
-
-}
-
-
 
 
