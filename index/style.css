@@ -11,9 +11,9 @@
 
 /* @import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@700&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 /* @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css2?family=Saira&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Neuton:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap'); 
 @import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
@@ -33,14 +33,10 @@
 
     --color1: navy;
 
-    /* --font1: 'Philosopher', sans-serif; */
-    /* --font2: 'Noto Serif', serif; */
-    --font3: 'Rubik', sans-serif;
-    /* --font4: 'Libre Baskerville', serif; */
-    /* --font5: 'Saira', sans-serif; */
-    --font6: 'Neuton', serif;
-    --font7: 'Dosis', sans-serif;
-    --font8: 'Oxygen', sans-serif;
+    --font1: 'Rubik', sans-serif;
+    --font2: 'Neuton', serif;
+    --font3: 'Dosis', sans-serif;
+    --font4: 'Oxygen', sans-serif;
 
 }
 
@@ -57,43 +53,28 @@
 /*    MM    MM    MM  MM    MM  MM    MM   */
 /*    MM    MM    MM    MMMM      MMMM     */
 
-body, html {
+body {
     height: 100%;
     margin: 0;
     color: var(--color1);
-    font-family: var(--font8);
 }
 
-body.noscroll {
-    overflow: hidden;
-}
-
-
-h3 {
-    font-size: 5em;
-    /* font-family: var(--font1); */
-}
-
-
-ul {
-    list-style-type: none;
-}
+body.noscroll { overflow: hidden; }
 
 
 a {
+    /* color: var(--color1); */
+    color: black;
     text-decoration: none;
-    transition-duration: 0.3s;
-    color: var(--color1);
 }
 
 a:hover {
-    color: var(--color1);
+    /* color: var(--color1); */
+    color: black;
     text-decoration: none;
 }
 
-b {
-    color: red;
-}
+
 
 
 
@@ -106,10 +87,7 @@ b {
 /*  MM    MM  MM        MM    MM  MM        MM    MM  MM    MM  MM            MM    MM  MM      MM    MM  MM    MM  MM    MM  MM        MM    MM   */
 /*    MMMM    MMMMMMMM  MM    MM  MMMMMMMM  MM    MM  MM    MM  MMMMMM          MMMM    MMMMMM  MM    MM    MMMM      MMMM    MMMMMMMM    MMMM     */
 
-.right {
-    text-align: right;
-    width: 100%;
-}
+
 
 
 
@@ -129,17 +107,15 @@ b {
 #bar {
     position: fixed;
     top: -200px;
-    right: 0;
+    left: calc(100vw - 1.6em);
     width: 100%;
-    text-align: right;
-    font-size: 3em;
+    font-size: 2.5em;
     padding-right: 0.5em;
-    transition-duration: 1s;
 }
 #bar.hide {
     top: -200px;
+    transition-duration: 0.1s;
 }
-
 
 #bars {
     color: var(--color1);
@@ -181,25 +157,27 @@ b {
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
 }
-
-#menu.show { 
-    left: 0%;
-}
-
-#menu a{
-    font-family: var(--font7);
-    color: white;
-    font-size: 5vh;
-    text-align: center;
-}
+#menu.show { left: 0%; }
 
 #menu .right {
-    padding: 10px;
+    text-align: right;
+    padding-top: 1em;
+    padding-right: 1.6em;
+    width: 100%;
 }
 
 #close {
     cursor: pointer;
 }
+
+#menu a{
+    font-family: var(--font3);
+    color: white;
+    font-size: 5vh;
+    text-align: center;
+}
+
+
 
 
 
@@ -225,17 +203,15 @@ b {
     flex-flow: column;
     justify-content: center;
     align-items: flex-start;
-    font-family: var(--font6);
+    font-family: var(--font2);
     color: var(--color1);
     background-image: url("/index/croods.png");
     background-position: left bottom;
     background-repeat: no-repeat;
     background-position-x: 10vw;
     background-position-y: 20vh;
-    /* background-size: cover; */
     background-size: auto 100%;
 }
-
 
 #intro .intro-text {
     position: absolute;
@@ -243,11 +219,9 @@ b {
     height: auto;
     right: 0;
     top: 20vh;
-    /* background: pink; */
 }
 
 #intro h3 {
-    /* font-family: var(--font6); */
     color: var(--color1);
     font-size: 6vw;
     width: 100%;
@@ -255,7 +229,6 @@ b {
 }
 
 #intro div {
-    /* font-family: var(--font6); */
     color: var(--color1);
     font-size: 3vw;
     width: 100%;
@@ -275,15 +248,11 @@ b {
 /*        MM  MMMMMM      MMMM    MM    MM  MMMMMM    MMMMMM  MMMMMMMM   */
 
 .bundle {
-    font-family: var(--font3);
-    /* background: #f1f3f8; */
+    font-family: var(--font1);
     border-style: solid;
     border-color: #EEE;
     border-width: 4px 0 0 0;
 }
-
-/* .bundle:nth-child(4n+2) { background: #d6e0f0; } */
-/* .bundle:nth-child(4n+3) { background: #d6e0f0; } */
 
 
 
@@ -357,14 +326,12 @@ b {
     height: 30vw;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    /* background-size: cover; */
     background-size: 130%;
 }
 .bkgd-img.blur {
     filter: blur(2px);
 }
 
-/* #bkgd-image-1 { background-image: url("/index/resumeSnap.png"); } */
 #bkgd-image-2 { background-image: url("/index/tetrisSnap.png"); }
 #bkgd-image-3 { background-image: url("/index/scatterSnap.png"); }
 #bkgd-image-4 { background-image: url("/index/goSnap.png"); }
@@ -389,7 +356,6 @@ b {
 
 .foreground-abs {
     position: absolute;
-    /* background: pink; */
     width: 100%;
     height: 100%;
     top: 0;
@@ -421,17 +387,20 @@ b {
 }
 
 .app-link {
-    color: var(--color1);
+    /* color: var(--color1); */
+    color: black;
     font-size: 2em;
     transition: 0.3s;
 }
 .app-link:hover {
-    color: var(--color1);
+    /* color: var(--color1); */
+    color: black;
     transform: scale(1.2);
 }
 
 
 .app-title {
+    font-family: var(--font1);
     font-size: 3vw;
     width: 100%;
     display: flex;
@@ -452,7 +421,7 @@ b {
 .app-tags > div {
     background: navy;
     color: white;
-    font-family: var(--font3);
+    font-family: var(--font1);
     font-size: 0.5em;
     font-weight: bold;
     border-radius: 14pt;
@@ -463,6 +432,8 @@ b {
 .app-desc {
     font-size: 1.6vw;
 }
+
+.app-desc b { color: red; }
 
 
 
@@ -534,29 +505,23 @@ b {
 /*    MM  MM      MMMM      MMMM    MM    MM    MM    MM    MM    MMMM      MM      MMMM     */
 
 #contacts {
-    /* height: 50vh; */
     width: 100%;
     background: #EEE;
 }
 
 .contact-grid {
     display: grid;
-    /* height: 75%; */
     grid-template-columns: 30% auto;
-    /* gap: 5px; */
     column-gap: 4px;
-    /* row-gap: 5px; */
     margin-top: 4px;
 }
 
 .contact {
     background: white;
-    font-family: var(--font3);
-    /* font-size: 3vw; */
+    font-family: var(--font1);
     font-size: 1em;
     display: flex;
     padding: 4vh 0 4vh 0;
-    /* justify-content: center; */
     align-items: center;
 }
 
@@ -595,7 +560,6 @@ b {
         background-repeat: no-repeat;
         background-position-x: 20vw;
         background-position-y: 45vh;
-        /* background-size: cover; */
         background-size: auto 100%;
     }
     
@@ -604,7 +568,6 @@ b {
         width: 80%;
         left: 10vw;
         top: 15vh;
-        /* background: pink; */
     }
     
     #intro h3 {

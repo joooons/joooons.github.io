@@ -11,6 +11,7 @@ const bar = document.getElementById('bar');
 const menu = document.getElementById('menu');
 const close = document.getElementById('close');
 const menuItem = document.getElementsByClassName('menu-item');
+const intro = document.getElementById('intro');
 const bkgdImg = document.getElementsByClassName('bkgd-img');
 const foreground = document.getElementsByClassName('foreground');
 const topLid = document.getElementsByClassName('top-lid');
@@ -36,14 +37,24 @@ const menulist = {
 
 
 window.onscroll = () => {
-    console.log(window.innerHeight, Math.floor(window.scrollY));
+    // console.log(window.innerHeight, Math.floor(window.scrollY));
     let H = window.innerHeight;
+    let W = window.innerWidth;
     let Y = window.scrollY;
-    if ( Y > 0.8*H ) {
+    if ( Y > 0.9*H ) {
         bar.classList.add('hide');
     } else {
         bar.classList.remove('hide');
     }
+
+    console.log(Y);
+    if ( W > 992 ) { 
+        intro.style.backgroundPositionX = (20 - (Y/50) ) + "vw";
+    } else {
+        intro.style.backgroundPositionX = (20 - (Y/50) ) + "vw";
+    }
+    
+
 }
 
 
