@@ -65,14 +65,14 @@ body.noscroll { overflow: hidden; }
 
 
 a {
-    /* color: var(--color1); */
-    color: black;
+    color: var(--color1);
+    /* color: black; */
     text-decoration: none;
 }
 
 a:hover {
-    /* color: var(--color1); */
-    color: black;
+    color: var(--color1);
+    /* color: black; */
     text-decoration: none;
 }
 
@@ -227,6 +227,11 @@ a:hover {
     border-style: solid;
     border-color: #EEE;
     border-width: 0 0 4px 0;
+
+    transition-duration: 0.1s;
+}
+#intro.smile {
+    background-image: url("/index/croods2.png");
 }
 
 #intro .intro-text {
@@ -310,14 +315,14 @@ a:hover {
 }
 
 .bundle {
-    margin: 10vw 0 10vw 0;
+    margin: 6vw 0 0vw 0;
     width: 80vw;
     font-family: var(--font1);
     display: flex;
     flex-flow: row;
     border-radius: 1vw;
     overflow: hidden;
-    box-shadow: 2px 2px 4px 0px #0007;
+    box-shadow: 2px 2px 4px 0px #0004;
     
 }
 
@@ -358,7 +363,7 @@ a:hover {
 .text-frame {
     position: relative;
     overflow: hidden;
-    padding: 1em;
+    padding: 2em;
     width: 50%;
 }
 
@@ -614,6 +619,7 @@ a:hover {
 /*    MM  MM      MMMM      MMMM    MM    MM    MM    MM    MM    MMMM      MM      MMMM     */
 
 #contacts {
+    margin-top: 8vw;
     width: 100%;
     background: #EEE;
     /* box-sizing: border-box; */

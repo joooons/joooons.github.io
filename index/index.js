@@ -37,23 +37,28 @@ const menulist = {
 
 
 window.onscroll = () => {
-    // console.log(window.innerHeight, Math.floor(window.scrollY));
     let H = window.innerHeight;
     let W = window.innerWidth;
     let Y = window.scrollY;
-    if ( Y > 0.9*H ) {
-        bar.classList.add('hide');
+
+    if ( Y > 0.9*H ) { bar.classList.add('hide'); } 
+    else { bar.classList.remove('hide'); }
+
+    if ( Y > 0 ) {
+        intro.classList.add('smile');
     } else {
-        bar.classList.remove('hide');
+        intro.classList.remove('smile');
     }
 
-    console.log(Y);
+
     if ( W > 992 ) { 
-        intro.style.backgroundPositionX = (20 - (Y/50) ) + "vw";
+        intro.style.backgroundPositionX = (10 - (Y/80) ) + "vw";
+        intro.style.backgroundPositionY = (20 + (Y/120) ) + "vh";
     } else {
-        intro.style.backgroundPositionX = (20 - (Y/50) ) + "vw";
+        intro.style.backgroundPositionX = (20 - (Y/80) ) + "vw";
+        intro.style.backgroundPositionY = (45 + (Y/120) ) + "vh";
     }
-    
+
 
 }
 
