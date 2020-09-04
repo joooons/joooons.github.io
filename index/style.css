@@ -18,6 +18,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap'); 
 @import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Tinos:wght@700&display=swap');
+
 
 
 
@@ -37,6 +39,7 @@
     --font2: 'Neuton', serif;
     --font3: 'Dosis', sans-serif;
     --font4: 'Oxygen', sans-serif;
+    --font5: 'Tinos', serif;
 
     --dim1: 992px;
 
@@ -211,7 +214,7 @@ a:hover {
     justify-content: center;
     align-items: flex-start;
 
-    font-family: var(--font2);
+    font-family: var(--font5);
     color: var(--color1);
 
     background-image: url("/index/croods.png");

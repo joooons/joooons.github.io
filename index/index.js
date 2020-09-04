@@ -59,7 +59,7 @@ function moveAvatar() {
         intro.style.backgroundPositionX = (10 ) + "vw";
         intro.style.backgroundPositionY = (20 + (Y/20) ) + "vh";
     } else {
-        intro.style.backgroundPositionX = (20 - (Y/120) ) + "vw";
+        intro.style.backgroundPositionX = (20 ) + "vw";
         intro.style.backgroundPositionY = (45 + (Y/40) ) + "vh";
     }
 }
