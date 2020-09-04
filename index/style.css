@@ -125,11 +125,9 @@ a:hover {
 }
 
 @media (max-width: 992px) {
-
     #bar {
         top: 0px;
     }
-
 }
 
 
@@ -315,7 +313,7 @@ a:hover {
 }
 
 .bundle {
-    margin: 6vw 0 0vw 0;
+    margin: 6vw 0vw 0vw 0vw;
     width: 80vw;
     font-family: var(--font1);
     display: flex;
@@ -323,7 +321,6 @@ a:hover {
     border-radius: 1vw;
     overflow: hidden;
     box-shadow: 2px 2px 4px 0px #0004;
-    
 }
 
 
@@ -411,7 +408,7 @@ a:hover {
 #bkgd-image-3 { background-image: url("/index/scatterSnap.png"); }
 #bkgd-image-4 { background-image: url("/index/goSnap.png"); }
 #bkgd-image-5 { background-image: url("/index/svgartisteSnap.png"); }
-#bkgd-image-6 { background-image: url("/index/biglettersSnap2.png"); }
+#bkgd-image-6 { background-image: url("/index/biglettersSnap.png"); }
 
 @media (max-width: 992px) {
     /* WHEN SCREEN IS SMALL */
@@ -517,7 +514,10 @@ a:hover {
 }
 
 .app-desc {
-    font-size: 1.6vw;
+    /* font-size: 1.6vw; */
+    padding-top: 1em;
+    font-size: 1em;
+    text-align: justify;
 }
 
 .app-desc b { color: red; }
@@ -538,9 +538,6 @@ a:hover {
         font-size: 5vw;
     }
     
-    .app-desc {
-        font-size: 3vw;
-    }
 }
 
 
