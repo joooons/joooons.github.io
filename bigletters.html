@@ -30,6 +30,7 @@
             border-radius: 10px;
             width: 280px;
             overflow: hidden;
+            display: block;
         }
 
         #form {
@@ -50,6 +51,7 @@
             border-radius: 10px;
             width: 100%;
             display: grid;
+            gap: 5px;
             grid-template-columns: auto 160px;
             align-content: start;
             overflow: hidden;
@@ -141,9 +143,17 @@
         const form = document.getElementById('form');
         const arr = new Array(6).fill('');
         const test = document.getElementById('test');
-        const editor = document.getElementById('editor');
+        // const editor = document.getElementById('editor');
         const generator = document.getElementById('generator');
         const display = document.getElementById('display');
+
+        const editor = {};
+        editor.DOM = document.getElementById('editor');
+        editor.on = () => { editor.DOM.style.display = "block"; };
+        editor.off = () => { editor.DOM.style.display = "none"; }
+        editor.off();
+
+
 
         function fillText(ev) {
             let num = ev.target.id.slice(4,5);

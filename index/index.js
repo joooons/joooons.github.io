@@ -35,31 +35,33 @@ const menulist = {
 
 
 
+window.onresize = () => {
+    moveAvatar();
+}
 
 window.onscroll = () => {
     let H = window.innerHeight;
-    let W = window.innerWidth;
+    // let W = window.innerWidth;
     let Y = window.scrollY;
 
     if ( Y > 0.9*H ) { bar.classList.add('hide'); } 
     else { bar.classList.remove('hide'); }
 
-    if ( Y > 0 ) {
-        intro.classList.add('smile');
-    } else {
-        intro.classList.remove('smile');
-    }
+    if ( Y > 0 ) { intro.classList.add('smile'); } 
+    else { intro.classList.remove('smile'); }
+    moveAvatar();
+}
 
-
+function moveAvatar() {
+    let W = window.innerWidth;
+    let Y = window.scrollY;
     if ( W > 992 ) { 
-        intro.style.backgroundPositionX = (10 - (Y/80) ) + "vw";
-        intro.style.backgroundPositionY = (20 + (Y/120) ) + "vh";
+        intro.style.backgroundPositionX = (10 ) + "vw";
+        intro.style.backgroundPositionY = (20 + (Y/20) ) + "vh";
     } else {
-        intro.style.backgroundPositionX = (20 - (Y/80) ) + "vw";
-        intro.style.backgroundPositionY = (45 + (Y/120) ) + "vh";
+        intro.style.backgroundPositionX = (20 - (Y/120) ) + "vw";
+        intro.style.backgroundPositionY = (45 + (Y/40) ) + "vh";
     }
-
-
 }
 
 
