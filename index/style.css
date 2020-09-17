@@ -415,6 +415,7 @@ a:hover {
 #bkgd-image-4 { background-image: url("/index/goSnap.png"); }
 #bkgd-image-5 { background-image: url("/index/svgartisteSnap.png"); }
 #bkgd-image-6 { background-image: url("/index/biglettersSnap.png"); }
+#bkgd-image-7 { background-image: url("/index/vocabhelperSnap.png"); }
 
 @media (max-width: 992px) {
     /* WHEN SCREEN IS SMALL */
