@@ -307,6 +307,8 @@ $(document).on('change', '.quiz-question', function(ev) {
 
     if (isCorrect) { 
         ev.target.readOnly = true;
+        ev.target.classList.add("bg-success");
+        ev.target.classList.add("text-white");
         if ( index == num -1 ) index = -1;
         $('.quiz-question').get(index+1).focus(); 
         fillScoreBoard();
@@ -451,7 +453,7 @@ function showHE(a,b) {
 
 
 
-fillTable(1,5);
+fillTable(1,1);
 function fillTable(start, end) {
     if ( start == undefined ) start = 1;
     if ( start < 1 ) start = 1;
@@ -520,6 +522,7 @@ function fillScoreArr() {
     tempBank.forEach( () => { scoreArr.push( new scoreObj() ); });
 }
 
+fillTempBank();
 function fillTempBank() {
     let startNum = $('.quiz-input').get(0).value;
     let endNum = $('.quiz-input').get(1).value;
@@ -529,12 +532,16 @@ function fillTempBank() {
     if ( endNum < startNum ) return;
     // console.log(startNum,endNum);
     tempBank.splice(0, tempBank.length);
-    for ( i=startNum-1 ; i<endNum ; i++ ) { tempBank.push( bank[i] ); }
+    let indexArr = [];
+    for ( i=startNum-1 ; i<endNum ; i++ ) { 
+        tempBank.push( bank[i] ); 
+        indexArr.push(i+1);
+    }
     fillScoreArr();
-    addQuizQuestions();
+    addQuizQuestions(indexArr);
 }
 
-function addQuizQuestions() {
+function addQuizQuestions(arr1) {
     let str = '';
     questionRef.splice(0,questionRef.length);
     let loop = new Array(tempBank.length).fill(0);
@@ -544,11 +551,11 @@ function addQuizQuestions() {
         str += '<div class="row">';
         str += '<div class="col col-12 col-md-8">';
         str += '<div class="row mb-3">';
-        str += '<div class="col col-2 text-right quiz-word bigger ">';
-        str += `${i+1}.</div>`;
+        str += '<div class="col col-2 text-right quiz-word pt-2">';
+        str += `${arr1[i]}.</div>`;
         str += `<div class="col col-5 hebrew bigger">${tempBank[i].word}</div>`;
-        str += `<div class="col col-2 col-sm-3 text-right">${tempBank[i].category}</div>`;
-        str += `<div class="col col-3 col-sm-2 text-right">${tempBank[i].frequency}</div></div>`;
+        str += `<div class="col col-2 col-sm-3 text-right pt-2">${tempBank[i].category}</div>`;
+        str += `<div class="col col-3 col-sm-2 text-right pt-2">${tempBank[i].frequency}</div></div>`;
 
         let num = tempBank[i].arr.length;
 
@@ -569,9 +576,9 @@ function addQuizQuestions() {
             str += '</div></div></form>';
         }
         str += '</div>';
-        str += '<div class="col col-12 col-md-4">';
-        str += '<div class="card h-100 ">';
-        str += '<div class="card-body bg-light text-light quiz-spoiler">';
+        str += '<div class="col col-12 col-md-4 ">';
+        str += '<div class="card h-100 bg-light quiz-spoiler">';
+        str += '<div class="card-body  text-light ">';
         str += `${splitArrToLines(tempBank[i].arr)}`;
         str += '</div></div></div>';
         str += '</div></div></div>';
