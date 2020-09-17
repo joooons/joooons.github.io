@@ -30,19 +30,19 @@
 <!--  MM    MM  MM    MM    MM  MM     -->
 <!--  MM    MM  MM    MM      MM       -->
 
-    <ul class="nav justify-content-left bg-secondary">
+    <ul class="nav justify-content-left bg-dark">
         <li class="nav-item">
             <!-- <a href="#" class="nav-link active text-light" onclick="showPage('add');">ADD</a> -->
-            <a href="#" class="nav-link active text-dark" >ADD</a>
+            <a href="#" class="nav-link  text-body" >ADD</a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link active text-dark ">EDIT</a>
+            <a href="#" class="nav-link  text-body ">EDIT</a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link active text-light" onclick="showPage('view');">VIEW</a>
+            <a href="#" class="nav-link  text-primary" onclick="showPage('view');">VIEW</a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link active text-light" onclick="showPage('quiz');">QUIZ</a>
+            <a href="#" class="nav-link active text-primary" onclick="showPage('quiz');">QUIZ</a>
         </li>
     </ul>
 
@@ -63,7 +63,7 @@
 
         <div class="row" id="head">
             <div class="col-12">
-                VOCAB HELPER EDITOR
+                Add Words
             </div>
         </div>
 
@@ -75,10 +75,10 @@
                     
                         <form class="no-submit add-form">
                             <div class="form-row form-group">
-                                <label for="word" class="col-3 col-md-3 col-form-label text-right">
+                                <label for="word" class="col-4 col-md-3 col-form-label text-right">
                                     Word
                                 </label>
-                                <div class="col-9 col-md-9">
+                                <div class="col-8 col-md-9">
                                     <input lang="he" type="text" class="form-control add-tab" placeholder="" id="add-word" autocomplete="off">
                                 </div>
                             </div>
@@ -86,10 +86,10 @@
 
                         <form class="no-submit add-form">
                             <div class="form-row form-group">
-                                <label for="word" class="col-3 col-md-3 col-form-label text-right">
+                                <label for="word" class="col-4 col-md-3 col-form-label text-right">
                                     Category
                                 </label>
-                                <div class="col-9 col-md-9">
+                                <div class="col-8 col-md-9">
                                     <input lang="he" type="text" class="form-control add-tab" placeholder="" id="add-category" autocomplete="off">
                                 </div>
                             </div>
@@ -97,10 +97,10 @@
 
                         <form class="no-submit add-form">
                             <div class="form-row form-group">
-                                <label for="word" class="col-3 col-md-3 col-form-label text-right">
+                                <label for="word" class="col-4 col-md-3 col-form-label text-right">
                                     Frequency
                                 </label>
-                                <div class="col-9 col-md-9">
+                                <div class="col-8 col-md-9">
                                     <input lang="he" type="text" class="form-control add-tab" placeholder="" id="add-frequency" autocomplete="off">
                                 </div>
                             </div>
@@ -108,10 +108,10 @@
 
                         <form class="no-submit add-form">
                             <div class="form-row form-group">
-                                <label for="word" class="col-3 col-md-3 col-form-label text-right">
+                                <label for="word" class="col-4 col-md-3 col-form-label text-right">
                                     Meaning
                                 </label>
-                                <div class="input-group col-9 col-md-9">
+                                <div class="input-group col-8 col-md-9">
                                     <input type="text" class="form-control add-tab" placeholder="">
                                 </div>
                             </div>
@@ -119,8 +119,8 @@
                             
                         <form class="no-submit add-form">
                             <div class="form-row form-group">
-                                <div class="col-3 col-md-3"></div>
-                                <div class="col-3 col-md-3">
+                                <div class="col-4 col-md-3"></div>
+                                <div class="col-4 col-md-4">
                                     <button class="btn btn-primary btn-block add-tab" id="add-push">
                                         DONE
                                     </button>
@@ -132,10 +132,10 @@
                 </div>
             </div>
 
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 h-100">
                 <div class="card bg-light p-3">
-                    <div class="col-12 col-md-12 hebrew" id="output">דָּבָר</div>
-                    <textarea readonly class="p-3 " tabindex="-1" id="total"></textarea>
+                    <div class="col-12 col-md-12 hebrew bigger" id="output">---</div>
+                    <textarea readonly class="p-3" tabindex="-1" id="total"></textarea>
                 </div>
             </div>
 
@@ -176,7 +176,7 @@
                                             Start
                                         </label>
                                         <div class="col-8">
-                                            <input type="text" class="form-control view-input" placeholder="" autocomplete="off">
+                                            <input type="text" class="form-control view-input" placeholder="" value="1" autocomplete="off">
                                         </div>
                                     </div>
                                 </form>
@@ -186,7 +186,7 @@
                                             End
                                         </label>
                                         <div class="col-8">
-                                            <input type="text" class="form-control view-input" placeholder="" autocomplete="off">
+                                            <input type="text" class="form-control view-input" placeholder="" value="4" autocomplete="off">
                                         </div>
                                     </div>
                                 </form>
@@ -208,7 +208,7 @@
                                             Category
                                         </label>
                                         <div class="col-8">
-                                            <input readonly type="text" class="form-control view-input" placeholder="" autocomplete="off">
+                                            <input readonly tabindex="-1" type="text" class="form-control view-input" placeholder="" autocomplete="off">
                                         </div>
                                     </div>
                                 </form>
@@ -218,7 +218,7 @@
                                             Frequency
                                         </label>
                                         <div class="col-8">
-                                            <input readonly type="text" class="form-control view-input" placeholder="" autocomplete="off">
+                                            <input readonly tabindex="-1" type="text" class="form-control view-input" placeholder="" autocomplete="off">
                                         </div>
                                     </div>
                                 </form>
@@ -228,7 +228,7 @@
                                             Definition
                                         </label>
                                         <div class="col-8">
-                                            <input readonly type="text" class="form-control view-input" placeholder="" autocomplete="off">
+                                            <input readonly tabindex="-1" type="text" class="form-control view-input" placeholder="" autocomplete="off">
                                         </div>
                                     </div>
                                 </form>
@@ -308,7 +308,7 @@
 
         <div class="row mb-3">
             <!-- QUIZ FILTER -->
-            <div class="col col-12 col-sm-11 col-md-9 col-lg-8 col-xl-6 mb-3">
+            <div class="col col-12 col-sm-12 col-md-8 col-lg-8 col-xl-6 mb-3">
                 <div class="card bg-light">
                     <div class="card-body">
                         <div class="row">
@@ -339,7 +339,7 @@
                                             #ofQ
                                         </label>
                                         <div class="col-8">
-                                            <input readonly type="text" class="form-control quiz-input" placeholder="" autocomplete="off">
+                                            <input readonly type="text" tabindex="-1" class="form-control quiz-input" placeholder="" autocomplete="off">
                                         </div>
                                     </div>
                                 </form>
@@ -351,7 +351,7 @@
                                             Category
                                         </label>
                                         <div class="col-8">
-                                            <input readonly type="text" class="form-control quiz-input" placeholder="" autocomplete="off">
+                                            <input readonly type="text" tabindex="-1" class="form-control quiz-input" placeholder="" autocomplete="off">
                                         </div>
                                     </div>
                                 </form>
@@ -361,7 +361,7 @@
                                             Frequency
                                         </label>
                                         <div class="col-8">
-                                            <input readonly type="text" class="form-control quiz-input" placeholder="" autocomplete="off">
+                                            <input readonly type="text" tabindex="-1" class="form-control quiz-input" placeholder="" autocomplete="off">
                                         </div>
                                     </div>
                                 </form>
@@ -380,7 +380,7 @@
                 </div>
             </div>
 
-            <div class="col col-12 col-sm-11 col-md-9 col-lg-4 col-xl-6 mb-3">
+            <div class="col col-12 col-sm-12 col-md-4 col-lg-4 col-xl-6 mb-3">
                 <div class="card border-warning mb-3 h-100">
                     <div class="card-header text-center">
                         SCORE
@@ -406,11 +406,13 @@
         </div>
         
         <div class="row mb-4">
-            <div class="col col-12">
-                <button type="button" class="btn btn-primary btn-block" onclick="scrollToTop();">
+            <div class="col col-3 col-md-4 col-xl-5"></div>
+            <div class="col col-6 col-md-4 col-xl-2">
+                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="scrollToTop();">
                     TOP OF PAGE
                 </button>
             </div>
+            <!-- <div class="col col-3"></div> -->
         </div>
 
 

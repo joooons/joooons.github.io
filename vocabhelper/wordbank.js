@@ -7,7 +7,7 @@ bank.push( {"word":"וְ/ וּ / וָ","category":"cj.","frequency":"50524","arr"
 bank.push( {"word":" ּהַ","category":"art.","frequency":"24058","arr":[["the"]]});
 bank.push( {"word":"ל","category":"prp.","frequency":"20321","arr":[["to"],["for"],["regarding"],["belonging to"]]});
 bank.push( {"word":"בּ","category":"prp.","frequency":"15559","arr":[["in"],["with"],["by"],["at"],["among"],["into"],["when"]]});
-bank.push( {"word":"אֵ֫ת / אֶת־","category":"prt.","frequency":"10987","arr":[["untranslatable","an untranslatable particle indicating the direct object","untranslatable particle","direct object marker","definite direct object marker","DO marker","DDOM"]]});
+bank.push( {"word":"אֵ֫ת / אֶת־","category":"prt.","frequency":"10987","arr":[["definite direct object marker","DDOM"]]});
 bank.push( {"word":" ּמִן / מִ","category":"prp.","frequency":"7529","arr":[["from"],["out of"],["since"],["than","more than","(more) than"]]});
 bank.push( {"word":"עַל","category":"prp.","frequency":"5777","arr":[["on"],["over"],["against"],["on account of"],["to"]]});
 bank.push( {"word":"אֶל","category":"prp.","frequency":"5518","arr":[["to"],["toward"],["against"],["at"],["unto"],["concerning"]]});
@@ -45,8 +45,8 @@ bank.push( {"word":"הִנֵּה / הֵן","category":"prt.","frequency":"1147","
 bank.push( {"word":"דָּבַר","category":"vb.","frequency":"1141","arr":[["speak","to speak"]]});
 bank.push( {"word":"לִפְנֵי","category":"prp.","frequency":"1126","arr":[["before"],["in the presence of"]]});
 bank.push( {"word":"יָשַׁב","category":"vb.","frequency":"1088","arr":[["sit","to sit"],["dwell","to dwell"]]});
-bank.push( {"word":"עיר","category":"n.f.","frequency":"1088","arr":[["city"]]});
-bank.push( {"word":"עם","category":"prp.","frequency":"1084","arr":[["with"],["near"],["beside","besides"]]});
+bank.push( {"word":"עִיר","category":"n.f.","frequency":"1088","arr":[["city"]]} );
+bank.push( {"word":"עִם","category":"prp.","frequency":"1084","arr":[["with"],["near"],["beside","besides"]]} );
 bank.push( {"word":"יָצָא","category":"vb.","frequency":"1076","arr":[["go out","to go out","come out","to come out","go","come out","to go","come out"]]});
 bank.push( {"word":"שׁוּב","category":"vb.","frequency":"1075","arr":[["turn back","to turn back"],["return","to return"]]});
 bank.push( {"word":"אִם","category":"cj.","frequency":"1070","arr":[["if"],["when"],["or"]]});
@@ -61,7 +61,7 @@ bank.push( {"word":"לֵבָב / לֵב","category":"n.m.","frequency":"854","ar
 bank.push( {"word":"שָׁלַח","category":"vb.","frequency":"847","arr":[["send","to send"],["stretch out","to stretch out"]]});
 bank.push( {"word":"מוּת","category":"vb.","frequency":"845","arr":[["die","to die"]]});
 bank.push( {"word":"שָׁם","category":"adv.","frequency":"835","arr":[["there"]]});
-bank.push( {"word":"עֶשֶׂר / עָשָׂר","category":"n.m.","frequency":"829","arr":[["ten","10"],["-teen","x-teen","*-teen","plus ten"],["pl. twenty","20"]]});
+bank.push( {"word":"עֶשֶׂר / עָשָׂר","category":"n.m.","frequency":"829","arr":[["ten","10"],["-teen","x-teen","*-teen","plus ten"],["pl. twenty","twenty (pl.)","pl. 20"]]});
 bank.push( {"word":"אָכַל","category":"vb.","frequency":"820","arr":[["eat","to eat"]]});
 bank.push( {"word":"עֶבֶד","category":"n.m.","frequency":"803","arr":[["servant"],["slave"]]});
 bank.push( {"word":"אֵין / אַיִן","category":"subs.","frequency":"790","arr":[["not","there is not"]]});
@@ -80,7 +80,7 @@ bank.push( {"word":"הֲ / הַ","category":"prt.","frequency":"661","arr":[["in
 bank.push( {"word":"נָשָׂא","category":"vb.","frequency":"659","arr":[["lift","to lift"],["bear","to bear"],["carry","to carry"]]});
 bank.push( {"word":"אָח","category":"n.m.","frequency":"629","arr":[["brother"]]});
 bank.push( {"word":"קוּם","category":"vb.","frequency":"627","arr":[["arise","to arise"],["rise","to rise"],["stand up","to stand up","stand","to stand"]]});
-bank.push( {"word":"שָׁלֹשׁ","category":"n.m.","frequency":"606","arr":[["three","3"],["pl. thirty","30"]]});
+bank.push( {"word":"שָׁלֹשׁ","category":"n.m.","frequency":"606","arr":[["three","3"],["pl. thirty","pl. 30","thirty (pl.)"]]});
 bank.push( {"word":"זאֹת","category":"prn.","frequency":"605","arr":[["this"]]});
 bank.push( {"word":"רֹאשׁ","category":"n.m.","frequency":"600","arr":[["head"],["beginning"],["chief"]]});
 bank.push( {"word":"שִׂים","category":"vb.","frequency":"588","arr":[["put","to put"],["place","to place"],["set","to set"]]});
@@ -100,7 +100,7 @@ bank.push( {"word":"עָמַד","category":"vb.","frequency":"524","arr":[["stan
 bank.push( {"word":"שְׁנַיִם","category":"n.m.","frequency":"516","arr":[["two","2"]]});
 bank.push( {"word":"כַּאֲשֶׁר","category":"cj.","frequency":"511","arr":[["as"],["just as"],["according as"],["when"]]});
 bank.push( {"word":"תַּחַת","category":"prp.","frequency":"510","arr":[["below"],["under"],["instead of"]]});
-bank.push( {"word":"חָמֵשׁ","category":"n.m.","frequency":"508","arr":[["five","5"],["pl. fifty","fifty","50"]]});
+bank.push( {"word":"חָמֵשׁ","category":"n.m.","frequency":"508","arr":[["five","5"],["pl. fifty","fifty (pl.)","pl. 50"]]});
 bank.push( {"word":"קוֹל","category":"n.m.","frequency":"505","arr":[["voice"],["sound"]]});
 bank.push( {"word":"נָכָה","category":"vb.","frequency":"501","arr":[["be smitten","to be smitten"],["smite","to smite"]]});
 bank.push( {"word":"יָלַד","category":"vb.","frequency":"499","arr":[["bear","to bear","bear a child","to bear a child","bear (a child)","to bear (a child)"],["bring forth","to bring forth"]]});
@@ -109,11 +109,11 @@ bank.push( {"word":"אֶלֶף","category":"n.m.","frequency":"496","arr":[["tho
 bank.push( {"word":"צָוַה","category":"vb.","frequency":"496","arr":[["order","to order"],["command","to command"],["charge","to charge"]]});
 bank.push( {"word":"הִיא","category":"prn.","frequency":"491","arr":[["she"]]});
 bank.push( {"word":"עוֹד / עֹד","category":"adv.","frequency":"491","arr":[["yet"],["still"],["again"],["continuance"]]});
-bank.push( {"word":"שֶׁבַע","category":"n.m.","frequency":"490","arr":[["seven","7"],["pl. seventy","seventy","70"]]});
+bank.push( {"word":"שֶׁבַע","category":"n.m.","frequency":"490","arr":[["seven","7"],["pl. seventy","seventy (pl.)","pl. 70"]]});
 bank.push( {"word":"צָבָא","category":"n.m.","frequency":"487","arr":[["army"],["host"],["warfare"],["service"]]});
 bank.push( {"word":"קֹדֶשׁ","category":"n.m.","frequency":"470","arr":[["holiness"],["sacredness"]]});
 bank.push( {"word":"שָׁמַר","category":"vb.","frequency":"469","arr":[["guard","to guard"],["watch","to watch"],["keep","to keep"]]});
-bank.push( {"word":"אַרְבַּע","category":"n.m.","frequency":"466","arr":[["four","4"],["pl. forty","forty","40"]]});
+bank.push( {"word":"אַרְבַּע","category":"n.m.","frequency":"466","arr":[["four","4"],["pl. forty","forty (pl.)","pl. 40"]]});
 bank.push( {"word":"מָצָא","category":"vb.","frequency":"457","arr":[["find","to find"]]});
 bank.push( {"word":"עוֹלָם","category":"n.m.","frequency":"439","arr":[["forever"],["always"],["ancient"]]});
 bank.push( {"word":"נָפַל","category":"vb.","frequency":"435","arr":[["fall","to fall"],["get down","to get down"]]});
@@ -167,7 +167,7 @@ bank.push( {"word":"חָזַק","category":"vb.","frequency":"290","arr":[["be s
 bank.push( {"word":"כָּרַת","category":"vb.","frequency":"289","arr":[["cut","to cut","cut off","to cut off","cut down","to cut down","cut off/down","to cut off/down","cut down/off","to cut down/off"],["make a treaty","to make a treaty"]]});
 bank.push( {"word":"עָבַד","category":"vb.","frequency":"289","arr":[["work","to work"],["serve","to serve"]]});
 bank.push( {"word":"בְּרִית","category":"n.m.","frequency":"287","arr":[["covenant"]]});
-bank.push( {"word":"עלָה","category":"n.f.","frequency":"286","arr":[["whole burnt offering"]]});
+bank.push( {"word":"עֹלָה","category":"n.f.","frequency":"286","arr":[["whole burnt offering"]]} );
 bank.push( {"word":"אֹיֵב","category":"ptc.","frequency":"285","arr":[["enemy"]]});
 bank.push( {"word":"אַתֶּם","category":"prn.","frequency":"283","arr":[["you"]]});
 bank.push( {"word":"חֹדֶשׁ","category":"n.m.","frequency":"283","arr":[["new moon"],["month"]]});
@@ -177,7 +177,7 @@ bank.push( {"word":"אַף 2","category":"n.m.","frequency":"277","arr":[["nose"
 bank.push( {"word":"אֶבֶן","category":"n.f.","frequency":"276","arr":[["stone"]]});
 bank.push( {"word":"פַּרְעֹה","category":"n.m.","frequency":"274","arr":[["Pharaoh"],["king","Egyptian king","(Egyptian) king"]]});
 bank.push( {"word":"צֹאן","category":"n.f.","frequency":"274","arr":[["flock","flocks","flock(s)"],["small cattle","small cattle (sheep and goats)"]]});
-bank.push( {"word":"שֵׁשׁ","category":"n.m.","frequency":"274","arr":[["six","6"],["pl. sixty","sixty","60"]]});
+bank.push( {"word":"שֵׁשׁ","category":"n.m.","frequency":"274","arr":[["six","6"],["pl. sixty","sixty (pl.)","pl. 60"]]});
 bank.push( {"word":"לְמַעַן","category":"cj.","frequency":"272","arr":[["in order that"],["on account of"]]});
 bank.push( {"word":"בָּשָׂר","category":"n.m.","frequency":"270","arr":[["flesh"],["meat"],["food"]]});
 bank.push( {"word":"מִדְבָּר","category":"n.m.","frequency":"269","arr":[["wilderness"],["pasture"],["steppe"]]});
@@ -204,4 +204,13 @@ bank.push( {"word":"זֶרַע","category":"n.m.","frequency":"229","arr":[["see
 bank.push( {"word":"רָבָה","category":"vb.","frequency":"229","arr":[["be many","to be many","become many","to become many","be(come) many","to be(come) many"],["be great","to be great","become great","to become great","be(come) great","to be(come) great"]]} );
 bank.push( {"word":"קֶרֶב","category":"n.m.","frequency":"227","arr":[["midst"],["inner"],["innards"]]});
 
-// bank.push( {"word":"בָקַשׁ","category":"vb.","frequency":"225","arr":[["seek","to seek"]]} );
+bank.push( {"word":"בָקַשׁ","category":"vb.","frequency":"225","arr":[["seek","to seek"]]} );
+bank.push( {"word":"כָּתַב","category":"vb.","frequency":"225","arr":[["write","to write"]]} );
+bank.push( {"word":"מוֹעֵד","category":"n.m.","frequency":"224","arr":[["meeting place"],["meeting time"],["assembly"],["festival"]]} );
+bank.push( {"word":"תּוֹרָה","category":"n.f.","frequency":"223","arr":[["instruction"],["law"]]} );
+bank.push( {"word":"אֲדָמָה","category":"n.f.","frequency":"222","arr":[["ground"],["earth"]]} );
+bank.push( {"word":"נַחֲלָה","category":"n.f.","frequency":"222","arr":[["possession"],["property"]]} );
+bank.push( {"word":"אֵם","category":"n.f.","frequency":"220","arr":[["mother"]]} );
+bank.push( {"word":"כוּן","category":"vb.","frequency":"219","arr":[["be firm","to be firm"],["be prepared","to be prepared"],["be established","to be established"],["establish","to establish"],["prepare","to prepare"],["provide","to provide"]]} );
+
+

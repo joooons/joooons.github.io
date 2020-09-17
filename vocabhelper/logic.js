@@ -154,8 +154,8 @@ const addBoxFn = {
         let index = $('.add-form').length;
         let str = '<form class="no-submit add-form">';
         str += '<div class="form-row form-group">';
-        str += '<div class="col-3 col-md-3"></div>';
-        str += '<div class="input-group col-9 col-md-9">';
+        str += '<div class="col-4 col-md-3"></div>';
+        str += '<div class="input-group col-8 col-md-9">';
         str += '<input type="text" class="form-control add-tab" placeholder="">';
         str += '<div class="input-group-append">';
         str += '<button type="button" class="btn btn-primary" tabindex="-1" onclick="addBoxFn.removeLine(this)">';
@@ -287,9 +287,7 @@ $(document).on('change', '.quiz-question', function(ev) {
 
     let num = $('.quiz-question').length;
     let index = -1;
-    for ( i=0 ; i<num ; i++ ) { 
-        if ( ev.target == $('.quiz-question').get(i) ) index = i; 
-    }
+    for ( i=0 ; i<num ; i++ ) { if ( ev.target == $('.quiz-question').get(i) ) index = i; }
     let ref = questionRef[index];
     
     // let range = tempBank[ref].arr.length;
@@ -350,6 +348,7 @@ $('#total').on('click', (ev) => {
 
 
 showPage('quiz');
+// showPage('add');
 function showPage(str) {
     $('#add-page').hide();
     $('#view-page').hide();
@@ -452,7 +451,7 @@ function showHE(a,b) {
 
 
 
-fillTable();
+fillTable(1,5);
 function fillTable(start, end) {
     if ( start == undefined ) start = 1;
     if ( start < 1 ) start = 1;
@@ -466,7 +465,7 @@ function fillTable(start, end) {
         let arrText = splitArrToLines(bank[i].arr);
         let str = '<tr class="vocab-row">';
         str += `<th class="vocab-id" scope="row">${i+1}</th>`;
-        str += `<td class="vocab-word hebrew text-right" >${bank[i].word}</td>`;
+        str += `<td class="vocab-word hebrew text-left" >${bank[i].word}</td>`;
         str += `<td class="vocab-category" >${bank[i].category}</td>`;
         str += `<td class="vocab-frequency" >${bank[i].frequency}</td>`;
         str += `<td class="vocab-definitions" >${arrText}</td>`;
@@ -545,11 +544,11 @@ function addQuizQuestions() {
         str += '<div class="row">';
         str += '<div class="col col-12 col-md-8">';
         str += '<div class="row mb-3">';
-        str += '<div class="col col-2 text-right quiz-word ">';
+        str += '<div class="col col-2 text-right quiz-word bigger ">';
         str += `${i+1}.</div>`;
         str += `<div class="col col-5 hebrew bigger">${tempBank[i].word}</div>`;
-        str += `<div class="col col-2 text-right">${tempBank[i].category}</div>`;
-        str += `<div class="col col-3 text-right">${tempBank[i].frequency}</div></div>`;
+        str += `<div class="col col-2 col-sm-3 text-right">${tempBank[i].category}</div>`;
+        str += `<div class="col col-3 col-sm-2 text-right">${tempBank[i].frequency}</div></div>`;
 
         let num = tempBank[i].arr.length;
 
@@ -560,9 +559,9 @@ function addQuizQuestions() {
             str += `<label for="" class="col-form-label col-2 text-right"></label>`;
             str += '<div class="col-10">';
             str += '<div class="input-group">';
-            str += '<input type="text" class="form-control quiz-question">';
+            str += '<input type="text" autocapitalize="none" class="form-control quiz-question">';
             str += '<div class="input-group-append">';
-            str += '<span class="input-group-text bg-primary">';
+            str += '<span class="input-group-text bg-muted">';
             str += '<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check check-answer" fill="white" xmlns="http://www.w3.org/2000/svg">';
             str += '<path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>';
             str += '</svg></span>';
@@ -578,6 +577,7 @@ function addQuizQuestions() {
         str += '</div></div></div>';
     });
     $('#quiz-cards').append(str);
+    $('.quiz-question').first().focus();
 }
 
 
