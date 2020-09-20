@@ -204,6 +204,9 @@ const addBoxFn = {
 const tempBank = [];
 
 const questionRef = [];
+    // The INDEX of questionRef refers to each of the question input elements.
+    // The VALUE of questionRef refers to the question word card.
+
 
 const scoreArr = [];
 
@@ -211,7 +214,7 @@ function scoreObj() {
     this.gotMain = 0;
     this.gotAny = 0;
     this.gotThisMany = 0;
-    this.defs = [];
+    // this.defs = [];
     this.alreadyGot = [];
 }
 
@@ -279,24 +282,19 @@ $(document).on('change', '.quiz-form', function(ev) {
     for ( i=0 ; i<num ; i++ ) { if ( ev.target == $('.quiz-question').get(i) ) index = i; }
     index++;
     if ( index == num ) index = 0;
-    // $('.quiz-question').get(index).focus();
 });
 
 $(document).on('change', '.quiz-question', function(ev) {
     let ans = ev.target.value;
-
     let num = $('.quiz-question').length;
-    let index = -1;
-    for ( i=0 ; i<num ; i++ ) { if ( ev.target == $('.quiz-question').get(i) ) index = i; }
+    let index = indexOfClass(ev.target, 'quiz-question');
     let ref = questionRef[index];
-    
-    // let range = tempBank[ref].arr.length;
-    // console.log(range);
-
     let isCorrect = false;
     tempBank[ref].arr.forEach( (list,i) => {
         if ( scoreArr[ref].alreadyGot.includes(i) ) return;
-        if (list.includes(ans)) {
+        if ( $('.lex-cat').eq(index).text() != list[0].slice(1) ) return;
+        let tempList = [...list].splice(1);
+        if (tempList.includes(ans)) {
             isCorrect = true;
             scoreArr[ref].alreadyGot.push(i);
             if ( i == 0 ) scoreArr[ref].gotMain = 1;
@@ -304,7 +302,6 @@ $(document).on('change', '.quiz-question', function(ev) {
             scoreArr[ref].gotThisMany++;
         }
     });
-
     if (isCorrect) { 
         ev.target.readOnly = true;
         ev.target.classList.add("bg-success");
@@ -314,10 +311,7 @@ $(document).on('change', '.quiz-question', function(ev) {
         fillScoreBoard();
     } 
     else { ev.target.value = ''; }
-
 });
-
-
 
 $('#add-push').on('click', ev => {
     showTextArea(result);
@@ -362,10 +356,21 @@ function splitArrToLines(arrGroup) {
     // The definition of each word is contained in an array of an array.
     // This function puts each array into a separate line.
     let str = '';
-    arrGroup.forEach( (arr,i) => { str += `${i+1}.&nbsp;&nbsp;${arr.join(', ')}<br>`; });
+    arrGroup.forEach( (arr,i) => { 
+        let arrNew = [...arr];
+        let first = arrNew.shift();
+        if ( first == "@" ) { first = ""; } 
+        else { first = `[${first.slice(1)}]&nbsp;&nbsp;`; }
+        str += `${i+1}.&nbsp;&nbsp;${first}${arrNew.join(', ')}<br>`; 
+    });
     return str;
 }
 
+function indexOfClass( elem, className ) {
+    let num = $(`.${className}`).length;
+    for ( i=0 ; i<num ; i++ ) { if ( elem == $(`.${className}`).get(i) ) return i; }
+    return -1;
+}
 
 
 
@@ -493,12 +498,29 @@ function fillTable(start, end) {
 //  MM    MM    MM    MM    MM    MM                MM        MM    MM  MM    MM  
 //    MMMM  MM    MMMM    MMMMMM  MMMMMMMMMM        MM        MM    MM    MMMM    
 
-function scrollToTop() {
-    document.documentElement.scrollTop = 0;
+function scrollToTop() { document.documentElement.scrollTop = 0; }
+
+function resetAnswers(wordIndex) {
+    // reset the quiz-question values. Based on orderIndex.
+    // reset the readOnly and color changes. Based on orderIndex.
+    // reset the scoreArr for that question. Based on wordIndex.
+    let list = [];
+    questionRef.forEach( (v,i) => { if ( wordIndex == v ) list.push(i); });
+    list.forEach( v => {
+        $('.quiz-question').eq(v).removeClass('bg-success');
+        $('.quiz-question').eq(v).removeClass('text-white');
+        $('.quiz-question').eq(v).attr("readOnly", false);
+        $('.quiz-question').eq(v).val('');
+    });
+    scoreArr[wordIndex].gotMain = 0;
+    scoreArr[wordIndex].gotAny = 0;
+    scoreArr[wordIndex].gotThisMany = 0;
+    scoreArr[wordIndex].alreadyGot = [];
+    fillScoreBoard();
 }
 
-
 function fillScoreBoard() {
+    // Only for the purpose of showing the score at the top.
     let total = scoreArr.length;
     let gotAny = 0;
     let gotMain = 0;
@@ -514,9 +536,10 @@ function fillScoreBoard() {
     $('#got-this-many').text(`${gotThisMany} out of ${totalQ} total definitions found.`);
 }
 
-
-
 function fillScoreArr() {
+    // Empty the scoreArr and fill it with number of items matching...
+    // ...number of items in tempBank.
+    // Assumes that tempBank is already filled.
     if (!tempBank.length) return;
     scoreArr.splice(0, scoreArr.length);
     tempBank.forEach( () => { scoreArr.push( new scoreObj() ); });
@@ -524,71 +547,112 @@ function fillScoreArr() {
 
 fillTempBank();
 function fillTempBank() {
-    let startNum = $('.quiz-input').get(0).value;
-    let endNum = $('.quiz-input').get(1).value;
+    // Prepare the temporary array that contains the questions and associated data.
+    let startNum = parseInt( $('.quiz-input').get(0).value );
+    let endNum = parseInt( $('.quiz-input').get(1).value );
+    let limit = parseInt( $('.quiz-input').get(2).value );
+
     removeQuizQuestions();
+    tempBank.splice(0, tempBank.length);
     if ( startNum < 1 ) return;
     if ( endNum > bank.length ) return;
     if ( endNum < startNum ) return;
-    // console.log(startNum,endNum);
-    tempBank.splice(0, tempBank.length);
-    let indexArr = [];
-    for ( i=startNum-1 ; i<endNum ; i++ ) { 
-        tempBank.push( bank[i] ); 
-        indexArr.push(i+1);
+    if ( limit < 1 ) return;
+    if ( limit > bank.length ) return;
+    for ( i=startNum-1 ; i<endNum ; i++ ) { tempBank.push( {id:i+1,...bank[i]} ); }
+    if ( tempBank.length > limit ) {
+        console.log('is this true?');
+        let num = tempBank.length - limit;
+        tempBank.splice(0,num);
     }
+    console.log(tempBank);
     fillScoreArr();
-    addQuizQuestions(indexArr);
+    addQuizQuestions();
 }
 
-function addQuizQuestions(arr1) {
+function addQuizQuestions() {
+    // Adds quiz questions on the screen.
+    // Assumes that tempBank is ready.
     let str = '';
     questionRef.splice(0,questionRef.length);
-    let loop = new Array(tempBank.length).fill(0);
-    loop.forEach( (v,i) => {
+
+    randomOrderArr(tempBank.length).forEach( (v,i) => {
         str += '<div class="card bg-light mb-3 quiz-card">';
         str += '<div class="card-body">';
+
         str += '<div class="row">';
         str += '<div class="col col-12 col-md-8">';
-        str += '<div class="row mb-3">';
-        str += '<div class="col col-2 text-right quiz-word pt-2">';
-        str += `${arr1[i]}.</div>`;
-        str += `<div class="col col-5 hebrew bigger">${tempBank[i].word}</div>`;
-        str += `<div class="col col-2 col-sm-3 text-right pt-2">${tempBank[i].category}</div>`;
-        str += `<div class="col col-3 col-sm-2 text-right pt-2">${tempBank[i].frequency}</div></div>`;
 
-        let num = tempBank[i].arr.length;
+        str += '<div class="row">';
+        str += '<div class="col col-12 text-right ">';
+        str += `<button type="button" class="btn btn-sm btn-primary reset-btn" onclick="resetAnswers(${v})">`;
+        // str += '<svg width="1em" height="1em" viewBox="0 0 18 18" class="bi bi-arrow-counterclockwise" fill="currentColor" xmlns="http://www.w3.org/2000/svg">';
+        // str += '<path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>';
+        // str += '<path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>';
+        // str += '</svg>';
+        // str += '&#10006;';
+        // str += '&olarr;';
+        // str += '&#10226;';
+        str += 'RESET'
+        str += '</button></div>';
+
+        str += '</div>';
+
+        str += '<div class="row mb-3">';
+        str += '<div class="col col-7 text-left quiz-word pl-3">';
+        // str += `#${tempBank[v].id}&nbsp;&nbsp;&nbsp;&nbsp;`;
+        str += `#${i+1}&nbsp;&nbsp;&nbsp;&nbsp;`;
+
+        str += `<span class="hebrew bigger">${tempBank[v].word}</span></div>`;
+        str += `<div class="col col-5 text-right pt-2">`;
+        str += `${tempBank[v].category}&nbsp;&nbsp;&nbsp;${tempBank[v].frequency}</div>`;
+        str += `</div>`;
+        let num = tempBank[v].arr.length;
 
         for ( n=0 ; n<num ; n++ ) {
-            questionRef.push(i);
+            questionRef.push(v);
             str += '<form class="no-submit quiz-form">';
             str += '<div class="form-row form-group">';
-            str += `<label for="" class="col-form-label col-2 text-right"></label>`;
-            str += '<div class="col-10">';
+            // str += `<label for="" class="col-form-label col-1 text-right"></label>`;
+            str += '<div class="col col-12">';
             str += '<div class="input-group">';
+            str += '<div class="input-group-prepend">';
+            str += '<span class="input-group-text bg-muted lex-cat">';
+            if (tempBank[v].arr[n][0].charAt(0) == "@") { str += `${tempBank[v].arr[n][0].slice(1)}`; } 
+            else { str += ''; }
+            str += '</span></div>';
             str += '<input type="text" autocapitalize="none" class="form-control quiz-question">';
-            str += '<div class="input-group-append">';
-            str += '<span class="input-group-text bg-muted">';
-            str += '<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check check-answer" fill="white" xmlns="http://www.w3.org/2000/svg">';
-            str += '<path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>';
-            str += '</svg></span>';
-            str += '</div></div>';
-            str += '</div></div></form>';
+            str += '</div></div></div></form>';
         }
         str += '</div>';
         str += '<div class="col col-12 col-md-4 ">';
         str += '<div class="card h-100 bg-light quiz-spoiler">';
         str += '<div class="card-body  text-light ">';
-        str += `${splitArrToLines(tempBank[i].arr)}`;
-        str += '</div></div></div>';
-        str += '</div></div></div>';
+        str += `${splitArrToLines(tempBank[v].arr)}`;
+        str += '</div></div></div></div></div></div>';
     });
     $('#quiz-cards').append(str);
     $('.quiz-question').first().focus();
 }
 
+function randomOrderArr(length) {
+    // generates array with numbers counting from 0 to length, in random order.
+    let arr = [];
+    for ( i=0 ; i<length ; i++ ) {
+        let num = Math.floor( Math.random() * length );        
+        findEmptySlot(num);
+        function findEmptySlot(n) {
+            if (!arr.includes(n)) { arr.push(n); } 
+            else { findEmptySlot( (n+1)%length ); }
+        }
+        if (arr.length >= length) { return arr; }
+    }
+    // arr.forEach( (v,i) => { arr[i] = i; });
+    // return arr;
+}
 
 function removeQuizQuestions() {
+    // Visually remove the question cards from screen.
     let num = $('.quiz-card').length;
     for ( i=0 ; i<num ; i++ ) { $('.quiz-card').eq(0).remove(); }
 }

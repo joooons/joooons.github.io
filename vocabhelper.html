@@ -319,7 +319,7 @@
                                             Start
                                         </label>
                                         <div class="col-8">
-                                            <input type="text" class="form-control quiz-input" placeholder="" value="1" autocomplete="off">
+                                            <input type="number" class="form-control quiz-input" placeholder="" value="1" min="1" max="300" autocomplete="off">
                                         </div>
                                     </div>
                                 </form>
@@ -329,7 +329,7 @@
                                             End
                                         </label>
                                         <div class="col-8">
-                                            <input type="text" class="form-control quiz-input" placeholder="" value="2" autocomplete="off">
+                                            <input type="number" class="form-control quiz-input" placeholder="" value="5" min="1" max="300" autocomplete="off">
                                         </div>
                                     </div>
                                 </form>
@@ -339,7 +339,7 @@
                                             # of Q
                                         </label>
                                         <div class="col-8">
-                                            <input readonly type="text" tabindex="-1" class="form-control quiz-input" placeholder="" autocomplete="off">
+                                            <input type="number" class="form-control quiz-input" placeholder="" value="3" min="1" max="100" autocomplete="off">
                                         </div>
                                     </div>
                                 </form>
@@ -381,11 +381,12 @@
             </div>
 
             <div class="col col-12 col-sm-12 col-md-4 col-lg-4 col-xl-6 mb-3">
+                <!-- SCORE BOARD -->
                 <div class="card border-warning mb-3 h-100">
                     <div class="card-header text-center">
                         SCORE
                     </div>
-                    <div class="card-body ">
+                    <div class="card-body font-weight-bold">
                         <div class="card-text" id="got-any"></div>
                         <div class="card-text" id="got-main"></div>
                         <div class="card-text" id="got-this-many"></div>
@@ -437,7 +438,8 @@
 <!--  MM    MM  MM    MM  MM    MM    MM    MM          MM    MM    MM   -->
 <!--    MMMM      MMMM    MM    MM  MMMMMM  MM          MM      MMMM     -->
 
-    <script defer src="./vocabhelper/wordbank.js"></script>
+    <!-- <script defer src="wordbank.js"></script> -->
+    <script defer src="./vocabhelper/wordbank2.js"></script>
     <script defer src="./vocabhelper/logic.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
