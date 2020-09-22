@@ -1,6 +1,8 @@
 
 
 console.log('logic.js at your service.');
+console.log('you have options for showPage();');
+console.log('"add"  "view"  "quiz"  "secret"');
 
 
 
@@ -137,7 +139,8 @@ const En_to_He = {
 
     "\/" : '&#64331;',
 
-    "÷" : '/'
+    // "÷" : '/'
+    "÷" : '&#47;'
     
 };
 
@@ -239,20 +242,8 @@ $(document).on('submit', '.no-submit', function(ev) {
 $(document).on('change', '.add-tab', function(ev) {
     let num = addBoxFn.getIndex(ev.target, '.add-tab');
     if ( num == 0 ) {
-        let str = $('#add-word').val();
-
-        let arr = strToSyllableArr(str).reverse();
-        str = arr.join('');
-        arr = str.split('');
-    
-        Object.keys(En_to_He).forEach( key => {
-            arr.forEach( (char,i) => {
-                if ( char == key ) arr[i] = En_to_He[key];
-            });
-        });
-        str = arr.join('');
-        result.word = str;
-        $('#output').html( str );
+        result.word = convertGibberishToHebEnt( $('#add-word').val() );
+        $('#output').html( result.word );
     }
     if ( num > 0 ) { if (result.word == '') { return ev.target.value = ''; } }
     if ( num == $('.add-tab').length - 2 ) addBoxFn.addLine();
@@ -262,27 +253,37 @@ $(document).on('change', '.add-tab', function(ev) {
 
 });
 
-$(document).on('change', '.view-input', function(ev) {
-    let num = $('.view-input').length;
-    let index = -1;     // arbitrary -1
-    for ( i=0 ; i<num ; i++ ) { if ( ev.target == $('.view-input').get(i) ) { index = i; } }
-    index++;
-    if (index == num) index = 0;
-    $('.view-input').get(index).focus();
-    let viewStart = $('.view-input').get(0).value;
-    let viewEnd = $('.view-input').get(1).value;
-    if ( viewEnd == '' ) viewEnd = bank.length;
-    fillTable(viewStart,viewEnd);
-    
+$(document).on('submit', '.view-form', function() {
+    let start = $('.view-input').get(0).value;
+    let end = $('.view-input').get(1).value;
+    fillTable(start,end);
 });
 
-$(document).on('change', '.quiz-form', function(ev) {
-    let num = $('.quiz-question').length;
-    let index = -1;
-    for ( i=0 ; i<num ; i++ ) { if ( ev.target == $('.quiz-question').get(i) ) index = i; }
-    index++;
-    if ( index == num ) index = 0;
+$(document).on('focusout', '.view-input', function() {
+    let start = $('.view-input').get(0).value;
+    let end = $('.view-input').get(1).value;
+    if ( start < 1 || start > bank.length ) return $('.view-input').get(0).focus();
+    if ( end < 1 || end > bank.length ) return $('.view-input').get(1).focus();
+    fillTable(start,end);
 });
+
+
+$(document).on('submit', '.quiz-filter', function(ev) {
+    let index = indexOfClass(ev.target, 'quiz-filter') + 1;
+    if ( index > 3 ) return;
+    if ( index == 3 ) { return $('.quiz-start').get(0).focus(); }
+    $('.quiz-input').get(index).focus(); 
+});
+
+$(document).on('focusout', '.quiz-input', function(ev) {
+    let start = $('.quiz-input').get(0).value;
+    let end = $('.quiz-input').get(1).value;
+    let limit = $('.quiz-input').get(2).value;
+    if ( start < 1 || start > bank.length ) return $('.quiz-input').get(0).focus();
+    if ( end < 1 || end > bank.length ) $('.quiz-input').get(1).focus();
+    if ( limit < 1 || limit > 100 ) return $('.quiz-input').get(2).focus();
+});
+
 
 $(document).on('change', '.quiz-question', function(ev) {
     let ans = ev.target.value;
@@ -344,11 +345,12 @@ $('#total').on('click', (ev) => {
 
 
 showPage('quiz');
-// showPage('add');
+// showPage('secret');
 function showPage(str) {
     $('#add-page').hide();
     $('#view-page').hide();
     $('#quiz-page').hide();
+    $('#secret-page').hide();
     $(`#${str}-page`).show();
 }
 
@@ -372,7 +374,31 @@ function indexOfClass( elem, className ) {
     return -1;
 }
 
+function reverseStr(str) { return str.split('').reverse().join(''); }
+    // Not used at the moment
 
+function convertGibberishToHebEnt(text) {
+    // let arr = strToSyllableArr(text).reverse();
+    // let string = arr.join('');
+    // arr = string.split('');
+
+    let arr = strToSyllableArr(text).reverse().join('').split('');
+    // let string = arr.join('');
+    // arr = string.split('');
+
+    Object.keys(En_to_He).forEach( key => {
+        arr.forEach( (char,i) => {
+            // if ( char == key ) arr[i] = En_to_He[key];
+            if ( char == key ) {
+                // arr[i] = String.fromCharCode(En_to_He[key].match(/\d+/)[0]);
+                arr[i] = En_to_He[key]; 
+                // newArr.push( String.fromCharCode(En_to_He[key].match(/\d+/)[0]) );
+            }
+
+        });
+    });
+    return arr.join('');
+}
 
 
 
@@ -386,8 +412,7 @@ function indexOfClass( elem, className ) {
 //  MM    MM  MM    MM  MM    MM        MM        MM    MM  MM    MM  
 //  MM    MM  MMMMMM    MMMMMM          MM        MM    MM    MMMM    
 
-// function reverseStr(str) { return str.split('').reverse().join(''); }
-    // Not used at the moment
+
 
 function strToSyllableArr(str) {
     let arr = str.split('');
@@ -457,6 +482,12 @@ function showHE(a,b) {
 //      MM      MMMMMM  MMMMMMMM    MM  MM          MM        MM    MM    MMMM    
 
 
+initializeViewInputLimits();
+function initializeViewInputLimits() {
+    $('.view-input').get(0).max = bank.length;
+    $('.view-input').get(1).max = bank.length;
+    // $('.quiz-input').get(2).max = 100;
+}
 
 fillTable(1,1);
 function fillTable(start, end) {
@@ -499,6 +530,17 @@ function fillTable(start, end) {
 //    MMMM  MM    MMMM    MMMMMM  MMMMMMMMMM        MM        MM    MM    MMMM    
 
 function scrollToTop() { document.documentElement.scrollTop = 0; }
+
+
+
+initializeQuizInputLimits();
+function initializeQuizInputLimits() {
+    $('.quiz-input').get(0).max = bank.length;
+    $('.quiz-input').get(1).max = bank.length;
+    $('.quiz-input').get(2).max = 100;
+}
+
+
 
 function resetAnswers(wordIndex) {
     // reset the quiz-question values. Based on orderIndex.
@@ -561,11 +603,9 @@ function fillTempBank() {
     if ( limit > bank.length ) return;
     for ( i=startNum-1 ; i<endNum ; i++ ) { tempBank.push( {id:i+1,...bank[i]} ); }
     if ( tempBank.length > limit ) {
-        console.log('is this true?');
         let num = tempBank.length - limit;
         tempBank.splice(0,num);
     }
-    console.log(tempBank);
     fillScoreArr();
     addQuizQuestions();
 }
@@ -599,14 +639,17 @@ function addQuizQuestions() {
         str += '</div>';
 
         str += '<div class="row mb-3">';
-        str += '<div class="col col-7 text-left quiz-word pl-3">';
+        str += '<div class="col col-12 text-left quiz-word pl-3">';
         // str += `#${tempBank[v].id}&nbsp;&nbsp;&nbsp;&nbsp;`;
         str += `#${i+1}&nbsp;&nbsp;&nbsp;&nbsp;`;
-
-        str += `<span class="hebrew bigger">${tempBank[v].word}</span></div>`;
-        str += `<div class="col col-5 text-right pt-2">`;
-        str += `${tempBank[v].category}&nbsp;&nbsp;&nbsp;${tempBank[v].frequency}</div>`;
+        str += `<span class="hebrew bigger">${tempBank[v].word}</span>`;
+        str += `&nbsp;&nbsp;&nbsp;${tempBank[v].category}`;
+        str += `&nbsp;&nbsp;&nbsp;${tempBank[v].frequency}`;
         str += `</div>`;
+        str += `</div>`;
+        // str += `<div class="col col-5 text-right pt-2">`;
+        // str += `${tempBank[v].category}&nbsp;&nbsp;&nbsp;${tempBank[v].frequency}</div>`;
+        // str += `</div>`;
         let num = tempBank[v].arr.length;
 
         for ( n=0 ; n<num ; n++ ) {
@@ -636,7 +679,7 @@ function addQuizQuestions() {
 }
 
 function randomOrderArr(length) {
-    // generates array with numbers counting from 0 to length, in random order.
+    // returns array with numbers counting from 0 to length, in random order.
     let arr = [];
     for ( i=0 ; i<length ; i++ ) {
         let num = Math.floor( Math.random() * length );        
@@ -647,6 +690,8 @@ function randomOrderArr(length) {
         }
         if (arr.length >= length) { return arr; }
     }
+
+    // The code below cancels the randomization.
     // arr.forEach( (v,i) => { arr[i] = i; });
     // return arr;
 }
@@ -656,3 +701,83 @@ function removeQuizQuestions() {
     let num = $('.quiz-card').length;
     for ( i=0 ; i<num ; i++ ) { $('.quiz-card').eq(0).remove(); }
 }
+
+
+
+
+
+
+//    MMMM    MMMMMMMM    MMMM    MMMMMM    MMMMMMMM  MMMMMM  
+//  MM    MM  MM        MM    MM  MM    MM  MM          MM    
+//    MM      MMMMMMMM  MM        MMMMMM    MMMMMMMM    MM    
+//      MM    MM        MM        MM    MM  MM          MM    
+//  MM    MM  MM        MM    MM  MM    MM  MM          MM    
+//    MMMM    MMMMMMMM    MMMM    MM    MM  MMMMMMMM    MM    
+
+$('#secret-input').on("change", () => {
+    let str = $('#secret-input').val();
+    let arr = [];
+
+    chopchop();
+    function chopchop() {
+        // This function chop-chops the long string into separate lines...
+        // ...stored as separate items in the arr array.
+        let num = str.search(/\d\*?\s\d/);
+        if ( num <= 0 ) return;
+        arr.push( str.slice(0, num + 2 ) );
+        str = str.slice(num+2);
+        chopchop();
+    }
+    arr.push(str);
+
+    let final = '';
+    arr.forEach( val => {
+
+        let cat = val.match(/\s\w+\.\S*\s/g)[0].replace(/^\s+/, '');
+        let word = val.slice(0, val.search(cat) ).replace(/\d+\s/,'');
+        let wordHebEnt = convertGibberishToHebEnt( val.slice(0, val.search(cat) ).replace(/\d+\s/,'').replace(' ,',',') );
+        let wordHeb = wordHebEnt.match(/\d+/g).map( val => String.fromCharCode(val) ).join('');
+        let freq = val.match(/\d+/g)[1];
+        let gloss = val.replace(word,'').replace(cat,'').replace(freq,'').replace(/\d+\s+/,'').replace(/\s*$/, '').replace(/[\.\;]/g,',').replace('*','');
+        let glossArr  = gloss.split(", ");
+
+        final += `bank.push( {`;
+        final += `"word":"${wordHeb}", "category":"${cat}", "frequency":"${freq}",`;
+        final += ` "arr":[`;
+
+        let stem = '';
+        let click = false;
+        glossArr.forEach( (def,i) => {
+
+            if ( cat == 'vb. ') {
+                if ( /^[A-Z]/.test(def) ) { stem = def; } 
+                else {
+                    let buddy = '';
+                    if (/^to\s/.test(def)) { buddy = def.slice(3); } 
+                    else { buddy = `to ${def}`; }
+                    if (click) final += ',';                    
+                    final += `["@${stem}", "${def}", "${buddy}"]`;
+                    click = true;
+                }
+            } 
+            else {
+                if (click) final += ',';
+                final += `["@", "${def}"]`;
+                click = true;
+            }
+            
+        });
+        
+        final += `]`;
+        final += ` } ); `;
+        final += `\n`;
+    });
+
+    $('#secret-text').val(final);
+});
+
+
+
+
+
+
