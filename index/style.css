@@ -1,7 +1,3 @@
-
-
-
-
 /*  MMMMMMMM    MMMM    MM    MM  MMMMMM    MMMM     */
 /*  MM        MM    MM  MMMM  MM    MM    MM    MM   */
 /*  MMMMMMMM  MM    MM  MM  MMMM    MM      MM       */
@@ -15,14 +11,10 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Saira&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Neuton:wght@800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Tinos:wght@700&display=swap');
-
-
-
-
 
 /*  MM      MM    MMMM    MMMMMM    MMMMMM    MMMM    MMMMMM    MM      MMMMMMMM    MMMM     */
 /*  MM      MM  MM    MM  MM    MM    MM    MM    MM  MM    MM  MM      MM        MM    MM   */
@@ -31,25 +23,17 @@
 /*    MM  MM    MM    MM  MM    MM    MM    MM    MM  MM    MM  MM      MM        MM    MM   */
 /*      MM      MM    MM  MM    MM  MMMMMM  MM    MM  MMMMMM    MMMMMM  MMMMMMMM    MMMM     */
 
-:root{
+:root {
+  --color1: navy;
 
-    --color1: navy;
+  --font1: 'Rubik', sans-serif;
+  --font2: 'Neuton', serif;
+  --font3: 'Dosis', sans-serif;
+  --font4: 'Oxygen', sans-serif;
+  --font5: 'Tinos', serif;
 
-    --font1: 'Rubik', sans-serif;
-    --font2: 'Neuton', serif;
-    --font3: 'Dosis', sans-serif;
-    --font4: 'Oxygen', sans-serif;
-    --font5: 'Tinos', serif;
-
-    --dim1: 992px;
-
+  --dim1: 992px;
 }
-
-
-
-
-
-
 
 /*  MMMMMM    MMMM      MMMM      MMMM     */
 /*    MM    MM    MM  MM    MM  MM    MM   */
@@ -59,32 +43,27 @@
 /*    MM    MM    MM    MMMM      MMMM     */
 
 body {
-    height: 100%;
-    margin: 0;
-    color: var(--color1);
-    /* font-family: var(--font5); */
+  height: 100%;
+  margin: 0;
+  color: var(--color1);
+  /* font-family: var(--font5); */
 }
 
-body.noscroll { overflow: hidden; }
-
+body.noscroll {
+  overflow: hidden;
+}
 
 a {
-    color: var(--color1);
-    /* color: black; */
-    text-decoration: none;
+  color: var(--color1);
+  /* color: black; */
+  text-decoration: none;
 }
 
 a:hover {
-    color: var(--color1);
-    /* color: black; */
-    text-decoration: none;
+  color: var(--color1);
+  /* color: black; */
+  text-decoration: none;
 }
-
-
-
-
-
-
 
 /*    MMMM    MMMMMMMM  MM    MM  MMMMMMMM  MMMMMM      MMMM    MM              MMMM    MM        MMMM      MMMM      MMMM    MMMMMMMM    MMMM     */
 /*  MM    MM  MM        MMMM  MM  MM        MM    MM  MM    MM  MM            MM    MM  MM      MM    MM  MM    MM  MM    MM  MM        MM    MM   */
@@ -92,16 +71,6 @@ a:hover {
 /*  MM  MMMM  MM        MM    MM  MM        MM    MM  MM    MM  MM            MM        MM      MM    MM      MM        MM    MM            MM     */
 /*  MM    MM  MM        MM    MM  MM        MM    MM  MM    MM  MM            MM    MM  MM      MM    MM  MM    MM  MM    MM  MM        MM    MM   */
 /*    MMMM    MMMMMMMM  MM    MM  MMMMMMMM  MM    MM  MM    MM  MMMMMM          MMMM    MMMMMM  MM    MM    MMMM      MMMM    MMMMMMMM    MMMM     */
-
-
-
-
-
-
-
-
-
-
 
 /*    MM  MM    MMMMMM      MMMM    MMMMMM     */
 /*  MMMMMMMMMM  MM    MM  MM    MM  MM    MM   */
@@ -111,35 +80,28 @@ a:hover {
 /*    MM  MM    MMMMMM    MM    MM  MM    MM   */
 
 #bar {
-    position: fixed;
-    top: -200px;
-    left: calc(100vw - 1.6em);
-    width: 100%;
-    font-size: 2.5em;
-    padding-right: 0.5em;
+  position: fixed;
+  top: -200px;
+  left: calc(100vw - 1.6em);
+  width: 100%;
+  font-size: 2.5em;
+  padding-right: 0.5em;
 }
 #bar.hide {
-    top: -200px;
-    transition-duration: 0.1s;
+  top: -200px;
+  transition-duration: 0.1s;
 }
 
 #bars {
-    color: var(--color1);
-    cursor: pointer;
+  color: var(--color1);
+  cursor: pointer;
 }
 
 @media (max-width: 992px) {
-    #bar {
-        top: 0px;
-    }
+  #bar {
+    top: 0px;
+  }
 }
-
-
-
-
-
-
-
 
 /*    MM  MM    MM      MM  MMMMMMMM  MM    MM  MM    MM   */
 /*  MMMMMMMMMM  MMMM  MMMM  MM        MMMM  MM  MM    MM   */
@@ -149,55 +111,45 @@ a:hover {
 /*    MM  MM    MM      MM  MMMMMMMM  MM    MM    MMMM     */
 
 #menu {
-    position: fixed;
-    left: 0px;
-    top: 0;
-    height: 150%;
+  position: fixed;
+  left: 0px;
+  top: 0;
+  height: 150%;
 
-    display: flex;
-    flex-flow: column;
-    justify-content: start;
-    align-items: stretch;
+  display: flex;
+  flex-flow: column;
+  justify-content: start;
+  align-items: stretch;
 
-    overflow: hidden;
-    background:#000C;
-    width: 100%;
-    left: -100%;
+  overflow: hidden;
+  background: #000c;
+  width: 100%;
+  left: -100%;
 
-    transition-duration: 0.3s;
-    transition-timing-function: ease-in-out;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
 }
-#menu.show { left: 0%; }
+#menu.show {
+  left: 0%;
+}
 
 #menu .right {
-    text-align: right;
-    padding-top: 1em;
-    padding-right: 1.6em;
-    width: 100%;
+  text-align: right;
+  padding-top: 1em;
+  padding-right: 1.6em;
+  width: 100%;
 }
 
 #close {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-#menu a{
-    font-family: var(--font3);
-    color: white;
-    font-size: 5vh;
-    text-align: center;
+#menu a {
+  font-family: var(--font3);
+  color: white;
+  font-size: 5vh;
+  text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*    MM  MM    MMMMMM  MM    MM  MMMMMM  MMMMMM      MMMM     */
 /*  MMMMMMMMMM    MM    MMMM  MM    MM    MM    MM  MM    MM   */
@@ -207,99 +159,87 @@ a:hover {
 /*    MM  MM    MMMMMM  MM    MM    MM    MM    MM    MMMM     */
 
 #intro {
-    position: relative;
-    height: 100vh;
+  position: relative;
+  height: 100vh;
 
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: flex-start;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
 
-    /* font-family: var(--font1); */
-    color: var(--color1);
+  /* font-family: var(--font1); */
+  color: var(--color1);
 
-    background-image: url("/index/croods.png");
-    background-position: left bottom;
-    background-repeat: no-repeat;
-    background-position-x: 10vw;
-    background-position-y: 20vh;
-    background-size: auto 100%;
+  background-image: url('/index/croods.png');
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-position-x: 10vw;
+  background-position-y: 20vh;
+  background-size: auto 100%;
 
-    box-sizing: border-box;
-    border-style: solid;
-    border-color: #EEE;
-    border-width: 0 0 4px 0;
+  box-sizing: border-box;
+  border-style: solid;
+  border-color: #eee;
+  border-width: 0 0 4px 0;
 
-    transition-duration: 0.1s;
+  transition-duration: 0.1s;
 }
 #intro.smile {
-    background-image: url("/index/croods2.png");
+  background-image: url('/index/croods2.png');
 }
 
 #intro .intro-text {
-    position: absolute;
-    width: 65vw;
-    height: auto;
-    right: 0;
-    top: 20vh;
+  position: absolute;
+  width: 65vw;
+  height: auto;
+  right: 0;
+  top: 20vh;
 }
 
 #intro h3 {
-    /* font-family: var(--font5); */
-    color: var(--color1);
-    font-size: 6vw;
-    width: 100%;
-    text-align: left;
+  /* font-family: var(--font5); */
+  color: var(--color1);
+  font-size: 6vw;
+  width: 100%;
+  text-align: left;
 }
 
 #intro div {
-    /* font-family: var(--font5); */
-    color: var(--color1);
-    font-size: 3vw;
-    width: 100%;
-    text-align: left;
+  /* font-family: var(--font5); */
+  color: var(--color1);
+  font-size: 3vw;
+  width: 100%;
+  text-align: left;
 }
-
 
 @media (max-width: 992px) {
-    /* WHEN SCREEN IS SMALL */
+  /* WHEN SCREEN IS SMALL */
 
-    
-    #intro {
-        background-image: url("/index/croods.png");
-        background-position: left bottom;
-        background-repeat: no-repeat;
-        background-position-x: 20vw;
-        background-position-y: 45vh;
-        background-size: auto 100%;
-    }
-    
-    
-    #intro .intro-text {
-        width: 80%;
-        left: 10vw;
-        top: 15vh;
-    }
-    
-    #intro h3 {
-        font-size: 7.5vh;
-        text-align: left;
-    }
-    
-    #intro div {
-        font-size: 4vh;
-        text-align: left;
-    }
+  #intro {
+    background-image: url('/index/croods.png');
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-position-x: 20vw;
+    background-position-y: 45vh;
+    background-size: auto 100%;
+  }
 
+  #intro .intro-text {
+    width: 80%;
+    left: 10vw;
+    top: 15vh;
+  }
+
+  #intro h3 {
+    font-size: 7.5vh;
+    text-align: left;
+  }
+
+  #intro div {
+    font-size: 4vh;
+    text-align: left;
+  }
 }
-
-
-
-
-
-
-
-
 
 /*            MMMMMM    MM    MM  MM    MM  MMMMMM    MM      MMMMMMMM   */
 /*            MM    MM  MM    MM  MMMM  MM  MM    MM  MM      MM         */
@@ -308,47 +248,32 @@ a:hover {
 /*            MM    MM  MM    MM  MM    MM  MM    MM  MM      MM         */
 /*        MM  MMMMMM      MMMM    MM    MM  MMMMMM    MMMMMM  MMMMMMMM   */
 
-
 .layer {
-    width: 100%;
-    /* background: pink; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+  width: 100%;
+  /* background: pink; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .bundle {
-    margin: 6vw 0vw 0vw 0vw;
-    width: 80vw;
-    font-family: var(--font1);
-    display: flex;
-    flex-flow: row;
-    border-radius: 1vw;
-    overflow: hidden;
-    box-shadow: 2px 2px 4px 0px #0004;
+  margin: 6vw 0vw 0vw 0vw;
+  width: 80vw;
+  font-family: var(--font1);
+  display: flex;
+  flex-flow: row;
+  border-radius: 1vw;
+  overflow: hidden;
+  box-shadow: 2px 2px 4px 0px #0004;
 }
-
 
 @media (max-width: 992px) {
-    /* WHEN SCREEN IS SMALL */
-    
-    .bundle {
-        flex-flow: column;
-    }
+  /* WHEN SCREEN IS SMALL */
 
+  .bundle {
+    flex-flow: column;
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /*            MMMMMMMM  MMMMMM      MMMM    MM      MM  MMMMMMMM   */
 /*            MM        MM    MM  MM    MM  MMMM  MMMM  MM         */
@@ -358,39 +283,29 @@ a:hover {
 /*        MM  MM        MM    MM  MM    MM  MM      MM  MMMMMMMM   */
 
 .img-frame {
-    position: relative;
-    overflow: hidden;
-    width: 50%;
+  position: relative;
+  overflow: hidden;
+  width: 50%;
 }
 
 .text-frame {
-    position: relative;
-    overflow: hidden;
-    padding: 2em;
-    width: 50%;
+  position: relative;
+  overflow: hidden;
+  padding: 2em;
+  width: 50%;
 }
-
 
 @media (max-width: 992px) {
-    /* WHEN SCREEN IS SMALL */
+  /* WHEN SCREEN IS SMALL */
 
-    .img-frame {
-        width: 100%;
-    }
-    
-    .text-frame {
-        width: 100%;
-    }
-    
+  .img-frame {
+    width: 100%;
+  }
 
-
+  .text-frame {
+    width: 100%;
+  }
 }
-
-
-
-
-
-
 
 /*    MM  MM    MMMMMM    MM    MM    MMMM    MMMMMM                 */
 /*  MMMMMMMMMM  MM    MM  MM  MM    MM    MM  MM    MM               */
@@ -400,40 +315,48 @@ a:hover {
 /*    MM  MM    MMMMMM    MM    MM    MMMM    MMMMMM    MM  MM  MM   */
 
 .bkgd-img {
-    width: auto;
-    height: 30vw;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
+  width: auto;
+  height: 30vw;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .bkgd-img.blur {
-    /* filter: blur(2px); */
+  /* filter: blur(2px); */
 }
 
-#bkgd-image-2 { background-image: url("/index/tetrisSnap.png"); }
-#bkgd-image-3 { background-image: url("/index/scatterSnap.png"); }
-#bkgd-image-4 { background-image: url("/index/goSnap.png"); }
-#bkgd-image-5 { background-image: url("/index/svgartisteSnap.png"); }
-#bkgd-image-6 { background-image: url("/index/biglettersSnap.png"); }
-#bkgd-image-7 { background-image: url("/index/vocabhelperSnap.png"); }
+#bkgd-image-2 {
+  background-image: url('/index/tetrisSnap.png');
+}
+#bkgd-image-3 {
+  background-image: url('/index/scatterSnap.png');
+}
+#bkgd-image-4 {
+  background-image: url('/index/goSnap.png');
+}
+#bkgd-image-5 {
+  background-image: url('/index/svgartisteSnap.png');
+}
+#bkgd-image-6 {
+  background-image: url('/index/biglettersSnap.png');
+}
+#bkgd-image-7 {
+  background-image: url('/index/vocabhelperSnap.png');
+}
+#bkgd-image-8 {
+  background-image: url('/index/randomProverb.png');
+}
 
 @media (max-width: 992px) {
-    /* WHEN SCREEN IS SMALL */
+  /* WHEN SCREEN IS SMALL */
 
-    .bkgd-img {
-        width: auto;
-        height: 50vw;
-        background-position: 50% 50%;
-        background-size: 100%;
-    }
+  .bkgd-img {
+    width: auto;
+    height: 50vw;
+    background-position: 50% 50%;
+    background-size: 100%;
+  }
 }
-
-
-
-
-
-
-
 
 /*            MMMMMMMM    MMMM    MMMMMM    MMMMMMMM    MMMM    MMMMMM      MMMM    MM    MM  MM    MM  MMMMMM     */
 /*            MM        MM    MM  MM    MM  MM        MM    MM  MM    MM  MM    MM  MM    MM  MMMM  MM  MM    MM   */
@@ -443,118 +366,104 @@ a:hover {
 /*        MM  MM          MMMM    MM    MM  MMMMMMMM    MMMM    MM    MM    MMMM      MMMM    MM    MM  MMMMMM     */
 
 .foreground-abs {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .foreground {
-    position: relative;
-    /* top: -50px; */
-    width: 100%;
-    height: 100%;
-    /* background: #fffd; */
-    display: flex;
-    flex-flow: column;
-    justify-content: space-between;
-    align-items: center;
-    overflow: hidden;
+  position: relative;
+  /* top: -50px; */
+  width: 100%;
+  height: 100%;
+  /* background: #fffd; */
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
 }
 
 .app-link {
-    /* color: var(--color1); */
-    color: black;
-    font-size: 2em;
-    transition: 0.3s;
+  /* color: var(--color1); */
+  color: black;
+  font-size: 2em;
+  transition: 0.3s;
 }
 .app-link:hover {
-    /* color: var(--color1); */
-    color: black;
-    transform: scale(1.2);
+  /* color: var(--color1); */
+  color: black;
+  transform: scale(1.2);
 }
 
 .foreground img {
-    width: 3vw;
-    transition: 0.3s;
+  width: 3vw;
+  transition: 0.3s;
 }
-.foreground img:hover{
-    transform: scale(1.1);
-    /* width: 3.5vw; */
+.foreground img:hover {
+  transform: scale(1.1);
+  /* width: 3.5vw; */
 }
-
-
-
-
-
 
 .app-title {
-    font-family: var(--font1);
-    font-size: 3vw;
-    width: 100%;
-    display: flex;
-    flex-flow: row;
-    justify-content: space-between;
+  font-family: var(--font1);
+  font-size: 3vw;
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
 }
 
 .app-title > div {
-    font-size: 1em;
+  font-size: 1em;
 }
 
 .app-tags {
-    display: flex;
-    flex-flow: row;
-    flex-wrap: wrap;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
 }
 
 .app-tags > div {
-    background: navy;
-    color: white;
-    font-family: var(--font1);
-    /* font-size: 0.5em; */
-    font-size: 0.8em;
-    font-weight: bold;
-    border-radius: 15pt;
-    padding: 2px 7px 1px 7px;
-    margin: 2px 6px 2px 0px; 
+  background: navy;
+  color: white;
+  font-family: var(--font1);
+  /* font-size: 0.5em; */
+  font-size: 0.8em;
+  font-weight: bold;
+  border-radius: 15pt;
+  padding: 2px 7px 1px 7px;
+  margin: 2px 6px 2px 0px;
 }
 
 .app-desc {
-    /* font-size: 1.6vw; */
-    padding-top: 1em;
-    font-size: 1em;
-    text-align: justify;
+  /* font-size: 1.6vw; */
+  padding-top: 1em;
+  font-size: 1em;
+  text-align: justify;
 }
 
-.app-desc b { color: red; }
-
+.app-desc b {
+  color: red;
+}
 
 @media (max-width: 992px) {
-    /* WHEN SCREEN IS SMALL */
+  /* WHEN SCREEN IS SMALL */
 
-    .foreground img {
-        width: 5.2vw;
-        transition: 0.3s;
-    }
-    .foreground img:hover{
-        transform: scale(1.2);
-    }
+  .foreground img {
+    width: 5.2vw;
+    transition: 0.3s;
+  }
+  .foreground img:hover {
+    transform: scale(1.2);
+  }
 
-    .app-title {
-        font-size: 5vw;
-    }
-    
+  .app-title {
+    font-size: 5vw;
+  }
 }
-
-
-
-
-
-
-
-
-
 
 /*            MM      MMMMMM  MMMMMM      MMMM     */
 /*            MM        MM    MM    MM  MM    MM   */
@@ -563,58 +472,44 @@ a:hover {
 /*            MM        MM    MM    MM  MM    MM   */
 /*        MM  MMMMMM  MMMMMM  MMMMMM      MMMM     */
 
-
 .top-lid {
-    background: #FFFC;
-    position: absolute;
-    height: 50%;
-    width: 100%;
-    top: -50%;
-    font-size: 1.9vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition-duration: 0.3s;
+  background: #fffc;
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  top: -50%;
+  font-size: 1.9vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 0.3s;
 }
 .top-lid.show {
-    top: 0%;
+  top: 0%;
 }
 
 .bot-lid {
-    background: #FFFA;
-    position: absolute;
-    height: 50%;
-    width: 100%;
-    bottom: -50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition-duration: 0.3s;
+  background: #fffa;
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  bottom: -50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 0.3s;
 }
 .bot-lid.show {
-    bottom: 0%;
+  bottom: 0%;
 }
-
 
 @media (max-width: 992px) {
-    /* WHEN SCREEN IS SMALL */
+  /* WHEN SCREEN IS SMALL */
 
-    .top-lid {
-        font-size: 3vw;
-    }
-
+  .top-lid {
+    font-size: 3vw;
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /*    MM  MM      MMMM      MMMM    MM    MM  MMMMMM    MMMM      MMMM    MMMMMM    MMMM     */
 /*  MMMMMMMMMM  MM    MM  MM    MM  MMMM  MM    MM    MM    MM  MM    MM    MM    MM    MM   */
@@ -624,45 +519,40 @@ a:hover {
 /*    MM  MM      MMMM      MMMM    MM    MM    MM    MM    MM    MMMM      MM      MMMM     */
 
 #contacts {
-    margin-top: 8vw;
-    width: 100%;
-    background: #EEE;
-    /* box-sizing: border-box; */
-    border-style: solid;
-    border-color: #EEE;
-    border-width: 4px 0 0 0;
+  margin-top: 8vw;
+  width: 100%;
+  background: #eee;
+  /* box-sizing: border-box; */
+  border-style: solid;
+  border-color: #eee;
+  border-width: 4px 0 0 0;
 }
 
 .contact-grid {
-    display: grid;
-    grid-template-columns: 30% auto;
-    column-gap: 4px;
-    /* margin-top: 4px; */
+  display: grid;
+  grid-template-columns: 30% auto;
+  column-gap: 4px;
+  /* margin-top: 4px; */
 }
 
 .contact {
-    background: white;
-    font-family: var(--font1);
-    font-size: 1em;
-    display: flex;
-    padding: 4vh 0 4vh 0;
-    align-items: center;
+  background: white;
+  font-family: var(--font1);
+  font-size: 1em;
+  display: flex;
+  padding: 4vh 0 4vh 0;
+  align-items: center;
 }
 
 .contact:nth-child(odd) {
-    justify-content: flex-end;
-    padding-right: 5vw;
+  justify-content: flex-end;
+  padding-right: 5vw;
 }
 
 .contact:nth-child(even) {
-    justify-content: start;
-    padding-left: 5vw;
+  justify-content: start;
+  padding-left: 5vw;
 }
-
-
-
-
-
 
 /*              MM      MM  MMMMMMMM  MMMMMM    MMMMMM    MMMM            MMMMMM    MM    MM  MMMMMMMM  MMMMMM    MM      MM   */
 /*              MMMM  MMMM  MM        MM    MM    MM    MM    MM        MM      MM  MM    MM  MM        MM    MM    MM  MM     */
@@ -670,5 +560,3 @@ a:hover {
 /*              MM      MM  MM        MM    MM    MM    MM    MM        MM  MM  MM  MM    MM  MM        MM    MM      MM       */
 /*              MM      MM  MM        MM    MM    MM    MM    MM        MM    MM    MM    MM  MM        MM    MM      MM       */
 /*              MM      MM  MMMMMMMM  MMMMMM    MMMMMM  MM    MM          MMMM  MM    MMMM    MMMMMMMM  MM    MM      MM       */
-
-
