@@ -14,7 +14,6 @@ $(document).ready(function () {
     const spinner = document.getElementById('spinner');
     const content = document.getElementById('content');
 
-
     document.fonts.ready.then(() => {
         $(spinner).fadeOut(0, () => {
             $(content).fadeIn(1000);
@@ -33,19 +32,10 @@ $(document).ready(function () {
         }
     }
 
-
-
-
-
-
-
-    window.onresize = () => {
-        moveAvatar();
-    }
+    window.onresize = moveAvatar();
 
     window.onscroll = () => {
         let H = window.innerHeight;
-        // let W = window.innerWidth;
         let Y = window.scrollY;
 
         if (Y > 0.9 * H) { bar.classList.add('hide'); }
@@ -68,10 +58,6 @@ $(document).ready(function () {
         }
     }
 
-
-
-
-
     bars.onclick = () => {
         if (menu.classList.contains('show')) { menulist.close(); }
         else { menulist.open(); }
@@ -85,9 +71,6 @@ $(document).ready(function () {
     for (i = 0; i < menuItem.length; i++) {
         menuItem[i].onclick = () => { menulist.close(); }
     }
-
-
-
 
     for (i = 0; i < foreground.length; i++) {
         let num = i;
@@ -107,24 +90,4 @@ $(document).ready(function () {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
 });
-
-// Why? Cuz I'm lazy...
-function say(str) { console.log(str); }
-function tab(obj) { console.table(obj); }
-
-
-
-
-
-
