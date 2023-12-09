@@ -37,8 +37,6 @@
   --dim1: 992px;
 }
 
-
-
 /*    MMMM    MMMMMM    MMMMMM  MM    MM  MM    MM  MMMMMMMM  MMMMMM     */
 /*  MM    MM  MM    MM    MM    MMMM  MM  MMMM  MM  MM        MM    MM   */
 /*    MM      MM    MM    MM    MM  MMMM  MM  MMMM  MMMMMMMM  MMMMMM     */
@@ -60,12 +58,10 @@
   animation: spinner 2s linear infinite;
 }
 
-
 @keyframes spinner {
   0% {transform: rotate(0deg);}
   100%{transform: rotate(360deg);}
 }
-
 
 /*  MMMMMM    MMMM      MMMM      MMMM     */
 /*    MM    MM    MM  MM    MM  MM    MM   */
@@ -73,10 +69,6 @@
 /*    MM    MM    MM  MM  MMMM      MM     */
 /*    MM    MM    MM  MM    MM  MM    MM   */
 /*    MM    MM    MM    MMMM      MMMM     */
-
-
-
-
 
 body {
   height: 100%;
