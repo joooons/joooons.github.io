@@ -37,12 +37,46 @@
   --dim1: 992px;
 }
 
+
+
+/*    MMMM    MMMMMM    MMMMMM  MM    MM  MM    MM  MMMMMMMM  MMMMMM     */
+/*  MM    MM  MM    MM    MM    MMMM  MM  MMMM  MM  MM        MM    MM   */
+/*    MM      MM    MM    MM    MM  MMMM  MM  MMMM  MMMMMMMM  MMMMMM     */
+/*      MM    MMMMMM      MM    MM    MM  MM    MM  MM        MM    MM   */
+/*  MM    MM  MM          MM    MM    MM  MM    MM  MM        MM    MM   */
+/*    MMMM    MM        MMMMMM  MM    MM  MM    MM  MMMMMMMM  MM    MM   */
+
+#behind.hide {
+  display: none;
+}
+
+#spinner {
+  margin-top: calc(50vh - 60px);
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spinner 2s linear infinite;
+}
+
+
+@keyframes spinner {
+  0% {transform: rotate(0deg);}
+  100%{transform: rotate(360deg);}
+}
+
+
 /*  MMMMMM    MMMM      MMMM      MMMM     */
 /*    MM    MM    MM  MM    MM  MM    MM   */
 /*    MM    MMMMMMMM  MM          MM       */
 /*    MM    MM    MM  MM  MMMM      MM     */
 /*    MM    MM    MM  MM    MM  MM    MM   */
 /*    MM    MM    MM    MMMM      MMMM     */
+
+
+
+
 
 body {
   height: 100%;
