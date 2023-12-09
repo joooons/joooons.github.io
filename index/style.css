@@ -46,7 +46,7 @@
 /*  MM    MM  MM          MM    MM    MM  MM    MM  MM        MM    MM   */
 /*    MMMM    MM        MMMMMM  MM    MM  MM    MM  MMMMMMMM  MM    MM   */
 
-#behind.hide {
+#content.hide {
   display: none;
 }
 

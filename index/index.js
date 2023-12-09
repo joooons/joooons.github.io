@@ -1,10 +1,6 @@
-
 $(document).ready(function () {
 
     console.log('index.js at your service!');
-
-
-
 
     const bar = document.getElementById('bar');
     const menu = document.getElementById('menu');
@@ -15,13 +11,13 @@ $(document).ready(function () {
     const foreground = document.getElementsByClassName('foreground');
     const topLid = document.getElementsByClassName('top-lid');
     const botLid = document.getElementsByClassName('bot-lid');
+    const spinner = document.getElementById('spinner');
+    const content = document.getElementById('content');
 
 
-
-    // $("#behind").hide();
     document.fonts.ready.then(() => {
-        $("#spinner").fadeOut(0, () => {
-            $("#behind").fadeIn(1000);
+        $(spinner).fadeOut(0, () => {
+            $(content).fadeIn(1000);
         });
     });
 
