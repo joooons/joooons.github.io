@@ -5,15 +5,8 @@
 /*  MM        MM    MM  MM    MM    MM    MM    MM   */
 /*  MM          MMMM    MM    MM    MM      MMMM     */
 
-/* @import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@700&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Saira&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=block');
-@import url('https://fonts.googleapis.com/css2?family=Neuton:wght@800&display=block');
 @import url('https://fonts.googleapis.com/css2?family=Dosis&display=block');
-@import url('https://fonts.googleapis.com/css2?family=Oxygen&display=block');
-
 @import url('https://fonts.googleapis.com/css2?family=Tinos:wght@700&display=block');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=block');
 
@@ -28,9 +21,7 @@
   --color1: navy;
 
   --font1: 'Rubik', sans-serif;
-  --font2: 'Neuton', serif;
   --font3: 'Dosis', sans-serif;
-  --font4: 'Oxygen', sans-serif;
   --font5: 'Tinos', serif;
   --font6: 'Lobster', cursive;
 
@@ -83,13 +74,11 @@ body.noscroll {
 
 a {
   color: var(--color1);
-  /* color: black; */
   text-decoration: none;
 }
 
 a:hover {
   color: var(--color1);
-  /* color: black; */
   text-decoration: none;
 }
 
@@ -195,7 +184,6 @@ a:hover {
   justify-content: center;
   align-items: flex-start;
 
-  /* font-family: var(--font1); */
   color: var(--color1);
 
   background-image: url('/index/croods.png');
@@ -278,7 +266,6 @@ a:hover {
 
 .layer {
   width: 100%;
-  /* background: pink; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -348,9 +335,11 @@ a:hover {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
+  transition: filter 0.3s;
+  filter: blur(0px);
 }
 .bkgd-img.blur {
-  /* filter: blur(2px); */
+  filter: blur(3px);
 }
 
 #bkgd-image-2 {
@@ -403,10 +392,8 @@ a:hover {
 
 .foreground {
   position: relative;
-  /* top: -50px; */
   width: 100%;
   height: 100%;
-  /* background: #fffd; */
   display: flex;
   flex-flow: column;
   justify-content: space-between;
@@ -415,13 +402,11 @@ a:hover {
 }
 
 .app-link {
-  /* color: var(--color1); */
   color: black;
   font-size: 2em;
   transition: 0.3s;
 }
 .app-link:hover {
-  /* color: var(--color1); */
   color: black;
   transform: scale(1.2);
 }
@@ -432,7 +417,6 @@ a:hover {
 }
 .foreground img:hover {
   transform: scale(1.1);
-  /* width: 3.5vw; */
 }
 
 .app-title {
@@ -459,7 +443,6 @@ a:hover {
   background: navy;
   color: white;
   font-family: var(--font1);
-  /* font-size: 0.5em; */
   font-size: 0.8em;
   font-weight: bold;
   border-radius: 15pt;
@@ -468,7 +451,6 @@ a:hover {
 }
 
 .app-desc {
-  /* font-size: 1.6vw; */
   padding-top: 1em;
   font-size: 1em;
   text-align: justify;
@@ -551,7 +533,6 @@ a:hover {
   margin-top: 8vw;
   width: 100%;
   background: #eee;
-  /* box-sizing: border-box; */
   border-style: solid;
   border-color: #eee;
   border-width: 4px 0 0 0;
@@ -561,7 +542,6 @@ a:hover {
   display: grid;
   grid-template-columns: 30% auto;
   column-gap: 4px;
-  /* margin-top: 4px; */
 }
 
 .contact {
@@ -582,10 +562,3 @@ a:hover {
   justify-content: start;
   padding-left: 5vw;
 }
-
-/*              MM      MM  MMMMMMMM  MMMMMM    MMMMMM    MMMM            MMMMMM    MM    MM  MMMMMMMM  MMMMMM    MM      MM   */
-/*              MMMM  MMMM  MM        MM    MM    MM    MM    MM        MM      MM  MM    MM  MM        MM    MM    MM  MM     */
-/*              MM  MM  MM  MMMMMMMM  MM    MM    MM    MMMMMMMM        MM      MM  MM    MM  MMMMMMMM  MMMMMM        MM       */
-/*              MM      MM  MM        MM    MM    MM    MM    MM        MM  MM  MM  MM    MM  MM        MM    MM      MM       */
-/*              MM      MM  MM        MM    MM    MM    MM    MM        MM    MM    MM    MM  MM        MM    MM      MM       */
-/*              MM      MM  MMMMMMMM  MMMMMM    MMMMMM  MM    MM          MMMM  MM    MMMM    MMMMMMMM  MM    MM      MM       */
