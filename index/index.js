@@ -15,8 +15,8 @@ $(document).ready(function () {
     const content = document.getElementById('content');
 
     document.fonts.ready.then(() => {
-        $(spinner).fadeOut(0, () => {
-            $(content).fadeIn(1000);
+        $(spinner).fadeOut(100, () => {
+            $(content).fadeIn(1500);
         });
     });
 
