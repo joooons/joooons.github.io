@@ -549,7 +549,7 @@ a:hover {
   font-family: var(--font1);
   font-size: 1em;
   display: flex;
-  padding: 4vh 0 4vh 0;
+  padding: 2vh 0 2vh 0;
   align-items: center;
 }
 
