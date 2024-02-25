@@ -215,7 +215,7 @@
                 let [head, mid, tail] = ['', '', ''];
 
                 if (lang == 'javascript') [head, tail] = ['//  ', '\n'];
-                if (lang == 'html') [head, tail] = ['<!--    , - ->\n'];
+                if (lang == 'html') [head, tail] = ['<!--  ', '-->\n'];
                 if (lang == 'css') [head, tail] = ['/*  ', ' */\n'];
 
                 arr.forEach(char => { mid += al[char][i] + "  "; });
