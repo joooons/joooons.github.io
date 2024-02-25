@@ -11,9 +11,10 @@
   <style>
     body {
       /* background-color: #ACF; */
-      font-family:monospace;
+      font-family: monospace;
       font-size: 10pt;
     }
+
     #container {
       background-color: #EEE;
       position: absolute;
@@ -22,6 +23,7 @@
       top: 20px;
       display: flex column;
     }
+
     #input-container {
       background-color: #EEE;
       position: absolute;
@@ -29,6 +31,7 @@
       right: 20px;
       bottom: 20px;
     }
+
     .sub {
       background-color: #FFE;
       padding: 5px;
@@ -43,25 +46,25 @@
   </div>
 
   <div id="input-container">
-    <input type="text" id="input1" class="sub" value="" placeholder="whoareyoueven" onchange="populah()" autofocus/>
+    <input type="text" id="input1" class="sub" value="" placeholder="whoareyoueven" onchange="populah()" autofocus />
   </div>
 
   <script>
-  function populah() {
-    var tmp = document.getElementById('input1');
-    var newElem = document.createElement('div');
-    newElem.innerHTML = tmp.value;
-    newElem.className = "sub";
-    document.getElementById("container").appendChild(newElem);
+    function populah() {
+      var tmp = document.getElementById('input1');
+      var newElem = document.createElement('div');
+      newElem.innerHTML = tmp.value;
+      newElem.className = "sub";
+      document.getElementById("container").appendChild(newElem);
 
-    newElem.onclick = function() {
-      if (confirm('ya shure?')) this.remove();
+      newElem.onclick = function () {
+        if (confirm('ya shure?')) this.remove();
+      }
+
+
+      document.getElementById('input1').value = '';
+      document.getElementById('input1').placeholder = '';
     }
-
-
-    document.getElementById('input1').value = '';
-    document.getElementById('input1').placeholder = '';
-  }
 
 
 

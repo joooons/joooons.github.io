@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Large Code Comment Generator</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <style>
-        
-        :root { font-family: 'Roboto Mono', monospace; }
+        :root {
+            font-family: 'Roboto Mono', monospace;
+        }
 
-        input { 
-            font-family: 'Roboto Mono', monospace; 
+        input {
+            font-family: 'Roboto Mono', monospace;
             width: 80px;
             height: 20px;
         }
@@ -20,7 +22,7 @@
             justify-content: start;
         }
 
-        #container > div {
+        #container>div {
             margin: 6px;
         }
 
@@ -86,18 +88,24 @@
         }
 
         .unselectable {
-            -webkit-touch-callout: none; /* iOS Safari */
-            -webkit-user-select: none; /* Safari */
-            -khtml-user-select: none; /* Konqueror HTML */
-            -moz-user-select: none; /* Old versions of Firefox */
-            -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently */
+            -webkit-touch-callout: none;
+            /* iOS Safari */
+            -webkit-user-select: none;
+            /* Safari */
+            -khtml-user-select: none;
+            /* Konqueror HTML */
+            -moz-user-select: none;
+            /* Old versions of Firefox */
+            -ms-user-select: none;
+            /* Internet Explorer/Edge */
+            user-select: none;
+            /* Non-prefixed version, currently */
         }
-
     </style>
 </head>
+
 <body>
-    
+
     MINIMAP COMMENTS
     <div class="unselectable" id="container">
         <div id="editor">
@@ -105,7 +113,7 @@
                 <div>character</div>
                 <div>each line</div>
                 <input type="text" id="short" placeholder="a">
-                    <input class="pre" id="text1" autofocus autocomplete="off">
+                <input class="pre" id="text1" autofocus autocomplete="off">
                 <br><input class="pre" id="text2" autocomplete="off">
                 <br><input class="pre" id="text3" autocomplete="off">
                 <br><input class="pre" id="text4" autocomplete="off">
@@ -115,7 +123,7 @@
             <br>
             <div class="pre" id="code"></div>
         </div>
-        
+
         <div id="generator">
             <div>text</div>
             <div id="status"></div>
@@ -125,17 +133,17 @@
                 <option value="html">html</option>
                 <option value="css">css</option>
             </select>
-            
+
             <div id="display"></div>
 
         </div>
-    
+
     </div>
-    
-    
 
 
-    
+
+
+
 
 
 
@@ -156,11 +164,11 @@
 
 
         function fillText(ev) {
-            let num = ev.target.id.slice(4,5);
+            let num = ev.target.id.slice(4, 5);
             let str = ev.target.value;
             let letter = document.getElementById('short').value;
-            letter = letter.slice(0,1);
-            arr[num-1] = str;
+            letter = letter.slice(0, 1);
+            arr[num - 1] = str;
             text = `al['${letter}'] = [ "${arr[0]}", "${arr[1]}", "${arr[2]}", "${arr[3]}", "${arr[4]}", "${arr[5]}"];`;
             document.getElementById('short').value = letter;
             copyToClipboard(text);
@@ -171,7 +179,7 @@
         function copyToClipboard(message) {
             let elem = document.createElement('textarea');
             generator.append(elem);
-            elem.innerHTML = message;        
+            elem.innerHTML = message;
             elem.select();
             document.execCommand('copy');
             elem.remove();
@@ -181,7 +189,7 @@
             let status = document.getElementById('status');
             status.innerHTML = message;
             status.classList.remove('fade');
-            setTimeout( () => { status.classList.add('fade'); }, 2000 );
+            setTimeout(() => { status.classList.add('fade'); }, 2000);
         }
 
         form.onchange = ev => { fillText(ev); }
@@ -191,8 +199,8 @@
             test.value = '';
             let exit = false;
 
-            arr.forEach( char => {
-                if ( !al[char] ) {
+            arr.forEach(char => {
+                if (!al[char]) {
                     sayStatus(`I don\'t know "${char}"`);
                     exit = true;
                     return;
@@ -202,18 +210,18 @@
 
             let totalText = '';
 
-            for ( i=0 ; i<6 ; i++ ) {
+            for (i = 0; i < 6; i++) {
                 let lang = document.getElementById('lang').value;
-                let [head,mid,tail] = ['','',''];
+                let [head, mid, tail] = ['', '', ''];
 
-                if ( lang == 'javascript' ) [head,tail] = ['//  ', '\n'];
-                if ( lang == 'html' ) [head,tail] = ['<!--  ',' -->\n'];
-                if ( lang == 'css' ) [head,tail] = ['/*  ',' */\n'];
+                if (lang == 'javascript') [head, tail] = ['//  ', '\n'];
+                if (lang == 'html') [head, tail] = ['<!--    , - ->\n'];
+                if (lang == 'css') [head, tail] = ['/*  ', ' */\n'];
 
-                arr.forEach( char => { mid += al[char][i] + "  "; });
+                arr.forEach(char => { mid += al[char][i] + "  "; });
                 totalText += head + mid + tail;
             }
-            
+
             copyToClipboard(totalText);
             sayStatus('text copied');
             // test.value = '';
@@ -221,79 +229,80 @@
         }
 
 
-        
+
         const al = {};
-        (function() {
-            al['a'] = [ "     ", " aaa ", "    a", " aaaa", "a   a", " aaaa"];
-            al['b'] = [ "a    ", "a    ", "aaaa ", "a   a", "a   a", "aaaa "];
-            al['c'] = [ "     ", "     ", " aaaa", "a    ", "a    ", " aaaa"];
-            al['d'] = [ "    a", "    a", " aaaa", "a   a", "a   a", " aaaa"];
-            al['e'] = [ "     ", " aaa ", "a   a", "aaaaa", "a    ", " aaaa"];
-            al['f'] = [ "   aa", "  a  ", "aaaaa", "  a  ", "  a  ", "  a  "];
-            al['g'] = [ "     ", " aaaa", "a   a", " aaaa", "    a", "aaaa "];
-            al['h'] = [ "a    ", "a    ", "aaaa ", "a   a", "a   a", "a   a"];
-            al['i'] = [ "a", " ", "a", "a", "a", "a"];
-            al['j'] = [ "  a", "   ", "  a", "  a", "  a", "aa "];
-            al['k'] = [ "a   ", "a  a", "a a ", "aa  ", "a a ", "a  a"];
-            al['l'] = [ "a", "a", "a", "a", "a", "a"];
-            al['m'] = [ "     ", "     ", "aaaa ", "a a a", "a a a", "a a a"];
-            al['n'] = [ "    ", "    ", "aaa ", "a  a", "a  a", "a  a"];
-            al['o'] = [ "    ", "    ", " aa ", "a  a", "a  a", " aa "];
-            al['p'] = [ "    ", "aaa ", "a  a", "aaa ", "a   ", "a   "];
-            al['q'] = [ "     ", " aaa ", "a  a ", " aaa ", "   a ", "   aa"];
-            al['r'] = [ "    ", "    ", "a aa", "aa  ", "a   ", "a   "];
-            al['s'] = [ "    ", " aaa", "a   ", " aa ", "   a", "aaa "];
-            al['t'] = [ " a  ", " a  ", "aaaa", " a  ", " a  ", "  aa"];
-            al['u'] = [ "    ", "    ", "a  a", "a  a", "a  a", " aaa"];
-            al['v'] = [ "     ", "     ", "a   a", "a   a", " a a ", "  a  "];
-            al['w'] = [ "     ", "     ", "a a a", "a a a", "a a a", " aaa "];
-            al['x'] = [ "     ", "a   a", " a a ", "  a  ", " a a ", "a   a"];
-            al['y'] = [ "     ", "a   a", " a a ", "  a  ", " a   ", "a    "];
-            al['z'] = [ "     ", "aaaaa", "   a ", "  a  ", " a   ", "aaaaa"];
-            al['A'] = [ "  MMMM  ", "MM    MM", "MMMMMMMM", "MM    MM", "MM    MM", "MM    MM"];
-            al['B'] = [ "MMMMMM  ", "MM    MM", "MMMMMM  ", "MM    MM", "MM    MM", "MMMMMM  "];
-            al['C'] = [ "  MMMM  ", "MM    MM", "MM      ", "MM      ", "MM    MM", "  MMMM  "];
-            al['D'] = [ "MMMMMM  ", "MM    MM", "MM    MM", "MM    MM", "MM    MM", "MMMMMM  "];
-            al['E'] = [ "MMMMMMMM", "MM      ", "MMMMMMMM", "MM      ", "MM      ", "MMMMMMMM"];
-            al['F'] = [ "MMMMMMMM", "MM      ", "MMMMMMMM", "MM      ", "MM      ", "MM      "];
-            al['G'] = [ "  MMMM  ", "MM    MM", "MM      ", "MM  MMMM", "MM    MM", "  MMMM  "];
-            al['H'] = [ "MM    MM", "MM    MM", "MMMMMMMM", "MM    MM", "MM    MM", "MM    MM"];
-            al['I'] = [ "MMMMMM", "  MM  ", "  MM  ", "  MM  ", "  MM  ", "MMMMMM"];
-            al['J'] = [ "MMMMMM", "    MM", "    MM", "    MM", "    MM", "MMMM  "];
-            al['K'] = [ "MM    MM", "MM  MM  ", "MMMM    ", "MM  MM  ", "MM    MM", "MM    MM"];
-            al['L'] = [ "MM    ", "MM    ", "MM    ", "MM    ", "MM    ", "MMMMMM"];
-            al['M'] = [ "MM      MM", "MMMM  MMMM", "MM  MM  MM", "MM      MM", "MM      MM", "MM      MM"];
-            al['N'] = [ "MM    MM", "MMMM  MM", "MM  MMMM", "MM    MM", "MM    MM", "MM    MM"];
-            al['O'] = [ "  MMMM  ", "MM    MM", "MM    MM", "MM    MM", "MM    MM", "  MMMM  "];
-            al['P'] = [ "MMMMMM  ", "MM    MM", "MM    MM", "MMMMMM  ", "MM      ", "MM      "];
-            al['Q'] = [ "  MMMMMM  ", "MM      MM", "MM      MM", "MM  MM  MM", "MM    MM  ", "  MMMM  MM"];
-            al['R'] = [ "MMMMMM  ", "MM    MM", "MMMMMM  ", "MM    MM", "MM    MM", "MM    MM"];
-            al['S'] = [ "  MMMM  ", "MM    MM", "  MM    ", "    MM  ", "MM    MM", "  MMMM  "];
-            al['T'] = [ "MMMMMM", "  MM  ", "  MM  ", "  MM  ", "  MM  ", "  MM  "];
-            al['U'] = [ "MM    MM", "MM    MM", "MM    MM", "MM    MM", "MM    MM", "  MMMM  "];
-            al['V'] = [ "MM      MM", "MM      MM", "MM      MM", "MM      MM", "  MM  MM  ", "    MM    "];
-            al['W'] = [ "MM      MM", "MM      MM", "MM      MM", "MM  MM  MM", "MM  MM  MM", "  MM  MM  "];
-            al['X'] = [ "MM      MM", "  MM  MM  ", "    MM    ", "  MM  MM  ", "MM      MM", "MM      MM"];
-            al['Y'] = [ "MM      MM", "  MM  MM  ", "    MM    ", "    MM    ", "    MM    ", "    MM    "];
-            al['Z'] = [ "MMMMMMMMMM", "      MM  ", "    MM    ", "  MM      ", "MM        ", "MMMMMMMMMM"];
-            al[' '] = [ "    ", "    ", "    ", "    ", "    ", "    "];
-            al['-'] = [ "    ", "    ", "    ", "aaaa", "    ", "    "];
-            al['.'] = [ "  ", "  ", "  ", "  ", "  ", "MM"];
-            al['/'] = [ "     MM", "    MM ", "   MM  ", "  MM   ", " MM    ", "MM     "];
-            al['#'] = [ "  MM  MM  ", "MMMMMMMMMM", "  MM  MM  ", "  MM  MM  ", "MMMMMMMMMM", "  MM  MM  "];
-            al['1'] = [ "  MM", "MMMM", "  MM", "  MM", "  MM", "  MM"];
-            al['2'] = [ "  MMMM  ", "MM    MM", "    MM  ", "  MM    ", "MM      ", "MMMMMMMM"];
-            al['3'] = [ "MMMMMMMM", "      MM", "    MM  ", "      MM", "MM    MM", "  MMMM  "];
-            al['4'] = [ "MM    MM", "MM    MM", "MM    MM", "MMMMMMMM", "      MM", "      MM"];
-            al['5'] = [ "MMMMMMMM", "MM      ", "MMMMMM  ", "      MM", "MM    MM", "  MMMM  "];
-            al['6'] = [ "  MMMMMM", "MM      ", "MMMMMM  ", "MM    MM", "MM    MM", "  MMMM  "];
-            al['7'] = [ "MMMMMMMM", "      MM", "      MM", "    MM  ", "    MM  ", "    MM  "];
-            al['8'] = [ "  MMMM  ", "MM    MM", "  MMMM  ", "MM    MM", "MM    MM", "  MMMM  "];
-            al['9'] = [ "  MMMM  ", "MM    MM", "MM    MM", "  MMMMMM", "      MM", "MMMMMM  "];
-            al['0'] = [ "  MMMM  ", "MM    MM", "MMMM  MM", "MM  MMMM", "MM    MM", "  MMMM  "];
+        (function () {
+            al['a'] = ["     ", " aaa ", "    a", " aaaa", "a   a", " aaaa"];
+            al['b'] = ["a    ", "a    ", "aaaa ", "a   a", "a   a", "aaaa "];
+            al['c'] = ["     ", "     ", " aaaa", "a    ", "a    ", " aaaa"];
+            al['d'] = ["    a", "    a", " aaaa", "a   a", "a   a", " aaaa"];
+            al['e'] = ["     ", " aaa ", "a   a", "aaaaa", "a    ", " aaaa"];
+            al['f'] = ["   aa", "  a  ", "aaaaa", "  a  ", "  a  ", "  a  "];
+            al['g'] = ["     ", " aaaa", "a   a", " aaaa", "    a", "aaaa "];
+            al['h'] = ["a    ", "a    ", "aaaa ", "a   a", "a   a", "a   a"];
+            al['i'] = ["a", " ", "a", "a", "a", "a"];
+            al['j'] = ["  a", "   ", "  a", "  a", "  a", "aa "];
+            al['k'] = ["a   ", "a  a", "a a ", "aa  ", "a a ", "a  a"];
+            al['l'] = ["a", "a", "a", "a", "a", "a"];
+            al['m'] = ["     ", "     ", "aaaa ", "a a a", "a a a", "a a a"];
+            al['n'] = ["    ", "    ", "aaa ", "a  a", "a  a", "a  a"];
+            al['o'] = ["    ", "    ", " aa ", "a  a", "a  a", " aa "];
+            al['p'] = ["    ", "aaa ", "a  a", "aaa ", "a   ", "a   "];
+            al['q'] = ["     ", " aaa ", "a  a ", " aaa ", "   a ", "   aa"];
+            al['r'] = ["    ", "    ", "a aa", "aa  ", "a   ", "a   "];
+            al['s'] = ["    ", " aaa", "a   ", " aa ", "   a", "aaa "];
+            al['t'] = [" a  ", " a  ", "aaaa", " a  ", " a  ", "  aa"];
+            al['u'] = ["    ", "    ", "a  a", "a  a", "a  a", " aaa"];
+            al['v'] = ["     ", "     ", "a   a", "a   a", " a a ", "  a  "];
+            al['w'] = ["     ", "     ", "a a a", "a a a", "a a a", " aaa "];
+            al['x'] = ["     ", "a   a", " a a ", "  a  ", " a a ", "a   a"];
+            al['y'] = ["     ", "a   a", " a a ", "  a  ", " a   ", "a    "];
+            al['z'] = ["     ", "aaaaa", "   a ", "  a  ", " a   ", "aaaaa"];
+            al['A'] = ["  MMMM  ", "MM    MM", "MMMMMMMM", "MM    MM", "MM    MM", "MM    MM"];
+            al['B'] = ["MMMMMM  ", "MM    MM", "MMMMMM  ", "MM    MM", "MM    MM", "MMMMMM  "];
+            al['C'] = ["  MMMM  ", "MM    MM", "MM      ", "MM      ", "MM    MM", "  MMMM  "];
+            al['D'] = ["MMMMMM  ", "MM    MM", "MM    MM", "MM    MM", "MM    MM", "MMMMMM  "];
+            al['E'] = ["MMMMMMMM", "MM      ", "MMMMMMMM", "MM      ", "MM      ", "MMMMMMMM"];
+            al['F'] = ["MMMMMMMM", "MM      ", "MMMMMMMM", "MM      ", "MM      ", "MM      "];
+            al['G'] = ["  MMMM  ", "MM    MM", "MM      ", "MM  MMMM", "MM    MM", "  MMMM  "];
+            al['H'] = ["MM    MM", "MM    MM", "MMMMMMMM", "MM    MM", "MM    MM", "MM    MM"];
+            al['I'] = ["MMMMMM", "  MM  ", "  MM  ", "  MM  ", "  MM  ", "MMMMMM"];
+            al['J'] = ["MMMMMM", "    MM", "    MM", "    MM", "    MM", "MMMM  "];
+            al['K'] = ["MM    MM", "MM  MM  ", "MMMM    ", "MM  MM  ", "MM    MM", "MM    MM"];
+            al['L'] = ["MM    ", "MM    ", "MM    ", "MM    ", "MM    ", "MMMMMM"];
+            al['M'] = ["MM      MM", "MMMM  MMMM", "MM  MM  MM", "MM      MM", "MM      MM", "MM      MM"];
+            al['N'] = ["MM    MM", "MMMM  MM", "MM  MMMM", "MM    MM", "MM    MM", "MM    MM"];
+            al['O'] = ["  MMMM  ", "MM    MM", "MM    MM", "MM    MM", "MM    MM", "  MMMM  "];
+            al['P'] = ["MMMMMM  ", "MM    MM", "MM    MM", "MMMMMM  ", "MM      ", "MM      "];
+            al['Q'] = ["  MMMMMM  ", "MM      MM", "MM      MM", "MM  MM  MM", "MM    MM  ", "  MMMM  MM"];
+            al['R'] = ["MMMMMM  ", "MM    MM", "MMMMMM  ", "MM    MM", "MM    MM", "MM    MM"];
+            al['S'] = ["  MMMM  ", "MM    MM", "  MM    ", "    MM  ", "MM    MM", "  MMMM  "];
+            al['T'] = ["MMMMMM", "  MM  ", "  MM  ", "  MM  ", "  MM  ", "  MM  "];
+            al['U'] = ["MM    MM", "MM    MM", "MM    MM", "MM    MM", "MM    MM", "  MMMM  "];
+            al['V'] = ["MM      MM", "MM      MM", "MM      MM", "MM      MM", "  MM  MM  ", "    MM    "];
+            al['W'] = ["MM      MM", "MM      MM", "MM      MM", "MM  MM  MM", "MM  MM  MM", "  MM  MM  "];
+            al['X'] = ["MM      MM", "  MM  MM  ", "    MM    ", "  MM  MM  ", "MM      MM", "MM      MM"];
+            al['Y'] = ["MM      MM", "  MM  MM  ", "    MM    ", "    MM    ", "    MM    ", "    MM    "];
+            al['Z'] = ["MMMMMMMMMM", "      MM  ", "    MM    ", "  MM      ", "MM        ", "MMMMMMMMMM"];
+            al[' '] = ["    ", "    ", "    ", "    ", "    ", "    "];
+            al['-'] = ["    ", "    ", "    ", "aaaa", "    ", "    "];
+            al['.'] = ["  ", "  ", "  ", "  ", "  ", "MM"];
+            al['/'] = ["     MM", "    MM ", "   MM  ", "  MM   ", " MM    ", "MM     "];
+            al['#'] = ["  MM  MM  ", "MMMMMMMMMM", "  MM  MM  ", "  MM  MM  ", "MMMMMMMMMM", "  MM  MM  "];
+            al['1'] = ["  MM", "MMMM", "  MM", "  MM", "  MM", "  MM"];
+            al['2'] = ["  MMMM  ", "MM    MM", "    MM  ", "  MM    ", "MM      ", "MMMMMMMM"];
+            al['3'] = ["MMMMMMMM", "      MM", "    MM  ", "      MM", "MM    MM", "  MMMM  "];
+            al['4'] = ["MM    MM", "MM    MM", "MM    MM", "MMMMMMMM", "      MM", "      MM"];
+            al['5'] = ["MMMMMMMM", "MM      ", "MMMMMM  ", "      MM", "MM    MM", "  MMMM  "];
+            al['6'] = ["  MMMMMM", "MM      ", "MMMMMM  ", "MM    MM", "MM    MM", "  MMMM  "];
+            al['7'] = ["MMMMMMMM", "      MM", "      MM", "    MM  ", "    MM  ", "    MM  "];
+            al['8'] = ["  MMMM  ", "MM    MM", "  MMMM  ", "MM    MM", "MM    MM", "  MMMM  "];
+            al['9'] = ["  MMMM  ", "MM    MM", "MM    MM", "  MMMMMM", "      MM", "MMMMMM  "];
+            al['0'] = ["  MMMM  ", "MM    MM", "MMMM  MM", "MM  MMMM", "MM    MM", "  MMMM  "];
         })();
 
 
     </script>
 </body>
+
 </html>
