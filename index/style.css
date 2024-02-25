@@ -366,6 +366,9 @@ a:hover {
 #bkgd-image-9 {
   background-image: url('/index/smorgSnap.png');
 }
+#bkgd-image-10 {
+  background-image: url('/index/rakeSnap.png');
+}
 
 @media (max-width: 992px) {
   /* WHEN SCREEN IS SMALL */
