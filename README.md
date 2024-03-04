@@ -1,7 +1,7 @@
 # Portfolio
 
-[joooons.github.io](https://joooons.github.io/)
-Webpage with links to my personal projects
+This is the [portfolio](https://joooons.github.io/) page with links to my projects.
+Hover the mouse over each image to see the links to the app and to the github page.
 
 Includes
 

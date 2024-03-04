@@ -73,13 +73,11 @@ body.noscroll {
 }
 
 a {
-  color: var(--color1);
-  text-decoration: none;
+  color: var(--color1) !important;
 }
 
 a:hover {
-  color: var(--color1);
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 /*    MMMM    MMMMMMMM  MM    MM  MMMMMMMM  MMMMMM      MMMM    MM              MMMM    MM        MMMM      MMMM      MMMM    MMMMMMMM    MMMM     */
